@@ -136,24 +136,29 @@
   ]
 ]
 
-#workExpList(
-  header: [
-    == 경력#super[Work Experiences]
-  ],
-  (
-    workExpEntry(
-      from: datetime(year: 2023, month: 3, day: 20),
-      to: datetime.today(),
-      role: "프론트엔드 엔지니어",
-      organization: "주식회사 라프텔(Laftel)",
-      homepage: link("https://laftel.oopy.io")[laftel.oopy.io],
-    )[
-      애니메이션 OTT 서비스 라프텔에서 React와 React Native를 활용한 웹/앱 개발을 맡았습니다. 수행한 주요 업무는 다음과 같습니다.
-      - Firebase를 활용한 A/B 테스트
-      - react-email과 tailwindcss를 활용한 이메일 템플릿 생성 및 관리, CI 연동 작업
-    ],
-  ),
-)
+#workExpList(header: [
+  == 경력#super[Work Experiences]
+], (workExpEntry(
+  from: datetime(year: 2021, month: 12, day: 18),
+  to: datetime(year: 2023, month: 2, day: 17),
+  role: "학부 인턴",
+  organization: "GIST NetAI Lab",
+  homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+)[
+  NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
+  - wasm을 이용한 엣지 컴퓨팅에서 AI 학습 데이터 수집 및 이용 검증
+  - 웹 및 네트워크 인프라 실험 강의 SmartX-Mini 문서 업데이트 및 버그 수정
+  - 고등학생을 위한 비전 AI 및 IOT 실습 자료 제작
+], workExpEntry(
+  from: datetime(year: 2024, month: 6, day: 5),
+  to: datetime.today(),
+  role: "해군 빅데이터분석병",
+  organization: "계룡대 근무지원단 본부대대",
+)[
+  해군 빅데이터분석병으로서 데이터 분석업무에 아래와 같이 참여하였습니다.
+  - 텍스트 데이터 분석
+  - 데모 페이지 제작
+],))
 
 #activityList(
   header: [
