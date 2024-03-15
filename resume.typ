@@ -116,24 +116,23 @@
   #align(
     center,
   )[
-    #for row in ((
-      tech-list.typescript--short,
-      tech-list.javascript--short,
-      tech-list.css,
-      tech-list.react-and-react-native,
-      tech-list.svelte,
-    ), (
-      tech-list.rust,
-      tech-list.wasm,
-      tech-list.git,
-      tech-list.github,
-      tech-list.github-actions,
-    )) {
-      set text(size: 8pt)
-      enumerate(
-        row.map(tech => (icon(tech.icon, size: 16pt, bottom: 0pt), tech.label)),
-      )
-    }
+    #enumerate(
+      (
+        tech-list.typescript--short,
+        tech-list.javascript--short,
+        tech-list.html,
+        tech-list.css,
+        tech-list.react-and-react-native,
+        tech-list.svelte,
+        tech-list.rust,
+        tech-list.wasm,
+        tech-list.git,
+        tech-list.github,
+        tech-list.github-actions,
+      ).map(
+        tech => (icon(tech.icon, size: 16pt, bottom: 0pt), text(size: 8pt)[#tech.label]),
+      ),
+    )
   ]
 ]
 
@@ -220,7 +219,7 @@
         #grid(
           columns: (1fr, auto),
           gh-repo("RanolP/bojodog"),
-          [ #tech-chips.typescript],
+          [ #tech-chips.typescript ],
         )
       ],
     )[ VS Code 안에서 백준 온라인 저지 문제를 확인할 수 있는 간단한 VS Code 확장을 만들었습니다 ],
@@ -257,9 +256,7 @@
       무료 폰트 중 하나로 등재되어 있습니다. ],
     activityEntry(
       from: datetime(year: 2020, month: 5, day: 13),
-      title: pad(
-        top: -1em / 4,
-      )[
+      title: pad(top: -1em / 4)[
         #grid(
           columns: (1fr, auto),
           link(
@@ -276,7 +273,7 @@
         #grid(
           columns: (1fr, auto),
           gh-repo("RanolP/boj"),
-          [ #tech-chips.typescript],
+          [ #tech-chips.typescript ],
         )
       ],
     )[ 백준 온라인 저지에 문제를 제출하고, 성공 여부를 바탕으로 특정일에 푼 문제 및 사용 언어 통계들을 제공하는 툴체인을 개발했습니다 ],
