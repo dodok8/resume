@@ -1,12 +1,16 @@
 #let metadata = (
-  name: (nickname: "RanolP", real-korean: "임상원", real-english: "Im Sang-won"),
+  name: (
+    nickname: "Gaebalgom",
+    real-korean: "김현서",
+    real-english: "Hyeonseo Kim",
+  ),
   bio: (
-    ko: [사람과 컴퓨터 사이를 *이어주는* 소프트웨어를 만듭니다],
-    en: [Building Softwares *Connecting* People with Computers],
+    ko: [작은 손길을 *그러모아* 세상을 돕는 SW를 만듭니다.],
+    en: [*Gathering* Small Hands to Make SW Helping the Worlds.],
   ),
   role: "소프트웨어 엔지니어",
-  location: "경기도 구리시",
-  email: "me@ranolp.dev",
-  phone: ("+82", "10", "9542", "6545"),
-  social: (github: "RanolP", twitter: "RanolP_777", solved-ac: "asdhugh1"),
+  location: "somewhere",
+  email: "me@gaeblagom.zip",
+  phone: ("+82", "10", "2674", "9189"),
+  social: (github: "dodok8", twitter: "gaeblagom", solved-ac: "dodo8"),
 )
