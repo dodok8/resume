@@ -121,17 +121,10 @@
       tech-list.javascript--short,
       tech-list.css,
       tech-list.react-and-react-native,
-      tech-list.nextjs,
-      tech-list.solidjs,
-      tech-list.tailwindcss,
-      tech-list.unocss,
-      tech-list.eslint,
+      tech-list.svelte,
     ), (
       tech-list.rust,
-      tech-list.kotlin,
-      tech-list.swift,
-      tech-list.bash,
-      tech-list.gradle,
+      tech-list.wasm,
       tech-list.git,
       tech-list.github,
       tech-list.github-actions,
@@ -204,7 +197,7 @@
         #grid(
           columns: (1fr, auto),
           gh-repo("RanolP/crowdin-strife"),
-          [ #tech-chips.rust #tech-chips.mysql ],
+          [ #tech-chips.rust ],
         )
       ],
     )[ Minecraft 번역 커뮤니티 사용자들이 기존 번역례 및 외전 게임 텍스트를 쉽게 찾아볼 수 있도록 봇을 제작했습니다 ],
@@ -227,7 +220,7 @@
         #grid(
           columns: (1fr, auto),
           gh-repo("RanolP/bojodog"),
-          [ #tech-chips.typescript #tech-chips.webpack ],
+          [ #tech-chips.typescript],
         )
       ],
     )[ VS Code 안에서 백준 온라인 저지 문제를 확인할 수 있는 간단한 VS Code 확장을 만들었습니다 ],
@@ -263,19 +256,6 @@
     )[ 한글날을 기념해 현대 한글 11,172자를 전부 지원하는 8 #sym.times 8 도트풍 한글 글꼴 '달무리'를 만들었습니다. 현재 산돌
       무료 폰트 중 하나로 등재되어 있습니다. ],
     activityEntry(
-      from: datetime(year: 2020, month: 6, day: 21),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("solvedac/unofficial-documentation"),
-          [ #tech-chips.openapi ],
-        )
-      ],
-    )[ 알고리즘 문제풀이 커뮤니티, #link(
-        "https://solved.ac/",
-      )[#icon-solved-ac() #underline[#text(fill: color.rgb("#1c7ed6"))[solved.ac]]]의
-      API를 비공식적으로 OpenAPI 규격에 맞게 문서화했습니다 ],
-    activityEntry(
       from: datetime(year: 2020, month: 5, day: 13),
       title: pad(
         top: -1em / 4,
@@ -285,7 +265,7 @@
           link(
             "https://github.com/hanzzok",
           )[#icon("devicon/github", bottom: -1em / 6) hanzzok],
-          [ #tech-chips.rust #tech-chips.wasm #tech-chips.typescript #tech-chips.nextjs ],
+          [ #tech-chips.rust #tech-chips.wasm #tech-chips.typescript ],
         )
       ],
     )[ Markdown의 대안으로 쓸 수 있는 마크업 언어를 설계해 HTML로 컴파일하는 Rust 구현체를 작성했습니다. 이후, 해당 구현을
@@ -296,7 +276,7 @@
         #grid(
           columns: (1fr, auto),
           gh-repo("RanolP/boj"),
-          [ #tech-chips.typescript #tech-chips.playwright ],
+          [ #tech-chips.typescript],
         )
       ],
     )[ 백준 온라인 저지에 문제를 제출하고, 성공 여부를 바탕으로 특정일에 푼 문제 및 사용 언어 통계들을 제공하는 툴체인을 개발했습니다 ],
