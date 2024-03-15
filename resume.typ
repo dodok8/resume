@@ -44,14 +44,14 @@
       )[
         #square(
           size: 24pt,
-          fill: color.rgb("#000000"),
+          fill: none,
           stroke: none,
           radius: (top-left: 25%, top-right: 25%, bottom-left: 25%, bottom-right: 25%),
         )[
           #place(
             horizon + center,
           )[
-            #text(fill: color.rgb("#ffffff"), weight: 900, number-width: "tabular")[
+            #text(fill: color.rgb("#04041B"), weight: 900, number-width: "tabular")[
               #counter(page).display("1")
             ]
           ]
