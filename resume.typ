@@ -165,21 +165,22 @@
     == 기타 활동#super[Other Activities]
   ],
   (
-    activityEntry(
-      from: datetime(year: 2021, month: 7, day: 23),
-      title: belonging([AutoCrypt Track 2#super("nd") Winner], [Team Caffeine]),
-    )[
-      JunctionXSeoul 2021 해커톤에서 Team Caffeine의 프론트엔드 개발자로 참고, 교통약자를 위한 택시 플랫폼 #link(
-        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
-      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안.
-    ],
+
     activityEntry(
       from: datetime(year: 2018, month: 10, day: 14),
       to: datetime(year: 2024, month: 2, day: 24),
       title: belonging([프론트엔드 엔지니어], [GIST 학생회 Infoteam]),
     )[
       GIST 학생회 산하 정보국 소속 개발팀 Infoteam에서 프론트엔드 엔지니어로서 문서화, 업무 프로세스 개선, 프로젝트 관리, 디자인,
-      SPA 제작, 교육 및 단체 스터디 활동 진행.
+      SPA 제작, 교육 및 단체 스터디 활동을 진행하였습니다.
+    ],
+    activityEntry(
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: belonging([AutoCrypt Track 2#super("nd") Winner], [Team Caffeine]),
+    )[
+      JunctionXSeoul 2021 해커톤에서 Team Caffeine의 프론트엔드 개발자로 참고, 교통약자를 위한 택시 플랫폼 #link(
+        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
+      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안하였습니다.
     ],
     activityEntry(
       from: datetime(year: 2022, month: 10, day: 14),
@@ -188,7 +189,7 @@
       #link(
         "https://gistnews.co.kr/?p=5929",
       )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램 기획 및 운영.] Code of Conduct 작성, #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환]을
-      주제로 발표 진행.
+      주제로 발표 진행하였습니다.
     ],
   ),
 )
@@ -199,37 +200,36 @@
   ],
   (
     activityEntry(
-      from: datetime(year: 2023, month: 10, day: 29),
-      title: pad(
-        top: -1em / 4,
-      )[
-        #grid(columns: (1fr, auto), gh-repo("psl-lang/psl"), [ #tech-chips.rust ])
-      ],
-    )[ 알고리즘 문제 해결에 활용하기 좋은 프로그래밍 언어를 설계하고 만들었습니다. 간단한 입출력과 사칙 연산, 반복문 및 조건문을 사용할 수
-      있습니다. 컴파일 결과물로는 백준 온라인 저지 및 CodeForces에 제출할 수 있는 C 코드를 생성해냅니다. ],
-    activityEntry(
-      from: datetime(year: 2022, month: 8, day: 21),
+      from: datetime(year: 2024, month: 2, day: 3),
+      to: datetime.today(),
       title: pad(top: -1em / 4)[
         #grid(
           columns: (1fr, auto),
-          gh-repo("RanolP/crowdin-strife"),
-          [ #tech-chips.rust ],
-        )
-      ],
-    )[ Minecraft 번역 커뮤니티 사용자들이 기존 번역례 및 외전 게임 텍스트를 쉽게 찾아볼 수 있도록 봇을 제작했습니다 ],
-    activityEntry(
-      from: datetime(year: 2022, month: 1, day: 9),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/measurrred"),
-          [ #tech-chips.rust ],
+          gh-repo("Svelte-Korea/learn.svelte.kr"),
+          [ #tech-chips.svelte ],
         )
       ],
     )[
-      WinAPI를 활용해 작업 표시줄에 CPU 사용량, 남은 배터리 등의 정보를 보여줄 수 있도록 커스텀 위젯을 제작할 수 있는 프로그램을
-      만들었습니다
+      스벨트 공식 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
     ],
+    activityEntry(
+      from: datetime(year: 2023, month: 12, day: 17),
+      title: pad(top: -1em / 4)[
+        #grid(
+          columns: (1fr, auto),
+          gh-repo("dodok8/discord-aladin"),
+          [ #tech-chips.typescript ],
+        )
+      ],
+    )[ Discord.js 와 bun을 이용해 알라딘 도서 검색 결과 및 상세 정보를 Discord에서 간단히 공유할 수 있는 봇을 만들었습니다.],
+    activityEntry(
+      from: datetime(year: 2022, month: 10, day: 23),
+      title: pad(
+        top: -1em / 4,
+      )[
+        #grid(columns: (1fr, auto), link("https://gistory.me")[#icon("lucide/earth") GISTORY], [#tech-chips.react, #tech-chips.typescript, #tech-chips.vite ])
+      ],
+    )[ 지스트 학생을 위한 커뮤티니 사이트. 프론트엔드 엔지니어로서 UI/UX 설계 및 Typescript 마이그레이션, Vite 마이그레이션, 문서화 진행했습니다.],
     activityEntry(
       from: datetime(year: 2021, month: 12, day: 10),
       title: pad(top: -1em / 4)[
