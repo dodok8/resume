@@ -165,7 +165,14 @@
     == 기타 활동#super[Other Activities]
   ],
   (
-
+    activityEntry(
+      from: datetime(year: 2022, month: 10, day: 14),
+      title: belonging([리드 스태프], [GIST DEV NIGHT]),
+    )[
+      #link(
+        "https://gistnews.co.kr/?p=5929",
+      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램 기획 및 운영.] Code of Conduct 작성, #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환]을 주제로 발표 진행하였습니다.
+    ],
     activityEntry(
       from: datetime(year: 2018, month: 10, day: 14),
       to: datetime(year: 2024, month: 2, day: 24),
@@ -175,22 +182,26 @@
       SPA 제작, 교육 및 단체 스터디 활동을 진행하였습니다.
     ],
     activityEntry(
-      from: datetime(year: 2021, month: 7, day: 23),
-      title: belonging([AutoCrypt Track 2#super("nd") Winner], [Team Caffeine]),
+      from: datetime(year: 2021, month: 11, day: 18), 
+      title: pad(top: -1em / 4)[
+        #grid(
+          columns: (1fr, auto),
+          belonging([제품/서비스 개발 부분 우수상], [2021 관광데이터 활용 공모전]),
+          [ #tech-chips.react-and-react-native ],
+        )
+      ],
     )[
-      JunctionXSeoul 2021 해커톤에서 Team Caffeine의 프론트엔드 개발자로 참고, 교통약자를 위한 택시 플랫폼 #link(
-        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
-      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안하였습니다.
+      한국관광공사 2021 관광데이터 활용 공모전에서, 자전거 여행객을 위한 어플리케이션 Wheelie를 제작하여 #link("https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html")[우수상]을 받았습니다.
     ],
     activityEntry(
-      from: datetime(year: 2022, month: 10, day: 14),
-      title: belonging([리드 스태프], [GIST DEV NIGHT]),
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: belonging([AutoCrypt Track 2#super("nd") Winner], [JunctionXSeoul 2021]),
     )[
-      #link(
-        "https://gistnews.co.kr/?p=5929",
-      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램 기획 및 운영.] Code of Conduct 작성, #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환]을
-      주제로 발표 진행하였습니다.
+      JunctionXSeoul 2021 해커톤에서 Team Caffeine의 프론트엔드 개발자로 참가하여, 교통약자를 위한 택시 플랫폼 #link(
+        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
+      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안, 트랙 2#super("nd") Winner를 수상하였습니다.
     ],
+
   ),
 )
 
@@ -213,6 +224,25 @@
       스벨트 공식 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
     ],
     activityEntry(
+      from: datetime(year: 2024, month: 1, day: 24),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+          #gh-repo("dodok8/rhodes-theme"),
+      ],
+    )[
+      Visual Studio Code를 위한 에디터 테마
+    ],
+    activityEntry(
+      from: datetime(year: 2023, month: 12, day: 17),
+      title: pad(top: -1em / 4)[
+        #grid(
+          columns: (1fr, auto),
+          gh-repo("dodok8/discord-aladin"),
+          [ #tech-chips.typescript ],
+        )
+      ],
+    )[ Discord.js 와 bun을 이용해 알라딘 도서 검색 결과 및 상세 정보를 Discord에서 간단히 공유할 수 있는 봇을 만들었습니다.],
+    activityEntry(
       from: datetime(year: 2023, month: 12, day: 17),
       title: pad(top: -1em / 4)[
         #grid(
@@ -231,81 +261,20 @@
       ],
     )[ 지스트 학생을 위한 커뮤티니 사이트. 프론트엔드 엔지니어로서 UI/UX 설계 및 Typescript 마이그레이션, Vite 마이그레이션, 문서화 진행했습니다.],
     activityEntry(
-      from: datetime(year: 2021, month: 12, day: 10),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/bojodog"),
-          [ #tech-chips.typescript ],
-        )
-      ],
-    )[ VS Code 안에서 백준 온라인 저지 문제를 확인할 수 있는 간단한 VS Code 확장을 만들었습니다 ],
-    activityEntry(
-      from: datetime(year: 2021, month: 11, day: 27),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/bojoke"),
-          [ #tech-chips.typescript #tech-chips.vite ],
-        )
-      ],
-    )[ prosemirror를 활용해 백준 온라인 저지의 양식으로 문제 본문을 편집할 수 있는 WYSIWYG 에디터를 구현했습니다 ],
-    activityEntry(
-      from: datetime(year: 2021, month: 1, day: 4),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/rano-lang"),
-          [ #tech-chips.rust #tech-chips.wasm ],
-        )
-      ],
-    )[ WebAssembly로 컴파일되는 작은 프로그래밍 언어를 만들어 함수 선언 및 호출, if ~ else 문 등을 구현했습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 10, day: 9),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/dalmoori-font"),
-          [ #tech-chips.typescript ],
-        )
-      ],
-    )[ 한글날을 기념해 현대 한글 11,172자를 전부 지원하는 8 #sym.times 8 도트풍 한글 글꼴 '달무리'를 만들었습니다. 현재 산돌
-      무료 폰트 중 하나로 등재되어 있습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 5, day: 13),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          link(
-            "https://github.com/hanzzok",
-          )[#icon("devicon/github", bottom: -1em / 6) hanzzok],
-          [ #tech-chips.rust #tech-chips.wasm #tech-chips.typescript ],
-        )
-      ],
-    )[ Markdown의 대안으로 쓸 수 있는 마크업 언어를 설계해 HTML로 컴파일하는 Rust 구현체를 작성했습니다. 이후, 해당 구현을
-      WebAssembly로 컴파일해 웹페이지에서 실행하는 놀이터를 만들었습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 4, day: 8),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("RanolP/boj"),
-          [ #tech-chips.typescript ],
-        )
-      ],
-    )[ 백준 온라인 저지에 문제를 제출하고, 성공 여부를 바탕으로 특정일에 푼 문제 및 사용 언어 통계들을 제공하는 툴체인을 개발했습니다 ],
+      from: datetime(year: 2022, month: 5, day: 29),
+      title: gh-repo("SmartX-Labs/SmartX-Mini"),
+    )[ GIST 컴퓨터 시스템 및 실습 과목에 사용되는 네트워크 인프라 실습 실험 SmartX Mini 자료의 오류와 문제 사항을 수정하고 Git을 통해 문서 변경 사항을 추적할 수 있게 바꾸었습니다.],
   ),
 )
 
 == 오픈소스 기여#super[Open Source Contributions]
 
-- #gh-repo("typst/typst")
-  - #gh-pull("https://github.com/typst/typst/pull/3522")
-- #gh-repo("motiondivision/motionone")
-  - #gh-pull("https://github.com/motiondivision/motionone/pull/244")
-- #gh-repo("resend/react-email")
-  - #gh-pull("https://github.com/resend/react-email/pull/884")
-- #gh-repo("daangn/stackflow")
-  - #gh-pull("https://github.com/daangn/stackflow/pull/274")
-- #gh-repo("solved-ac/ui-react")
-  - #gh-pull("https://github.com/solved-ac/ui-react/pull/5")
+- #gh-repo("fabian-hiller/valibot")
+  - #gh-pull("https://github.com/fabian-hiller/valibot/pull/429")
+- #gh-repo("velopert/velog-client")
+  - #gh-pull("https://github.com/velopert/velog-client/pull/477")
+- #gh-repo("httptoolkit/brotli-wasm")
+  - #gh-pull("https://github.com/httptoolkit/brotli-wasm/pull/29")
+- #gh-repo("giscus/giscus")
+  - #gh-pull("https://github.com/giscus/giscus/pull/1266")
+  - #gh-pull("https://github.com/giscus/giscus/pull/253")
