@@ -149,16 +149,16 @@
   - wasm을 이용한 엣지 컴퓨팅에서 AI 학습 데이터 수집 및 이용 검증
   - 웹 및 네트워크 인프라 실험 강의 SmartX-Mini 문서 업데이트 및 버그 수정
   - 고등학생을 위한 비전 AI 및 IOT 실습 자료 제작
-], workExpEntry(
-  from: datetime(year: 2024, month: 6, day: 5),
-  to: datetime.today(),
-  role: "해군 빅데이터분석병",
-  organization: "계룡대 근무지원단 본부대대",
-)[
-  해군 빅데이터분석병으로서 데이터 분석업무에 아래와 같이 참여하였습니다.
-  - 텍스트 데이터 분석
-  - 데모 페이지 제작
-],))
+], 
+// workExpEntry(
+//   from: datetime(year: 2023, month: 6, day: 5),
+//   to: datetime.today(),
+//   role: "해군 빅데이터분석병",
+//   organization: "계룡대 근무지원단 본부대대",
+// )[
+//   해군 빅데이터분석병으로서 텍스트 데이터 감정 분석 업무를 수행했습니다.
+// ],
+))
 
 #activityList(
   header: [
@@ -166,18 +166,30 @@
   ],
   (
     activityEntry(
-      from: datetime(year: 2023, month: 11, day: 17),
-      title: belonging([해커톤 멘토 #sym.and 심사위원], [쿠씨톤]),
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: belonging([AutoCrypt Track 2#super("nd") Winner], [Team Caffeine]),
     )[
-      #link("https://kucc.co.kr/")[#text(
-          fill: color.rgb("#1c7ed6"),
-        )[#underline[KUCC]#sub[Korea University Computer Club]]]에서 주최한 2023년 쿠씨톤에서 해커톤
-      멘토 및 심사위원을 맡아 Django, React, Pygame 등을 사용하는 멘티들을 서포트하고, 작품을 심사했습니다.
+      JunctionXSeoul 2021 해커톤에서 Team Caffeine의 프론트엔드 개발자로 참고, 교통약자를 위한 택시 플랫폼 #link(
+        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
+      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안.
     ],
     activityEntry(
-      from: datetime(year: 2022, month: 9, day: 20),
-      title: "NYPC 2022 특별상",
-    )[],
+      from: datetime(year: 2018, month: 10, day: 14),
+      to: datetime(year: 2024, month: 2, day: 24),
+      title: belonging([프론트엔드 엔지니어], [GIST 학생회 Infoteam]),
+    )[
+      GIST 학생회 산하 정보국 소속 개발팀 Infoteam에서 프론트엔드 엔지니어로서 문서화, 업무 프로세스 개선, 프로젝트 관리, 디자인,
+      SPA 제작, 교육 및 단체 스터디 활동 진행.
+    ],
+    activityEntry(
+      from: datetime(year: 2022, month: 10, day: 14),
+      title: belonging([리드 스태프], [GIST DEV NIGHT]),
+    )[
+      #link(
+        "https://gistnews.co.kr/?p=5929",
+      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램 기획 및 운영.] Code of Conduct 작성, #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환]을
+      주제로 발표 진행.
+    ],
   ),
 )
 
