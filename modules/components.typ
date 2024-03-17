@@ -53,6 +53,7 @@
   javascript: (icon: "devicon/javascript", label: "JavaScript"),
   javascript--short: (icon: "devicon/javascript", label: "JS"),
   react-and-react-native: (icon: "devicon/react", label: [React #sym.and React Native]),
+  react: (icon: "devicon/react", label: "React"),
   html: (icon: "devicon/html5", label: "HTML"),
   css: (icon: "devicon/css3", label: "CSS"),
   sass: (icon: "devicon/sass", label: "SASS"),
