@@ -12,5 +12,5 @@
   location: "somewhere",
   email: "dodok8@gmail.com",
   phone: ("+82", "10", "2674", "9189"),
-  social: (github: "dodok8", twitter: "gaeblagom", solved-ac: "dodo8"),
+  social: (github: "dodok8", twitter: "gaebalgom", solved-ac: "dodo8"),
 )
