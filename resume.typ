@@ -167,18 +167,18 @@
   (
     activityEntry(
       from: datetime(year: 2022, month: 10, day: 14),
-      title: belonging([리드 스태프], [GIST DEV NIGHT]),
+      title: belonging([스태프], [GIST DEV NIGHT]),
     )[
       #link(
         "https://gistnews.co.kr/?p=5929",
-      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램 기획 및 운영.] Code of Conduct 작성, #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환]을 주제로 발표 진행하였습니다.
+      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램]을 기획 및 운영하였습니다. 운영자로서 Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당하였고, 발표자로서 #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환 과정]을 소개하였습니다.
     ],
     activityEntry(
       from: datetime(year: 2018, month: 10, day: 14),
       to: datetime(year: 2024, month: 2, day: 24),
       title: belonging([프론트엔드 엔지니어], [GIST 학생회 Infoteam]),
     )[
-      GIST 학생회 산하 정보국 소속 개발팀 Infoteam에서 프론트엔드 엔지니어로서 문서화, 업무 프로세스 개선, 프로젝트 관리, 디자인,
+      GIST 학생회 산하 개발팀 Infoteam에서 프론트엔드 엔지니어로서 문서화 및 기획, 디자인, 프론트엔드 개발 템플릿 제작,
       SPA 제작, 교육 및 단체 스터디 활동을 진행하였습니다.
     ],
     activityEntry(
@@ -225,12 +225,11 @@
     ],
     activityEntry(
       from: datetime(year: 2024, month: 1, day: 24),
-      to: datetime.today(),
       title: pad(top: -1em / 4)[
-          #gh-repo("dodok8/rhodes-theme"),
+          #gh-repo("dodok8/rhodes-theme")
       ],
     )[
-      Visual Studio Code를 위한 에디터 테마
+      Visual Studio Code를 위한 에디터 테마입니다.
     ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 17),
@@ -259,7 +258,7 @@
       )[
         #grid(columns: (1fr, auto), link("https://gistory.me")[#icon("lucide/earth") GISTORY], [#tech-chips.react, #tech-chips.typescript, #tech-chips.vite ])
       ],
-    )[ 지스트 학생을 위한 커뮤티니 사이트. 프론트엔드 엔지니어로서 UI/UX 설계 및 Typescript 마이그레이션, Vite 마이그레이션, 문서화 진행했습니다.],
+    )[ GIST 학생을 위한 커뮤티니 사이트. 프론트엔드 엔지니어로서 UI/UX 설계 및 Typescript 마이그레이션, Vite 마이그레이션, 문서화를 진행했습니다.],
     activityEntry(
       from: datetime(year: 2022, month: 5, day: 29),
       title: gh-repo("SmartX-Labs/SmartX-Mini"),
