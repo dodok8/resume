@@ -84,21 +84,23 @@
     column-gutter: 16pt,
     row-gutter: 8pt,
     [#icon("lucide/mail") *전자 우편#super[Mailbox]*],
-    link("mailto:" + metadata.email)[#metadata.email],
+    pad(top: 2pt)[#link("mailto:" + metadata.email)[#metadata.email]],
     [#icon("lucide/phone") *전화#super[Phone]*],
-    link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
+    pad(top: 2pt)[#link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")]],
   ), grid(
     columns: (auto, 1fr),
     column-gutter: 16pt,
     row-gutter: 8pt,
     [#icon("devicon/github") *GitHub*],
-    link(
+    pad(top: 2pt)[#link(
       "https://github.com/" + metadata.social.github,
-    )[\@#metadata.social.github],
+    )[\@#metadata.social.github]],
     [#icon("streamline/web") *Blog*],
-    link(
+    pad(top: 2pt)[
+      #link(
       "https://blog.gaebalgom.zip",
-    )[\@#metadata.social.github],
+      )
+    ],
     // [#icon("logos/twitter") *Twitter*],
     // link(
     //   "https://twitter.com/" + metadata.social.twitter,
