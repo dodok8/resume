@@ -95,14 +95,18 @@
     link(
       "https://github.com/" + metadata.social.github,
     )[\@#metadata.social.github],
-    [#icon("logos/twitter") *Twitter*],
+    [#icon("streamline/web") *Blog*],
     link(
-      "https://twitter.com/" + metadata.social.twitter,
-    )[\@#metadata.social.twitter],
-    [#icon-solved-ac() *solved.ac*],
-    link("https://solved.ac/profile/" + metadata.social.solved-ac)[
-      #solved-ac-profile(metadata.social.solved-ac)
-    ],
+      "https://blog.gaebalgom.zip",
+    )[\@#metadata.social.github],
+    // [#icon("logos/twitter") *Twitter*],
+    // link(
+    //   "https://twitter.com/" + metadata.social.twitter,
+    // )[\@#metadata.social.twitter],
+    // [#icon-solved-ac() *solved.ac*],
+    // link("https://solved.ac/profile/" + metadata.social.solved-ac)[
+    //   #solved-ac-profile(metadata.social.solved-ac)
+    // ],
   ))
 }
 
@@ -126,7 +130,6 @@
         tech-list.svelte,
         tech-list.rust,
         tech-list.wasm,
-        tech-list.git,
         tech-list.github,
         tech-list.github-actions,
       ).map(
@@ -150,14 +153,14 @@
   - 웹 및 네트워크 인프라 실험 강의 SmartX-Mini 문서 업데이트 및 버그 수정
   - 고등학생을 위한 비전 AI 및 IOT 실습 자료 제작
 ], 
-// workExpEntry(
-//   from: datetime(year: 2023, month: 6, day: 5),
-//   to: datetime.today(),
-//   role: "해군 빅데이터분석병",
-//   organization: "계룡대 근무지원단 본부대대",
-// )[
-//   해군 빅데이터분석병으로서 텍스트 데이터 감정 분석 업무를 수행했습니다.
-// ],
+workExpEntry(
+  from: datetime(year: 2023, month: 6, day: 5),
+  to: datetime(year: 2025, month:2, day: 4),
+  role: "해군 빅데이터분석병",
+  organization: "계룡대 근무지원단 본부대대",
+)[
+  해군 빅데이터분석병으로서 텍스트 데이터 감정 분석 업무를 수행했습니다.
+],
 ))
 
 #activityList(
@@ -201,7 +204,12 @@
         "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
       )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 고안, 트랙 2#super("nd") Winner를 수상하였습니다.
     ],
-
+    activityEntry(
+      from: datetime(year: 2024, month: 9, day: 24),
+      title: belonging([연사], [GIST DEV NIGHT]),
+    )[
+      2024년 GIST DEV NIGHT 에서 발표자로서 #link("https://onedrive.live.com/edit?id=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&resid=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&cid=26d5f0494768fc4b&ithint=file%2Cpptx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VXOThkVG5lbnFSQnJIXzBPc1BpbkcwQkh4dHFqZVpCS0UtRjR0NDIxSEhkREE_ZT1kZWlwYlA&migratedtospo=true&wdo=2")[사용자를 기만하고 조종하기]라는 제목으로 기만적 패턴에 대해 소개하였습니다.
+    ],
   ),
 )
 
@@ -221,26 +229,8 @@
         )
       ],
     )[
-      스벨트 공식 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
+      스벨트 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
     ],
-    activityEntry(
-      from: datetime(year: 2024, month: 1, day: 24),
-      title: pad(top: -1em / 4)[
-          #gh-repo("dodok8/rhodes-theme")
-      ],
-    )[
-      Visual Studio Code를 위한 에디터 테마입니다.
-    ],
-    activityEntry(
-      from: datetime(year: 2023, month: 12, day: 17),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("dodok8/discord-aladin"),
-          [ #tech-chips.typescript ],
-        )
-      ],
-    )[ Discord.js 와 bun을 이용해 알라딘 도서 검색 결과 및 상세 정보를 Discord에서 간단히 공유할 수 있는 봇을 만들었습니다.],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 17),
       title: pad(top: -1em / 4)[
@@ -270,10 +260,7 @@
 
 - #gh-repo("fabian-hiller/valibot")
   - #gh-pull("https://github.com/fabian-hiller/valibot/pull/429")
-- #gh-repo("velopert/velog-client")
-  - #gh-pull("https://github.com/velopert/velog-client/pull/477")
 - #gh-repo("httptoolkit/brotli-wasm")
   - #gh-pull("https://github.com/httptoolkit/brotli-wasm/pull/29")
-- #gh-repo("giscus/giscus")
-  - #gh-pull("https://github.com/giscus/giscus/pull/1266")
-  - #gh-pull("https://github.com/giscus/giscus/pull/253")
+- #gh-repo("velopert/velog-client")
+  - #gh-pull("https://github.com/velopert/velog-client/pull/477")
