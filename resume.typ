@@ -20,8 +20,6 @@
           #text(weight: 700)[#metadata.name.nickname / #metadata.name.real-korean]
           ---
           #text(weight: 600, tracking: 1pt)[#metadata.role]
-          \@
-          #text(weight: 600, tracking: 0.5pt)[#metadata.location]
         ]
       ]
     },
@@ -68,8 +66,6 @@
 )[#metadata.name.nickname / #metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 #text(size: 12pt)[
   #text(weight: 900, tracking: 2pt)[#metadata.role]
-  #text(weight: 600)[\@]
-  #text(weight: 700, tracking: 1pt)[#metadata.location]
 ]
 
 #text(size: 16pt, weight: 600)[
@@ -95,7 +91,7 @@
     pad(top: 2pt)[#link(
       "https://github.com/" + metadata.social.github,
     )[\@#metadata.social.github]],
-    [#icon("streamline/web") *Blog*],
+    [#icon("lucide/earth") *Blog*],
     pad(top: 2pt)[
       #link(
       "https://blog.gaebalgom.zip",
@@ -161,7 +157,7 @@ workExpEntry(
   role: "해군 빅데이터분석병",
   organization: "계룡대 근무지원단 본부대대",
 )[
-  해군 빅데이터분석병으로서 텍스트 데이터 감정 분석 업무를 수행했습니다.
+  해군 빅데이터분석병으로서 감정 분석 및 데이터 시각화를 진행하였습니다.
 ],
 ))
 
@@ -176,7 +172,7 @@ workExpEntry(
     )[
       #link(
         "https://gistnews.co.kr/?p=5929",
-      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램]을 기획 및 운영하였습니다. 운영자로서 Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당하였고, 발표자로서 #link("https://github.com/dodok8/vite-migrate")[CRA에서 Vite 전환 과정]을 소개하였습니다.
+      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램]을 기획 및 운영하였습니다. 운영자로서 Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당하였고, 발표자로서 #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 소개하였습니다.
     ],
     activityEntry(
       from: datetime(year: 2018, month: 10, day: 14),
@@ -210,7 +206,7 @@ workExpEntry(
       from: datetime(year: 2024, month: 9, day: 24),
       title: belonging([연사], [GIST DEV NIGHT]),
     )[
-      2024년 GIST DEV NIGHT 에서 발표자로서 #link("https://onedrive.live.com/edit?id=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&resid=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&cid=26d5f0494768fc4b&ithint=file%2Cpptx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VXOThkVG5lbnFSQnJIXzBPc1BpbkcwQkh4dHFqZVpCS0UtRjR0NDIxSEhkREE_ZT1kZWlwYlA&migratedtospo=true&wdo=2")[사용자를 기만하고 조종하기]라는 제목으로 기만적 패턴에 대해 소개하였습니다.
+      2024년 GIST DEV NIGHT 에서 발표자로서 #link("https://onedrive.live.com/edit?id=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&resid=26D5F0494768FC4B!s39757c6f9ede41a4ac7ff43ac3e29c6d&cid=26d5f0494768fc4b&ithint=file%2Cpptx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VXOThkVG5lbnFSQnJIXzBPc1BpbkcwQkh4dHFqZVpCS0UtRjR0NDIxSEhkREE_ZT1kZWlwYlA&migratedtospo=true&wdo=2")[#underline[사용자를 기만하고 조종하기]]라는 제목으로 기만적 패턴에 대해 소개하였습니다.
     ],
   ),
 )
