@@ -5,8 +5,7 @@
     real-english: "Hyeonseo Kim",
   ),
   bio: (
-    ko: [작은 손길을 *그러모아* 세상을 돕는 SW를 만듭니다.],
-    en: [*Gathering* Small Hands to Make SW Helping the Worlds.],
+    ko: [사소하더라도 전에 없던 도움을 줄 수 있는 문제를 해결합니다.],
   ),
   role: "소프트웨어 엔지니어",
   location: "여수",

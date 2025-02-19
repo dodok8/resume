@@ -70,7 +70,7 @@
 
 #text(size: 16pt, weight: 600)[
   #set par(leading: 8pt)
-  #metadata.bio.ko \ #text(size: 13pt)[#metadata.bio.en]
+  #metadata.bio.ko
 ]
 
 #{
@@ -122,8 +122,8 @@
       (
         tech-list.typescript--short,
         tech-list.javascript--short,
-        tech-list.html,
-        tech-list.css,
+        // tech-list.html,
+        // tech-list.css,
         tech-list.react-and-react-native,
         tech-list.svelte,
         tech-list.rust,
@@ -147,7 +147,7 @@
   homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
 )[
   NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
-  - wasm을 이용한 엣지 컴퓨팅에서 AI 학습 데이터 수집 및 이용 검증
+  - wasm을 이용한 엣지 컴퓨팅에서 AI 학습 데이터 수집 및 이용 검증(link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575", 논문 링크)) 
   - 웹 및 네트워크 인프라 실험 강의 SmartX-Mini 문서 업데이트 및 버그 수정
   - 고등학생을 위한 비전 AI 및 IOT 실습 자료 제작
 ], 
@@ -157,7 +157,7 @@ workExpEntry(
   role: "해군 빅데이터분석병",
   organization: "계룡대 근무지원단 본부대대",
 )[
-  해군 빅데이터분석병으로서 감정 분석 및 데이터 시각화를 진행하였습니다.
+  해군 빅데이터분석병으로서 주어진 데이터 셋에 대한 감정 분석 및 시각화를 진행하였으며, 유사한 데이터를 분석 가능한 프로그램 개발 및 클라이언트 개발을 담당하였습니다.
 ],
 ))
 
@@ -170,9 +170,9 @@ workExpEntry(
       from: datetime(year: 2022, month: 10, day: 14),
       title: belonging([스태프], [GIST DEV NIGHT]),
     )[
-      #link(
+      GIST 내 개발자를 위한 컨퍼런스 #link(
         "https://gistnews.co.kr/?p=5929",
-      )[GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램]을 기획 및 운영하였습니다. 운영자로서 Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당하였고, 발표자로서 #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 소개하였습니다.
+      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영하였습니다. 운영자로서 Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당하였고, 발표자로서 #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 소개하였습니다.
     ],
     activityEntry(
       from: datetime(year: 2018, month: 10, day: 14),
@@ -216,21 +216,22 @@ workExpEntry(
     == 프로젝트#super[Projects]
   ],
   (
-    activityEntry(
-      from: datetime(year: 2024, month: 2, day: 3),
-      to: datetime.today(),
-      title: pad(top: -1em / 4)[
-        #grid(
-          columns: (1fr, auto),
-          gh-repo("Svelte-Korea/learn.svelte.kr"),
-          [ #tech-chips.svelte ],
-        )
-      ],
-    )[
-      스벨트 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
-    ],
+    // activityEntry(
+    //   from: datetime(year: 2024, month: 2, day: 3),
+    //   to: datetime.today(),
+    //   title: pad(top: -1em / 4)[
+    //     #grid(
+    //       columns: (1fr, auto),
+    //       gh-repo("Svelte-Korea/learn.svelte.kr"),
+    //       [ #tech-chips.svelte ],
+    //     )
+    //   ],
+    // )[
+    //   스벨트 튜토리얼의 한국어 커뮤니티 번역본 #link("https://learn.svelte.kr")[https://leanr.svelte.kr] 메인테이너로 참가하고 있습니다.
+    // ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 17),
+      to: datetime.today(),
       title: pad(top: -1em / 4)[
         #grid(
           columns: (1fr, auto),
@@ -238,7 +239,11 @@ workExpEntry(
           [ #tech-chips.typescript ],
         )
       ],
-    )[ Discord.js 와 bun을 이용해 알라딘 도서 검색 결과 및 상세 정보를 Discord에서 간단히 공유할 수 있는 봇을 만들었습니다.],
+    )[ Discord.js 와 bun을 이용해 알라딘 도서 검색 결과 및 상세 정보를 Discord에서 공유할 수 있는 봇
+    - 검색 결과 내에서 페이지네이션 구현
+    - 상세 정보를 보여주는 선택 UI 구현
+    - User install 이 가능한 형태로 서버에 상관없이 사용 가능
+    ],
     activityEntry(
       from: datetime(year: 2022, month: 10, day: 23),
       title: pad(
@@ -258,7 +263,10 @@ workExpEntry(
 
 - #gh-repo("fabian-hiller/valibot")
   - #gh-pull("https://github.com/fabian-hiller/valibot/pull/429")
+  - 해당 PR을 통해 스키마 검증 라이브러리인 valibot의 메시지를 한국어로 번역하였습니다.
 - #gh-repo("httptoolkit/brotli-wasm")
   - #gh-pull("https://github.com/httptoolkit/brotli-wasm/pull/29")
+  - 해당 PR을 통해 브라우저에서 사용 가능한 브로틀리 압축 라이브러리인 brotli-wasm의 types 필드 관련 에러를 해결하여 타입 오류를 해결했습니다.
 - #gh-repo("velopert/velog-client")
   - #gh-pull("https://github.com/velopert/velog-client/pull/477")
+  - 해당 PR을 통해 게시글 작성이 불가능하던 벨로그 오류를 수정하였습니다.
