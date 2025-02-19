@@ -147,9 +147,9 @@
   homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
 )[
   NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
-  - wasm을 이용한 엣지 컴퓨팅에서 AI 학습 데이터 수집 및 이용 검증(link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575", 논문 링크)) 
-  - 웹 및 네트워크 인프라 실험 강의 SmartX-Mini 문서 업데이트 및 버그 수정
-  - 고등학생을 위한 비전 AI 및 IOT 실습 자료 제작
+  - wasm을 이용한 엣지 컴행팅에서 AI 학습 데이터 수집 및 이용 검증
+  - 웹 및 네트워크 인프라 실험 강의 실험 조교
+  - 고등학생을 위한 비전 AI 및 IOT 실습 진행
 ], 
 workExpEntry(
   from: datetime(year: 2023, month: 6, day: 5),
@@ -245,6 +245,20 @@ workExpEntry(
     - User install 이 가능한 형태로 서버에 상관없이 사용 가능
     ],
     activityEntry(
+      from: datetime(year: 2022, month: 10, day: 29),
+      title: pad(top: -1em / 4)[
+        #grid(
+          columns: (1fr, auto),
+          link("https://drive.google.com/file/d/1NrLP3DlXGk8lZs-SNiM9eqyqQHINcMQu/view?usp=drive_link")[
+            #icon("lucide/book") 교통 CCTV 엣지 컴퓨팅 환경에서의 웹 어셈블리를 이용한 경량화 된 비식별화 검증
+          ],
+          [ #tech-chips.wasm ],
+        )
+      ],
+    )[
+      GIST NetAI 랩 학부 인턴으로서 wasm을 이용한 엣지 컴행팅에서 AI 학습 데이터 수집 및 이용 검증을 진행하여 논문을 작성하였습니다.
+    ],
+    activityEntry(
       from: datetime(year: 2022, month: 10, day: 23),
       title: pad(
         top: -1em / 4,
@@ -252,6 +266,10 @@ workExpEntry(
         #grid(columns: (1fr, auto), link("https://gistory.me")[#icon("lucide/earth") GISTORY], [#tech-chips.react, #tech-chips.typescript, #tech-chips.vite ])
       ],
     )[ GIST 학생을 위한 커뮤티니 사이트. 프론트엔드 엔지니어로서 UI/UX 설계 및 Typescript 마이그레이션, Vite 마이그레이션, 문서화를 진행했습니다.],
+    activityEntry(
+      from: datetime(year: 2022, month: 7, day: 29),
+      title: gh-repo("AI_SUMMER_2022"),
+    )[ GIST 주관 고등학생 대상 네트워크 및 컴퓨터 비전 체험 캠프의 학습 자료 제작을 맡았습니다.],
     activityEntry(
       from: datetime(year: 2022, month: 5, day: 29),
       title: gh-repo("SmartX-Labs/SmartX-Mini"),
