@@ -56,12 +56,14 @@
   react: (icon: "devicon/react", label: "React"),
   html: (icon: "devicon/html5", label: "HTML"),
   css: (icon: "devicon/css3", label: "CSS"),
-  sass: (icon: "devicon/sass", label: "SASS"),
   vite: (icon: "devicon/vitejs", label: "Vite"),
   svelte: (icon: "devicon/svelte", label: "Svelte"),
   git: (icon: "devicon/git", label: "Git"),
   github: (icon: "devicon/github", label: "GitHub"),
   github-actions: (icon: "devicon/githubactions", label: "GitHub Actions"),
+  docker: (icon: "devicon/docker", label: "Docker"),
+  bun: (icon: "devicon/bun", label: "Bun"),
+  python: (icon: "devicon/python", label: "Python")
 )
 
 #let tech-chips = for (k, v) in tech-list {
