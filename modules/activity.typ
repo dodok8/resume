@@ -39,8 +39,7 @@
                 } else {
                   "Present"
                 } \
-                #text(size: 8pt)[약 #formatDuration(to - from)
-                ]
+                #text(size: 8pt)[#formatDuration(to - from)]
               ]
             }
           ]
