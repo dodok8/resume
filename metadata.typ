@@ -14,7 +14,7 @@
       title: [*Connecting* Team with Problems, People with People],
     ),
   ),
-  role: "프론트엔드드 엔지니어",
+  role: "프론트엔드 엔지니어",
   location: "대한민국 전남 여수시",
   email: "me@gaebalgom.zip",
   phone: ("+82", "10", "2674", "9189"),
