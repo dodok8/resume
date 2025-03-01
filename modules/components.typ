@@ -65,6 +65,7 @@
     label: "Rust",
   ),
   wasm: (icon: "devicon/wasm", label: "WebAssembly"),
+  wasm--short: (icon: "devicon/wasm", label: "wasm"),
   typescript: (icon: "devicon/typescript", label: "TypeScript"),
   typescript--short: (icon: "devicon/typescript", label: "TS"),
   javascript: (icon: "devicon/javascript", label: "JavaScript"),
