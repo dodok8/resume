@@ -5,15 +5,14 @@
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
 
+
 #set page(
   paper: "a4",
   margin: (top: 1.5cm, left: 1.5cm, right: 1.5cm, bottom: 1.8cm),
   header: context {
     if here().page() != 1 {
       pad(left: -0.4cm)[
-        #text(
-          fill: color.rgb("#575049"),
-        )[
+        #text(fill: color.rgb("#575049"))[
           #text(weight: 700)[#metadata.name.nickname / #metadata.name.real-korean]
           ---
           #text(weight: 600, tracking: 1pt)[#metadata.role]
@@ -39,12 +38,12 @@
       )[
         #square(
           size: 24pt,
-          fill: color.rgb("#000000"),
+          // fill: color.rgb("#000000"),
           stroke: none,
           radius: (top-left: 25%, top-right: 25%, bottom-left: 25%, bottom-right: 25%),
         )[
           #place(horizon + center)[
-            #text(fill: color.rgb("#ffffff"), weight: 900, number-width: "tabular")[
+            #text(fill: color.rgb("#222222"), weight: 900, number-width: "tabular")[
               #context {
                 counter(page).display("1")
               }
@@ -83,13 +82,13 @@
       [#icon("devicon/github") *GitHub*],
       link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
 
-      [#icon("logos/twitter") *Twitter*],
-      link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
+      // [#icon("logos/twitter") *Twitter*],
+      // link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
 
-      [#icon-solved-ac() *solved.ac*],
-      link("https://solved.ac/profile/" + metadata.social.solved-ac)[
-        #solved-ac-profile(metadata.social.solved-ac)
-      ],
+      // [#icon-solved-ac() *solved.ac*],
+      // link("https://solved.ac/profile/" + metadata.social.solved-ac)[
+      //   #solved-ac-profile(metadata.social.solved-ac)
+      // ],
     ),
   )
 }
@@ -113,32 +112,30 @@
       (
         tech-list.typescript--short,
         tech-list.javascript--short,
+        tech-list.html,
         tech-list.css,
         tech-list.react-and-react-native,
-        tech-list.nextjs,
-        tech-list.solidjs,
-        tech-list.tailwindcss,
-        tech-list.unocss,
-        tech-list.eslint,
+        tech-list.svelte,
+        tech-list.vite,
+        tech-list.bun,
       ),
       (
         tech-list.rust,
-        tech-list.kotlin,
-        tech-list.swift,
-        tech-list.bash,
-        tech-list.gradle,
+        tech-list.python,
+        tech-list.docker,
+        tech-list.wasm,
         tech-list.git,
         tech-list.github,
         tech-list.github-actions,
       ),
     ) {
       set text(size: 8pt)
-      enumerate(
-        row.map(tech => (icon(tech.icon, size: 16pt, bottom: 0pt), tech.label)),
-      )
+      enumerate(row.map(tech => (icon(tech.icon, size: 16pt, bottom: 0pt), tech.label)))
     }
   ]
 ]
+
+#line(length: 100%, stroke: 0.75pt)
 
 #workExpList(
   header: [
@@ -146,40 +143,126 @@
   ],
   (
     workExpEntry(
-      from: datetime(year: 2023, month: 3, day: 20),
-      to: datetime.today(),
-      role: "프론트엔드 엔지니어",
-      organization: "주식회사 라프텔(Laftel)",
-      homepage: link("https://laftel.oopy.io")[laftel.oopy.io],
+      from: datetime(year: 2023, month: 6, day: 5),
+      to: datetime(year: 2025, month: 2, day: 4),
+      role: "해군 빅데이터 분석병",
+      organization: "계근단 본부대대",
     )[
-      애니메이션 OTT 서비스 라프텔에서 React와 React Native를 활용한 웹/앱 개발을 맡았습니다. \
-      수행한 주요 업무는 다음과 같습니다.
-      - Firebase를 활용한 A/B 테스트
-      - react-email과 tailwindcss를 활용한 이메일 템플릿 생성 및 관리, CI 연동 작업
-      - Next.js ISR을 활용한 Notion Database 기반 회사 블로그 구현
-      - AVFoundation 및 exoplayer (media3)를 활용한 react-native용 다운로드 모듈 개선
+      군 복무 중 해군 빅데이터 분석병으로서 다음과 같은 프로그래밍 업무를 수행했습니다. \
+      - #pad(top: -1em / 4)[
+          감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
+        ]
+      - #pad(top: -1em / 4)[
+          데이터셋 감정 분석 및 결과 엑셀 변환 #h(1fr) #tech-chips.python
+        ]
+      - #pad(top: -1em / 4)[
+          Tkinter를 이용한 GUI 구성 #h(1fr) #tech-chips.python
+        ]
+    ],
+    workExpEntry(
+      from: datetime(year: 2021, month: 12, day: 18),
+      to: datetime(year: 2023, month: 2, day: 17),
+      role: "학부 인턴",
+      organization: "GIST NetAI Lab",
+      homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+    )[
+      NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
+      - #pad(top: -1em / 4)[
+          #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
+        ]
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
+        ]
+        - 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
+        - 자료 버그 수정 및 형식 최신화. 실습 진행 및 오류 수정 스프린트 담당.
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
+        ]
+        - 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
     ],
   ),
 )
 
-#activityList(
+#v(10pt)
+#workExpList(
   header: [
-    == 기타 활동#super[Other Activities]
+    == 학력#super[Educations]
   ],
   (
-    activityEntry(
-      from: datetime(year: 2023, month: 11, day: 17),
-      title: belonging([해커톤 멘토 $and$ 심사위원], [쿠씨톤]),
+    workExpEntry(
+      from: datetime(year: 2018, month: 2, day: 27),
+      to: datetime(year: 2023, month: 2, day: 17),
+      role: "전기전자컴퓨터공학부",
+      organization: "광주과학기술원",
     )[
-      #link("https://kucc.co.kr/")[#text(
-          fill: color.rgb("#1c7ed6"),
-        )[#underline[KUCC]#sub[Korea University Computer Club]]]에서 주최한 2023년 쿠씨톤에서 해커톤
-      멘토 및 심사위원을 맡아 Django, React, Pygame 등을 사용하는 멘티들을 서포트하고, 작품을 심사했습니다.
+      - GIST 전기전자컴퓨터공학부 학사
+        - 심리학 부전공 과정 진행
+    ],
+  ),
+)
+
+#v(10pt)
+#activityList(
+  header: [
+    == 수상 및 기타 활동#super[Award & Other Activities]
+  ],
+  (
+    // activityEntry(
+    //   from: datetime(year: 2022, month: 9, day: 28),
+    //   title: belonging([스피커], [GIST DEV NIGHT]),
+    // )[
+    //   GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 에서 발표하였습니다.
+    //   - #link("https://onedrive.live.com/personal/26d5f0494768fc4b/_layouts/15/Doc.aspx?sourcedoc=%7B6cfb09d6-974c-4702-931d-0ed9845fc60f%7D&action=default&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VkWUotMnhNbHdKSGt4ME8yWVJmeGc4Ql95YmRVT3kwV1B4UExXNnJCd3J5Q2c_ZT1kYzJiOWY&slrid=05e385a1-a040-8000-2d28-52e66d036627&originalPath=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VkWUotMnhNbHdKSGt4ME8yWVJmeGc4Ql95YmRVT3kwV1B4UExXNnJCd3J5Q2c_cnRpbWU9al91VFFOOVgzVWc&CID=c0a6d1fa-d799-4ed3-9d1d-d6aaf85d13e0&_SRM=0:G:36&file=%ec%82%ac%ec%9a%a9%ec%9e%90%eb%a5%bc%20%ec%84%a4%eb%93%9d%ed%95%98%ea%b8%b0_ver2.pptx")[#underline[사용자를 기만하고 조종하기 - 기만적 디자인]]
+    // ],
+    workExpEntry(
+      from: datetime(year: 2018, month: 4, day: 14),
+      to: datetime(year: 2024, month: 2, day: 24),
+      role: "프론트엔드 엔지니어",
+      organization: "GIST 학생회 인포팀",
+    )[
+      지스트 내부의 문제를 개발로서 해결하는 인포팀 소속 프론트엔드 엔지니어로서 다음과 같은 일을 진행하였습니다.
+      - 내부 문서화 담당 및 스프린트 진행 담당
+      - React 및 프론트엔드 자체 스터디
+      - #pad(top: -1em / 4)[
+          #icon("lucide/earth") GISTORY #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
+        ]
+        - GIST 학생을 위한 BBS 커뮤니티. UI / UX 설계, TypeScript, Vite 마이그레이션 진행
     ],
     activityEntry(
-      from: datetime(year: 2022, month: 9, day: 20),
-      title: "NYPC 2022 특별상",
-    )[],
+      from: datetime(year: 2022, month: 10, day: 14),
+      title: belonging([스태프], [GIST DEV NIGHT]),
+    )[
+      GIST 내 개발자를 위한 컨퍼런스 #link(
+        "https://gistnews.co.kr/?p=5929",
+      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영하였습니다.
+      - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 발표 #h(1fr) #tech-chips.vite
+        ]
+    ],
+    activityEntry(
+      from: datetime(year: 2021, month: 11, day: 18),
+      title: belonging(
+        [#link("https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html")[제품/서비스 개발 부분 우수상]],
+        [2021 관광데이터 활용 공모전],
+      ),
+    )[
+      자전거 여행객을 위한 어플리케이션 Wheelie 제작
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          안드로이드 앱, 내부 지도 웹앱 제작 담당 #h(1fr) #tech-chips.react-and-react-native
+        ]
+    ],
+    activityEntry(
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: belonging([AutoCrypt Track 2#super("nd") Winner], [JunctionXSeoul 2021]),
+    )[
+      교통약자를 위한 택시 맞춤 앱 #link(
+        "https://github.com/JunctionX-Seoul-Caffeine/Calmmuter-PPT/blob/main/0AUTO_Caffeine_PPT.pdf",
+      )[#text(fill: color.rgb("#1c7ed6"))[#underline[Calmmuter]]]를 기획
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          시연용 앱 제작 및 회의록 담당 #h(1fr) #tech-chips.react
+        ]
+    ],
   ),
 )
 
@@ -189,76 +272,31 @@
   ],
   (
     activityEntry(
-      from: datetime(year: 2023, month: 10, day: 29),
+      from: datetime(year: 2025, month: 2, day: 22),
       title: pad(top: -1em / 4)[
-        #gh-repo("psl-lang/psl") #h(1fr) #tech-chips.rust
+        #gh-repo("dodok8/Ilots-log") #h(1fr) #tech-chips.bun #tech-chips.svelte
       ],
-    )[ 알고리즘 문제 해결에 활용하기 좋은 프로그래밍 언어를 설계하고 만들었습니다. 간단한 입출력과 사칙 연산, 반복문 및 조건문을 사용할 수
-      있습니다. 컴파일 결과물로 읽기 쉬운 C 코드를 생성합니다. ],
+    )[
+      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템
+      - Bun으로 작성된 위키 크롤러와 Svelte 5로 작성된 웹 앱
+    ],
+    activityEntry(
+      from: datetime(year: 2023, month: 12, day: 24),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/discord-aladin") #h(1fr) #tech-chips.bun #tech-chips.typescript--short
+      ],
+    )[
+      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇
+    ],
     activityEntry(
       from: datetime(year: 2022, month: 8, day: 21),
       title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/crowdin-strife") #h(1fr) #tech-chips.rust #tech-chips.mysql
-      ],
-    )[ Minecraft 번역 커뮤니티 사용자들이 기존 번역 및 외전 게임 텍스트를 쉽게 찾아볼 수 있도록 봇을 제작했습니다 ],
-    activityEntry(
-      from: datetime(year: 2022, month: 1, day: 9),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/measurrred") #h(1fr) #tech-chips.rust
+        #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) #tech-chips.react #tech-chips.vite
       ],
     )[
-      WinAPI를 활용해 작업 표시줄에 CPU 사용량, 남은 배터리 등의 정보를 커스텀 위젯으로 보여줄 수 있는 프로그램을
-      만들었습니다
+      Junction Asia 2022 해커톤 출품작. 메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp을 제작함
+      - 내부 웹앱 제작 담당
     ],
-    activityEntry(
-      from: datetime(year: 2021, month: 12, day: 10),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/bojodog") #h(1fr) #tech-chips.typescript #tech-chips.webpack
-      ],
-    )[ VS Code 안에서 백준 온라인 저지 문제를 확인할 수 있는 간단한 VS Code 확장을 만들었습니다 ],
-    activityEntry(
-      from: datetime(year: 2021, month: 11, day: 27),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/bojoke") #h(1fr) #tech-chips.typescript #tech-chips.vite
-      ],
-    )[ prosemirror를 활용해 백준 온라인 저지의 양식으로 문제 본문을 편집할 수 있는 WYSIWYG 에디터를 구현했습니다 ],
-    activityEntry(
-      from: datetime(year: 2021, month: 1, day: 4),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/rano-lang") #h(1fr) #tech-chips.rust #tech-chips.wasm
-      ],
-    )[ WebAssembly로 컴파일되는 작은 프로그래밍 언어를 만들어 함수 선언 및 호출, if ~ else 문 등을 구현했습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 10, day: 9),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/dalmoori-font") #h(1fr) #tech-chips.typescript
-      ],
-    )[ 한글날을 기념해 현대 한글 11,172자를 전부 지원하는 8 $times$ 8 도트풍 한글 글꼴 '달무리'를 만들었습니다. 현재 산돌 무료
-      폰트 중 하나로 등재되어 있습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 6, day: 21),
-      title: pad(top: -1em / 4)[
-        #gh-repo("solvedac/unofficial-documentation") #h(1fr) #tech-chips.openapi
-      ],
-    )[ 알고리즘 문제풀이 커뮤니티, #link(
-        "https://solved.ac/",
-      )[#icon-solved-ac() #underline[#text(fill: color.rgb("#1c7ed6"))[solved.ac]]]의
-      API를 비공식적으로 OpenAPI 규격에 맞게 문서화했습니다 ],
-    activityEntry(
-      from: datetime(year: 2020, month: 5, day: 13),
-      title: pad(top: -1em / 4)[
-        #link("https://github.com/hanzzok")[#icon("devicon/github", bottom: -1em / 6) hanzzok]
-        #h(1fr)
-        #tech-chips.rust #tech-chips.wasm #tech-chips.typescript #tech-chips.nextjs
-      ],
-    )[ Markdown의 대안으로 쓸 수 있는 마크업 언어를 설계해 HTML로 컴파일하는 Rust 구현체를 작성했습니다. 이후, 해당 구현을
-      WebAssembly로 컴파일해 웹페이지에서 실행하는 놀이터를 만들었습니다. ],
-    activityEntry(
-      from: datetime(year: 2020, month: 4, day: 8),
-      title: pad(top: -1em / 4)[
-        #gh-repo("RanolP/boj") #h(1fr) #tech-chips.typescript #tech-chips.playwright
-      ],
-    )[ 백준 온라인 저지에 문제를 제출하고, 성공 여부를 바탕으로 특정일에 푼 문제 및 사용 언어 통계들을 제공하는 툴체인을 개발했습니다 ],
   ),
 )
 
