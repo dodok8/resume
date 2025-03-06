@@ -15,9 +15,7 @@
         #text(fill: color.rgb("#575049"))[
           #text(weight: 700)[#metadata.name.nickname / #metadata.name.real-korean]
           ---
-          #text(weight: 600, tracking: 1pt)[#metadata.role]
-          \@
-          #text(weight: 600, tracking: 0.5pt)[#metadata.location]
+          #text(weight: 600, tracking: 0.5pt)[#metadata.bio.ko.title]
         ]
       ]
     }
@@ -133,7 +131,7 @@
 
     + 곡 난이도 상세 정보 위키 크롤러 (#gh-repo("dodok8/rotaeno-toolkit"))
     + 유저 곡 점수 입력 후 레이팅 계산 #link("https://ilots-log.pages.dev/scores")[`/scores`]
-    + 레이팅 최고 곡 Best 30 관리 및 차트 제공 및 차트 이미지 다운로드 #link("https://ilots-log.pages.dev/best")[`/best`]
+    + 레이팅 최고 곡 Best 30 관리 및 차트 제공 및 차트 \ 이미지 다운로드 #link("https://ilots-log.pages.dev/best")[`/best`]
     + Best 30 기록에 기반한 레이팅 갱신을 위한 곡 추천 #link("https://ilots-log.pages.dev/report")[`/report`]
     + 구글 드라이브 및 브라우저 로컬 스토리지 점수 백업 기능 #link("https://ilots-log.pages.dev/backup")[`/backup`]
 
@@ -206,12 +204,12 @@
     #align(center)[#text(size: 9pt)[유저의 점수 입력 컴포넌트]]
   ],
   [
-    저장된 정보를 바탕으로 한 Best30 차트 컴포넌트 및 해당 컴포넌트를 이미지로 저장하는 기능이 있습니다. html2Canvas를 활용하여 이미를 저장하는 과정에서 다음과 같은 문제가 있었습니다.
+    저장된 정보를 바탕으로 한 Best30 차트 컴포넌트 및 html2Canvas를 이용하여 해당 컴포넌트를 이미지로 저장하는 기능이 있습니다.
 
     ==== 문제점
 
     - 곡 재킷이 사이트에서는 보이나 html2Canvas를 통해 생성된 이미지에서는 보이지 않음.
-      - 원인: 이미지 원본 사이트의 CORS 설정으로 인해 외부에서 이미지 이용 불가.
+      - 원인: 이미지 원본 사이트의 CORS 설정으로 인한 이용 불가.
   ],
 )
 
@@ -254,7 +252,7 @@
     #align(center)[#text(size: 9pt)[GISTORY 메인페이지]]
   ],
   [
-    GISTORY는 GIST 학생을 위한 BBS 커뮤니티 사이트로, 현재는 유저수 감수를 이유로 폐쇄 되었습니다. 그러나 이때 얻은 기술적 교훈은 문서화 되어 프론트엔드 템플릿 저장소라는 후속 프로젝트로 이어지게 되었습니다.
+    GISTORY는 GIST 학생을 위한 BBS 커뮤니티 사이트로, 현재는 유저수 감수를 이유로 폐쇄 되었습니다. 그러나 이때 얻은 기술적 교훈은 문서화 및 Vite 템플릿으로 구성 되어 후속 프로젝트로 이어지게 되었습니다.
 
     프론트엔드 3명, 백엔드 2명이 참여하여 진행된 팀 프로젝트 였습니다.
 
@@ -291,7 +289,7 @@ GISTORY는 처음에는 CRA로 제작되었던 앱이었습니다. 이에 따라
 - `vite-plugin-checker`: eslint, tsc 경고를 vite 콘솔에 통합
 - `vite-tsconfig-path` : tsconfig에 설정해 놓은 alias를 vite에서 인식하도록 함.
 
-해당 경험은 자료를 정리한 후 지스트 내부 개발자 컨퍼런스에서 발표를 진행하였습니다. (발표자료 저장소: #gh-repo("dodok8/vite-migrate"))
+해당 경험은 자료를 정리한 후 GIST 내부 개발자 컨퍼런스에서 발표를 진행하였습니다. (발표자료 저장소: #gh-repo("dodok8/vite-migrate"))
 
 === 스타일시트 페이지 단위 관리
 
