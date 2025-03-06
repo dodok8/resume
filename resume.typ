@@ -15,9 +15,7 @@
         #text(fill: color.rgb("#575049"))[
           #text(weight: 700)[#metadata.name.nickname / #metadata.name.real-korean]
           ---
-          #text(weight: 600, tracking: 1pt)[#metadata.role]
-          \@
-          #text(weight: 600, tracking: 0.5pt)[#metadata.location]
+          #text(weight: 600, tracking: 0.5pt)[#metadata.bio.ko.title]
         ]
       ]
     }
@@ -153,33 +151,33 @@
           감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
         ]
       - #pad(top: -1em / 4)[
-          데이터셋 감정 분석 및 결과 엑셀 변환 #h(1fr) #tech-chips.python
+          데이터셋 감정 분석 결과 엑셀 입출력력 #h(1fr) #tech-chips.python
         ]
       - #pad(top: -1em / 4)[
           Tkinter를 이용한 GUI 구성 #h(1fr) #tech-chips.python
         ]
     ],
-    workExpEntry(
-      from: datetime(year: 2021, month: 12, day: 18),
-      to: datetime(year: 2023, month: 2, day: 17),
-      role: "학부 인턴",
-      organization: "GIST NetAI Lab",
-      homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
-    )[
-      NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
-      - #pad(top: -1em / 4)[
-          #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
-        ]
-      - #pad(top: -1em / 4, bottom: -1em / 4)[
-          #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
-        ]
-        - 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
-        - 자료 버그 수정 및 형식 최신화. 실습 진행 및 오류 수정 스프린트 담당.
-      - #pad(top: -1em / 4, bottom: -1em / 4)[
-          #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
-        ]
-        - 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
-    ],
+    //   workExpEntry(
+    //     from: datetime(year: 2021, month: 12, day: 18),
+    //     to: datetime(year: 2023, month: 2, day: 17),
+    //     role: "학부 인턴",
+    //     organization: "GIST NetAI Lab",
+    //     homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+    //   )[
+    //     NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
+    //     - #pad(top: -1em / 4)[
+    //         #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
+    //       ]
+    //     - #pad(top: -1em / 4, bottom: -1em / 4)[
+    //         #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
+    //       ]
+    //       - 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
+    //       - IOT 랩 자료 버그 수정 및 형식 최신화. 실습 진행 및 오류 수정 스프린트 담당.
+    //     - #pad(top: -1em / 4, bottom: -1em / 4)[
+    //         #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
+    //       ]
+    //       - 기존 자료 버그 수정 및 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
+    //   ],
   ),
 )
 
@@ -214,6 +212,27 @@
     //   GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 에서 발표하였습니다.
     //   - #link("https://onedrive.live.com/personal/26d5f0494768fc4b/_layouts/15/Doc.aspx?sourcedoc=%7B6cfb09d6-974c-4702-931d-0ed9845fc60f%7D&action=default&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VkWUotMnhNbHdKSGt4ME8yWVJmeGc4Ql95YmRVT3kwV1B4UExXNnJCd3J5Q2c_ZT1kYzJiOWY&slrid=05e385a1-a040-8000-2d28-52e66d036627&originalPath=aHR0cHM6Ly8xZHJ2Lm1zL3AvYy8yNmQ1ZjA0OTQ3NjhmYzRiL0VkWUotMnhNbHdKSGt4ME8yWVJmeGc4Ql95YmRVT3kwV1B4UExXNnJCd3J5Q2c_cnRpbWU9al91VFFOOVgzVWc&CID=c0a6d1fa-d799-4ed3-9d1d-d6aaf85d13e0&_SRM=0:G:36&file=%ec%82%ac%ec%9a%a9%ec%9e%90%eb%a5%bc%20%ec%84%a4%eb%93%9d%ed%95%98%ea%b8%b0_ver2.pptx")[#underline[사용자를 기만하고 조종하기 - 기만적 디자인]]
     // ],
+    workExpEntry(
+      from: datetime(year: 2021, month: 12, day: 18),
+      to: datetime(year: 2023, month: 2, day: 17),
+      role: "학부 인턴",
+      organization: "GIST NetAI Lab",
+      homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+    )[
+      NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
+      - #pad(top: -1em / 4)[
+          #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
+        ]
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
+        ]
+        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
+        - 자료 버그 수정 및 형식 최신화. 실습 진행 및 오류 수정 스프린트 담당.
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
+        ]
+        - 기존 자료 버그 수정 및 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
+    ],
     workExpEntry(
       from: datetime(year: 2018, month: 4, day: 14),
       to: datetime(year: 2024, month: 2, day: 24),
