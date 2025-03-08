@@ -72,14 +72,15 @@
       row-gutter: 8pt,
       [#icon("lucide/mail") *전자 우편#super[Mailbox]*], link("mailto:" + metadata.email)[#metadata.email],
       [#icon("lucide/phone") *전화#super[Phone]*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
+      [#icon("devicon/github") *GitHub*],
+      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
     ),
     grid(
       columns: (auto, 1fr),
       column-gutter: 16pt,
       row-gutter: 8pt,
-      [#icon("devicon/github") *GitHub*],
-      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
-
+      [#icon("lucide/house") *주소#super[address]*], metadata.address,
+      [#icon("lucide/calendar") *생년월일#super[birthday]*], "1999. 04. 04"
       // [#icon("logos/twitter") *Twitter*],
       // link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
 
@@ -90,7 +91,6 @@
     ),
   )
 }
-
 
 #text(size: 14pt, weight: 400)[
   #set par(leading: 8pt)
@@ -151,7 +151,7 @@
           감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
         ]
       - #pad(top: -1em / 4)[
-          데이터셋 감정 분석 결과 엑셀 입출력력 #h(1fr) #tech-chips.python
+          데이터셋 감정 분석 결과 엑셀 입출력 #h(1fr) #tech-chips.python
         ]
       - #pad(top: -1em / 4)[
           Tkinter를 이용한 GUI 구성 #h(1fr) #tech-chips.python
