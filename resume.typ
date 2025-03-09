@@ -80,7 +80,7 @@
       column-gutter: 16pt,
       row-gutter: 8pt,
       [#icon("lucide/house") *주소#super[address]*], metadata.address,
-      [#icon("lucide/calendar") *생년월일#super[birthday]*], "1999. 04. 04"
+      [#icon("lucide/calendar") *생년월일#super[birthday]*], metadata.birthday
       // [#icon("logos/twitter") *Twitter*],
       // link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
 
@@ -321,20 +321,11 @@
 
 == 오픈소스 기여#super[Open Source Contributions]
 
-#for (url,) in metadata.oss-contribs {
-  gh-pull-req(url)
-}
-#{
-  let pulls = metadata.oss-contribs.map(((url,)) => gh-pull(url))
-  let groups = pulls.map(pull => pull.nameWithOwner).dedup()
-  for group in groups.filter(group => group != none) {
-    [
-      - #gh-repo(group)
-        #for pull in pulls.filter(pull => pull.nameWithOwner == group) {
-          [
-            - #gh-pull-rich(pull)
-          ]
-        }
-    ]
-  }
-}
+- #gh-pull-rich(gh-pull("https://github.com/fabian-hiller/valibot/pull/429"))
+  #pad(left: 1em)[Schema 검증 라이브러리]
+
+- #gh-pull-rich(gh-pull("https://github.com/httptoolkit/brotli-wasm/pull/29"))
+  #pad(left: 1em)[package.json의 잘못된 타입 설정 수정]
+
+- #gh-pull-rich(gh-pull("https://github.com/velopert/velog-client/pull/477"))
+  #pad(left: 1em)[글등록에 장애를 일으키는 쿼리 오타 수정]
