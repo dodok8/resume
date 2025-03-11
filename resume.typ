@@ -146,12 +146,12 @@
       role: "해군 빅데이터 분석병",
       organization: "계근단 본부대대",
     )[
-      군 복무 중 해군 빅데이터 분석병으로서 다음과 같은 프로그래밍 업무를 수행했습니다. \
-      - #pad(top: -1em / 4)[
-          감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
-        ]
+      군 복무 중 해군 빅데이터 분석병으로서 업무 진행. \
       - #pad(top: -1em / 4)[
           데이터셋 감정 분석 결과 엑셀 입출력 #h(1fr) #tech-chips.python
+        ]
+      - #pad(top: -1em / 4)[
+          감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
         ]
       - #pad(top: -1em / 4)[
           Tkinter를 이용한 GUI 구성 #h(1fr) #tech-chips.python
@@ -194,7 +194,7 @@
       organization: "광주과학기술원",
     )[
       - GIST 전기전자컴퓨터공학부 학사
-        - 심리학 부전공 과정 진행
+        - 심리학 부전공 과정 수료
     ],
   ),
 )
@@ -219,19 +219,16 @@
       organization: "GIST NetAI Lab",
       homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
     )[
-      NetAI 랩 학부 인턴으로서 다음과 같은 업무를 진행하였습니다.
+      NetAI 랩 학부 인턴으로서 업무 진행.
       - #pad(top: -1em / 4)[
           #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
         ]
-      - #pad(top: -1em / 4, bottom: -1em / 4)[
-          #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
+      - #pad(top: -1em / 4)[
+          IOT 웹 및 네트워크 인프라 실험 수업 조교. #h(1fr) #tech-chips.github #tech-chips.docker
         ]
-        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
-        - 자료 버그 수정 및 형식 최신화. 실습 진행 및 오류 수정 스프린트 담당.
       - #pad(top: -1em / 4, bottom: -1em / 4)[
-          #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
+          고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행 #h(1fr) #tech-chips.python
         ]
-        - 기존 자료 버그 수정 및 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
     ],
     workExpEntry(
       from: datetime(year: 2018, month: 4, day: 14),
@@ -239,13 +236,15 @@
       role: "프론트엔드 엔지니어",
       organization: "GIST 학생회 인포팀",
     )[
-      지스트 내부의 문제를 개발로서 해결하는 인포팀 소속 프론트엔드 엔지니어로서 다음과 같은 일을 진행하였습니다.
+      지스트 학생 개발팀 인포팀 소속 프론트엔드 엔지니어로서 다음 업무 진행.
       - 내부 문서화 담당 및 스프린트 진행 담당
       - React 및 프론트엔드 자체 스터디
       - #pad(top: -1em / 4)[
-          #icon("lucide/earth") GISTORY #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
+          GISTORY: GIST 학생을 위한 BBS 커뮤니티 제작 #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
         ]
-        - GIST 학생을 위한 BBS 커뮤니티. UI / UX 설계, TypeScript, Vite 마이그레이션 진행
+      - #pad(top: -1em / 4)[
+          프론트엔드 템플릿: 빠른 프론트엔드 앱 제작을 위한 템플릿 세팅 #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
+        ]
     ],
     activityEntry(
       from: datetime(year: 2022, month: 10, day: 14),
@@ -253,7 +252,7 @@
     )[
       GIST 내 개발자를 위한 컨퍼런스 #link(
         "https://gistnews.co.kr/?p=5929",
-      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영하였습니다.
+      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영.
       - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
       - #pad(top: -1em / 4, bottom: -1em / 4)[
           #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 발표 #h(1fr) #tech-chips.vite
@@ -297,7 +296,6 @@
       ],
     )[
       리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템
-      - Bun으로 작성된 위키 크롤러와 Svelte 5로 작성된 웹 앱
     ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 24),
@@ -313,19 +311,12 @@
         #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) #tech-chips.react #tech-chips.vite
       ],
     )[
-      Junction Asia 2022 해커톤 출품작. 메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp을 제작함
-      - 내부 웹앱 제작 담당
+      메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp 내부 웹 앱. Junction Asia 2022 해커톤 출품작.
     ],
   ),
 )
 
 == 오픈소스 기여#super[Open Source Contributions]
 
-- #gh-pull-rich(gh-pull("https://github.com/fabian-hiller/valibot/pull/429"))
-  #pad(left: 1em)[Schema 검증 라이브러리]
-
-- #gh-pull-rich(gh-pull("https://github.com/httptoolkit/brotli-wasm/pull/29"))
-  #pad(left: 1em)[package.json의 잘못된 타입 설정 수정]
-
-- #gh-pull-rich(gh-pull("https://github.com/velopert/velog-client/pull/477"))
-  #pad(left: 1em)[글등록에 장애를 일으키는 쿼리 오타 수정]
+- #gh-repo("velopert/velog-client") #link("https://github.com/velopert/velog-client/pull/477")[PR \#477 Fix post.ts 쿼리 오타]
+  #pad(left: 1em)[2023.12.26 - 2023.12.29. 에 존재한 글 등록 오류 해결]

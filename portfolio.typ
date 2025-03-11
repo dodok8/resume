@@ -54,6 +54,7 @@
 )
 #set text(font: "Pretendard", features: ("ss06",), fallback: true)
 #show heading: set text(size: 16pt)
+
 = #text(size: 32pt)[#metadata.name.nickname / #metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 #text(size: 12pt)[
   #text(weight: 900, tracking: 2pt)[#metadata.role]
@@ -71,14 +72,15 @@
       row-gutter: 8pt,
       [#icon("lucide/mail") *전자 우편#super[Mailbox]*], link("mailto:" + metadata.email)[#metadata.email],
       [#icon("lucide/phone") *전화#super[Phone]*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
+      [#icon("devicon/github") *GitHub*],
+      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
     ),
     grid(
       columns: (auto, 1fr),
       column-gutter: 16pt,
       row-gutter: 8pt,
-      [#icon("devicon/github") *GitHub*],
-      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
-
+      [#icon("lucide/house") *주소#super[address]*], metadata.address,
+      [#icon("lucide/calendar") *생년월일#super[birthday]*], metadata.birthday
       // [#icon("logos/twitter") *Twitter*],
       // link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
 
@@ -98,240 +100,284 @@
   #metadata.bio.ko.title \ #text(size: 10pt)[#metadata.bio.ko.body]
 ]
 
-#text(size: 16pt, weight: 400)[
-  #text(size: 16pt, weight: 900)[
-    포트폴리오 #sym.dash.em #text(tracking: 2pt)[Portfolio]
-  ]
-]
+#line(length: 100%, stroke: 0.75pt)
 
 
-#show heading: it => {
-  set text(size: 20pt - ((it.level - 1) * 2pt))
-  it
-}
-#show figure: it => pad(y: 10pt, it)
+// #box(inset: (left: 8pt, top: 4pt))[
+//   #align(center)[
+//     #for row in (
+//       (
+//         tech-list.typescript--short,
+//         tech-list.javascript--short,
+//         tech-list.html,
+//         tech-list.css,
+//         tech-list.react-and-react-native,
+//         tech-list.svelte,
+//         tech-list.vite,
+//         tech-list.bun,
+//       ),
+//       (
+//         tech-list.rust,
+//         tech-list.python,
+//         tech-list.docker,
+//         tech-list.wasm,
+//         tech-list.git,
+//         tech-list.github,
+//         tech-list.github-actions,
+//       ),
+//     ) {
+//       set text(size: 8pt)
+//       enumerate(row.map(tech => (icon(tech.icon, size: 16pt, bottom: 0pt), tech.label)))
+//     }
+//   ]
+// ]
 
-== #pad(top: -1em / 4)[
-  #gh-repo("dodok8/Ilots-log")#super[제작기간: 2025.02] #h(1fr) #tech-chips.bun #tech-chips.typescript #tech-chips.svelte
-]
+// #line(length: 100%, stroke: 0.75pt)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 10pt,
-  [
-    #figure(
-      image("./images/ilots-log_main.png", height: 20%),
-      caption: [
-        이로의 로그 메인 페이지\ (https://ilots-log.pages.dev)
+#workExpList(
+  header: [
+    == 경력#super[Work Experiences]
+
+    특정 집단 소속으로 진행한 프로젝트들입니다.
+  ],
+  (
+    workExpEntry(
+      from: datetime(year: 2023, month: 6, day: 5),
+      to: datetime(year: 2025, month: 2, day: 4),
+      role: "해군 빅데이터 분석병",
+      organization: "계근단 본부대대",
+    )[
+      군 복무 중 수행한 프로젝트입니다. \
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) #tech-chips.python #tech-chips.html #tech-chips.css
+        ]
+        - 감정 분석 결과를 사용자가 다루기 익숙한 UI인 챗봇 형태로 Streamlit 을 이용하여 구현
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          데이터셋 감정 분석 결과 엑셀 입출력 #h(1fr) #tech-chips.python
+        ]
+        - openpyxl을 이용하여 엑셀로 입출력이 가능하도록 웹 클라이언트 개선
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          Tkinter를 이용한 GUI 구성 #h(1fr) #tech-chips.python
+        ]
+        - Tkinter 를 이용하여 간단한 물리 시뮬레이션 구현
+    ],
+    workExpEntry(
+      from: datetime(year: 2021, month: 12, day: 18),
+      to: datetime(year: 2023, month: 2, day: 17),
+      role: "학부 인턴",
+      organization: "GIST NetAI Lab",
+      homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+    )[
+      NetAI 랩 학부 인턴으로서 진행한 프로젝트입니다.
+      - #pad(top: -1em / 4)[
+          #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
+        ]
+        - 엣지 컴퓨팅 환경에서 스냅샷 전송
+        - Rust 로 작성된 wasm 앱을 이용하여 엣지 단에서 일부 자료를 삭제하는 비식별화 구현
+
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
+        ]
+        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
+        - Inter Connect Lab 메인 조교 담당
+          - 라즈베리 파이와 본 PC 사이에 Kafka 를 이용한 연결을 만드는 InterConnect Lab 실습 진행
+        - 자료 버그 수정 및 Git 과 markdown 으로 교육자료 변경 사항 추적 및 관리
+        - deprecated 될 내용은 미리 표시하여 다음 년도 교육자료 제작과 연계
+
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) #tech-chips.python
+        ]
+        - 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
+    ],
+  ),
+)
+
+#pagebreak()
+
+
+#workExpList(
+  header: [
+    == 경력#super[Work Experiences]
+  ],
+  (
+    workExpEntry(
+      from: datetime(year: 2018, month: 4, day: 14),
+      to: datetime(year: 2023, month: 2, day: 24),
+      role: "프론트엔드 엔지니어",
+      organization: "GIST 학생회 인포팀",
+    )[
+      지스트 내부의 문제를 개발로서 해결하는 인포팀 소속으로서 진행한 프로젝트입니다.
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          GISTORY #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
+        ]
+        - GIST 학생을 위한 리액트 기반 BBS 커뮤니티
+        - 주요 기여
+          - UI/UX 설계
+          - Vite 마이그레이션
+            - 기존 CRA 대비 배포 시간 41% 감소
+          - Redux 기반 상태 관리.
+          - TypeScript 마이그레이션
+
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          프론트엔드 템플릿 저장소 #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
+        ]
+        - GISTORY 제작 이후, GISTORY를 반면교사 삼아 최적의 세팅을 공유하기 위한 저장소
+        - 주요 기여
+          - GISTORY 문제점 분석 및 템플릿 방향 조율
+          - Yarn TS 플러그인 세팅
+    ],
+  ),
+)
+
+#v(10pt)
+#activityList(
+  header: [
+    == 프로그래밍 프로젝트#super[Programming Projects]
+  ],
+  (
+    activityEntry(
+      from: datetime(year: 2025, month: 2, day: 22),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/Ilots-log") #h(1fr) #tech-chips.bun #tech-chips.svelte
       ],
-    )
-  ],
-  [
-    이로의 로그(ilot's log)는 리듬게임 로테이노(Rotaeno) 유저를 위한 웹 서비스입니다. 1인 개발로 진행되었으며, 다음 기능을 제공합니다.
+    )[
+      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템. 1인 개발.
 
-    + 곡 난이도 상세 정보 위키 크롤러 (#gh-repo("dodok8/rotaeno-toolkit"))
-    + 유저 곡 점수 입력 후 레이팅 계산 #link("https://ilots-log.pages.dev/scores")[`/scores`]
-    + 레이팅 최고 곡 Best 30 관리 및 차트 제공 및 차트 \ 이미지 다운로드 #link("https://ilots-log.pages.dev/best")[`/best`]
-    + Best 30 기록에 기반한 레이팅 갱신을 위한 곡 추천 #link("https://ilots-log.pages.dev/report")[`/report`]
-    + 구글 드라이브 및 브라우저 로컬 스토리지 점수 백업 기능 #link("https://ilots-log.pages.dev/backup")[`/backup`]
+      - URL: https://Ilots-log.pages.dev
+      - 주요 기능
+        - 유저 점수 입력 후 레이팅 계산
+        - Best 30 차트 및 차트 이미지 다운로드
+        - 기록 갱신 곡 추천 기능
+        - 구글 드라이브 백업 기능
 
-  ],
+      - Class Rune 을 이용한 상태관리
+        - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
+        - Google Drive 연동 코드 단순화
+      - 이미지 프록시 사용으로 베스트30 차트 제작 단순화 및 용량 최적화.
+    ],
+    activityEntry(
+      from: datetime(year: 2023, month: 12, day: 24),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/discord-aladin") #h(1fr) #tech-chips.bun #tech-chips.typescript--short
+      ],
+    )[
+      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇. 1인 개발.
+
+      - 주요 기능
+        - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 가능
+        - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
+        - user install 형태로 서버에 상관없이 이용가능.
+    ],
+    // activityEntry(
+    //   from: datetime(year: 2022, month: 8, day: 21),
+    //   title: pad(top: -1em / 4)[
+    //     #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) #tech-chips.react #tech-chips.vite
+    //   ],
+    // )[
+    //   Junction Asia 2022 해커톤 출품작. 메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp을 제작함
+    //   - 내부 웹앱 제작 담당
+    // ],
+    activityEntry(
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: pad(top: -1em / 4)[
+        #gh-repo("Pedalers/wheelie-ts-android") #h(1fr) #tech-chips.bun #tech-chips.typescript--short
+      ],
+    )[
+      - 자전거 여행객을 위한 관광 플랫폼 Wheelie 제작. 팀 프로젝트(프론트엔드 엔지니어로 참여)
+
+      - 주요 기능
+        - 자전거 여행에 적합한 여행지 정보 제공
+        - 여행지 주변 지도 및 관광정보 제공
+
+      - 주요 기여
+        - React Navigation 을 통한 화면 설계
+        - Redux 기반 상태 관리.
+    ],
+  ),
 )
 
-=== 곡 난이도 상세 정보 위키 크롤러(#gh-repo("dodok8/rotaeno-toolkit"))
-==== 위키 데이터 크롤링의 문제점
-리듬게임 레이팅 정보를 정확하게 계산하기 위해 필요한 데이터를 위키에서 크롤링 하였습니다. 이 과정에서 많은 예외 케이스를 발견하였습니다.
-
-- 일반적으로 곡당 4개 난이도 제공, 하지만 5개 난이도 제공 곡들도 존재
-- 여러 언어로 제목 지원하는 경우 다양한 변형 발생
-- 일관되지 않은 표 구조와 형식
-
-==== 해결책: TDD, #tech-chips.typescript, #tech-chips.bun
-
-- TDD 도입
-  - 엣지 케이스 별로 테스트 먼저 작성: 점진적으로 파서 확장 가능
-    - 소스 코드를 확장한 이후 기존 기능에 미치는 영향 확인 가능
-    - 테스트 결과를 통해 누락된 데이터를 확인하며 단계적으로 구현, 지속적인 피드백 가능.
-- TypeScript 도입
-  - 만들어진 웹 앱에 동일한 스키마를 활용 가능
-  - 데이터가 정해진 스키마를 벗어날 경우 IDE 경고 활용 가능
-- Bun 도입
-  - Test 세팅이 별도로 필요 없고, TypeScript 이 별도로 필요 없으며, 빠른 fetch를 제공 및 node.js 모듈과 호환되기에 가장 최적의 런타임이었음.
-  - 가장 단순한 세팅으로 구현에만 집중 가능.
-
-=== 웹 앱 곡 상태 관리(`/scores`)
-
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 10pt,
-  [
-    #image("./images/ilots-log_songcard.png", width: 100%)
-    #align(center)[#text(size: 9pt)[유저의 점수 입력 컴포넌트]]
+#v(10pt)
+#activityList(
+  header: [
+    == 커뮤니티 프로젝트#super[Community Projects]
   ],
-  [
-    로테이노에는 약 260 곡이 있으며, 각 곡마다 최소 4개의 난이도가 존재합니다. 이 값들은 아래 과정을 거쳐서 최종적으로 유저 레이팅으로 계산됩니다.
-
-    - 유저가 입력한 점수 데이터와 상수 데이터를 이용해 곡별 레이팅 점수를 계산
-    - 상위 레이팅 30 곡을 `getBest30()`를 통해 선정
-    - 상위 10곡에 가중치를 더 주는 평균을 계산해서(`getBest30Average()`) 유저 종합 레이팅 계산
-
-    이 상태 관리에서 아래와 같은 문제점이 있었습니다.
-  ],
+  (
+    activityEntry(
+      from: datetime(year: 2022, month: 10, day: 14),
+      title: belonging([스태프], [GIST DEV NIGHT]),
+    )[
+      GIST 내 개발자를 위한 컨퍼런스 #link(
+        "https://gistnews.co.kr/?p=5929",
+      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영.
+      - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
+      - #pad(top: -1em / 4, bottom: -1em / 4)[
+          #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 발표 #h(1fr) #tech-chips.vite
+        ]
+    ],
+  ),
 )
 
-==== 문제점
-
-- 1000여 개의 유저의 점수 입력 정보를 저장해야함. (새로고침에서도 값이 유지되어야 함.)
-- 해당 정보에서 유도되는 상황이 존재하여 로직이 복잡함
-- 위의 정보들은 웹 앱 전체에서 쓰이는 정보임.
-- Svelte 4 에서는 store를 통해 해결이 가능하지만, 값을 업데이트하는 코드가 복잡해짐.
-
-==== 해결책: #tech-chips.svelte Rune
-
-- Svelte 5에 도입된 Rune 사용
-  - 여러 파일에서 사용 가능
-  - 값 변화시 그 값이 사용되는 곳에서만 갱신 되며, store와 달리 일반적인 값처럼 사용 가능
-  - 원래 값(`$state`)와 유도되는 값(`$derived`)도 클래스를 통해 하나로 묶어서 관리가 가능
-    - 로컬스토리지 저장 같은 관련 로직을 메소드로 정리 가능하여 응집성 증가.
-
-=== 레이팅 최고 곡 Best 30 관리 및 차트 제공 및 차트 이미지 다운로드 (`/best`)
-
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 10pt,
-  [
-    #align(center)[#image("./images/ilots-log_best30.png", width: 80%)]
-    #align(center)[#text(size: 9pt)[유저의 점수 입력 컴포넌트]]
+#v(10pt)
+#activityList(
+  header: [
+    == 수상#super[Awards]
   ],
-  [
-    저장된 정보를 바탕으로 한 Best30 차트 컴포넌트 및 html2Canvas를 이용하여 해당 컴포넌트를 이미지로 저장하는 기능이 있습니다.
-
-    ==== 문제점
-
-    - 곡 재킷이 사이트에서는 보이나 html2Canvas를 통해 생성된 이미지에서는 보이지 않음.
-      - 원인: 이미지 원본 사이트의 CORS 설정으로 인한 이용 불가.
-  ],
-)
-
-==== 해결책: 프록시 서버
-
-해결 방법으로 생각한 것은 두 가지 였습니다.
-
-- 앨범 아트 애셋을 웹 앱에 포함 : 전체 260여 곡 중에서 이미지 차트에 활용되는 것은 최대 30 곡이므로 용량에 낭비 발생
-- *프록시 서버 사용*: 필요한 이미지에 대해서만 적용 가능. 무료 서비스를 제공하는 https://images.weserv.nl/ 를 사용하기로 결정.
-
-이미지 프록시 서버 적용 이후에 html2Canvas에서 만들어진 이미지에서도 곡 재킷이 정상적으로 표시되었습니다.
-
-=== Google Drive 코드의 문제
-
-이로의 로그에서는 안정적인 점수 정보 저장 및 공유를 위해 구글 드라이브와 연동을 제공했습니다. 구글 드라이브와 연동을 위한 라이브러리는 CDN을 사용해야 했습니다.
-
-==== 문제점
-
-- 컴포넌트가 CDN 로드 후 작동하도록 하기 위해 컴포넌트의 마운트 시점에 해당 CDN 태그를 작성하는 하도록 함.
-  - CDN을 통한 구글 드라이브 클라이언트 초기화 과정이 복잡해짐
-  - 클라이언트 객체 생성을 페이지 렌더링마다 반복하는 비효율성
-
-==== 해결책: #tech-chips.svelte Rune
-
-- 클라이언트 객체는 `$state` 를 통해 하나만 생성하고, 클래스로 묶어서 관리하며 한 객체와 그 메소드를 통해서만 접근할 것
-- 위 객체의 `isInitialized`를 확인하여 해당 컴포넌트 및 로딩 컴포넌트 렌더링을 결정할 것
-- CDN 코드의 로드는 `onload` 이벤트와 그와 연동되는 상태를 통해 확인하고, `<svelte:head />` 태그를 이용해 필요한 페이지에서만 CDN 태그를 불러올 것.
-
-이렇게 함으로서 구글 드라이브와 관련된 코드의 위치를 하나로 통일해 응집성을 높였으며, 불필요한 페이지에서 해당 CDN에 로드되지 않도록 하였고, 백업 버튼 컴포넌트의 안전한 실행을 보장하도록 하였습니다.
-
-== #pad(top: -1em / 4)[
-  #icon("lucide/earth") GISTORY #super[제작기간: 2020.07 - 2022.11] #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
-]
-
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 10pt,
-  [
-    #align(center)[#image("./images/gistory_main.png", width: 80%)]
-    #align(center)[#text(size: 9pt)[GISTORY 메인페이지]]
-  ],
-  [
-    GISTORY는 GIST 학생을 위한 BBS 커뮤니티 사이트로, 현재는 유저수 감수를 이유로 폐쇄 되었습니다. 그러나 이때 얻은 기술적 교훈은 문서화 및 Vite 템플릿으로 구성 되어 후속 프로젝트로 이어지게 되었습니다.
-
-    프론트엔드 3명, 백엔드 2명이 참여하여 진행된 팀 프로젝트 였습니다.
-
-    해당 사이트의 기능은 다음과 같습니다.
-    - RBAC 기반 유저 역할 제어
-    - 유저 정보 수정 페이지
-    - 전공 및 주제별 게시판 및 글쓰기 페이지
-    - 게시물 검색
-    - 학사일정
-  ],
+  (
+    activityEntry(
+      from: datetime(year: 2021, month: 11, day: 18),
+      title: belonging(
+        [#link("https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html")[제품/서비스 개발 부분 우수상]],
+        [2021 관광데이터 활용 공모전],
+      ),
+    )[
+      - 자전거 여행객 플랫폼 Wheelie
+    ],
+    activityEntry(
+      from: datetime(year: 2021, month: 7, day: 23),
+      title: belonging([AutoCrypt Track 2#super("nd") Winner], [JunctionXSeoul 2021]),
+    )[
+      - 교통 약자를 위한 택시앱 Calmmuter
+    ],
+  ),
 )
 
 
+#v(10pt)
+== 오픈소스 기여#super[Open Source Contributions]
 
-제작 과정 중에 제가 담당한 역할은 다음과 같습니다.
-- 기본적인 디자인 및 UX 설계
-- 개인정보 수정 페이지
-- Vite 마이그레이션
-- TypeScript 마이그레이션
+// - #gh-pull-rich(gh-pull("https://github.com/fabian-hiller/valibot/pull/429"))
+//   #pad(left: 1em)[Schema 검증 라이브러리]
 
-=== Vite 마이그레이션
+- #gh-repo("brotli-wams") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
+    PR \#29 Fix Error(#28) in exports field in package.json
+  ]
+  #pad(left: 1em)[
+    - package.json의 더 이상 지원되지 않는 type field 로 인한 타입 인식 에러
+    - 지원 안되는 타입 필드 대신, 새 형식에 맞춘 타입 필드를 추가하여 해결.
+  ]
 
-==== 문제점
-GISTORY는 처음에는 CRA로 제작되었던 앱이었습니다. 이에 따라 다음 문제점이 발생하였습니다.
+- #gh-repo("velopert/velog-client") #link("https://github.com/velopert/velog-client/pull/477")[PR \#477 Fix post.ts 쿼리 오타]
+  #pad(left: 1em)[
+    - 블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 등록 불가 오류 발생
+    - 해당 원인인 잘못된 쿼리를 찾아 수정
+  ]
 
-- Webpack의 설정이 블랙박스여서 빌드 설정을 건드리기 힘듬
-- 컴포넌트 수가 늘어남에 따라 개발 서버의 속도가 매우 느려짐.
 
-==== 해결책
+#v(10pt)
+== 기술#super[Skills]
 
-해당 문제점은 CRA 대신 Vite로 전환하면서 해결했습니다. 이 과정에서 다음 설정들을 적용하였습니다.
-
-- `vite-plugin-svgr`: CRA에서 처럼 SVG 파일을 컴포넌트로 불러오게 하기
-- `vite-plugin-checker`: eslint, tsc 경고를 vite 콘솔에 통합
-- `vite-tsconfig-path` : tsconfig에 설정해 놓은 alias를 vite에서 인식하도록 함.
-
-해당 경험은 자료를 정리한 후 GIST 내부 개발자 컨퍼런스에서 발표를 진행하였습니다. (발표자료 저장소: #gh-repo("dodok8/vite-migrate"))
-
-=== 스타일시트 페이지 단위 관리
-
-==== 문제점
-
-스타일 시트를 효율적으로 구성하기 위해 SCSS를 사용했습니다. 그러나 nest 기능 및 일부 변수화를 제외하면 제대로 활용하지 못했습니다.
-
-- 모든 스타일 시트를 페이지 및 커다란 컴포넌트 단위로 별도 폴더에서 관리
-  - 작은 컴포넌트 하나의 스타일을 바꿀 때에도 수정 범위가 증가함.
-  - 마크업 코드와 스타일 코드가 떨어져 있어 응집도가 낮아 수정하기 불편함.
-  - 컴포넌트가 많은 회원정보 수정 페이지의 경우 페이지 시트의 길이가 엄청나게 길어짐.
-
-==== 해결책
-
-- 이후 프로젝트에서는 스타일 시트와 마크업 코드 사이의 응집도를 늘리기로 하였음.
-  - 이를 위해 styled-component와 같은 CSS-in-JS 방식을 선택
-
-=== 리덕스 스토어의 잘못된 연결
-
-==== 문제점
-
-공유되는 상태 관리를 위해 Redux와 Redux Saga를 사용하였으나, 다음과 같은 문제를 겪었습니다.
-
-- `useSelector` 훅 대신 Connector 패턴 사용.
-- 필요한 곳에서 스토어와 연결하는 대신 페이지 단위에서 스토어와 연결 후 prop으로 내려줌.
-  - 결과적으로 컴포넌트가 복잡해지고 prop이 많아졌으며, 재렌더링이 빈번해짐.
-
-==== 해결책
-
-- 상태공유 라이브러리의 사용 줄이기: 단순한 비동기 처리 및 데이터 fetch의 경우 react-query(현 tanstack-query) 같은 라이브러리를 사용함
-- 응집성 증가: Redux와 같은 상태 공유 라이브러리를 쓸 때도 해당 상태가 필요한 곳에서 불러오도록 변경
-
-=== TypeScript 전환
-
-==== 문제점
-
-- 위의 잘못된 리덕스 사용문제와 맞물려 하나의 컴포넌트가 매우 많은 props을 요구했음.
-  - 타입스크립트 타입으로 표현하는 데 어려움을 겪음.
-- 데이터의 로드 상태를 boolean이나 Promise로 관리하는 대신에 string 값과 undefined로 관리함.
-  - 체크하는 코드 작성도 길어졌으며, TypeScript 타입으로 해당 내용을 표현하는데 어려움을 겪었음.
-
-==== 해결책
-
-- 컴포넌트의 Prop이 무분별 하게 늘어나지 않도록 컴포넌트를 적당한 크기로 나누고, 합성 타입을 활용하도록 변경
-- 데이터의 로딩 상태를 따로 값으로 알아야 할때는 boolean을 사용하도록 설계 변경
+- #tech-chips.react-and-react-native
+  - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험.
+  - Redux 를 통한 상태관리에 능숙함.
+- #tech-chips.svelte
+  - 라이브 서비스 중인 웹 앱 개발 경험
+  - Svelte 5에 도입된 Rune 에 능숙
+- #tech-chips.bun
+  - Bun 테스트 러너 기반 테스트 스크립트 작성 경험
+  - TS 기반 앱 작성 및 배포 경험.
+- #tech-chips.python
+  - Tkinter를 통한 GUI 앱 제작 가능
+  - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙.
+- #tech-chips.git, #tech-chips.github, #tech-chips.github-actions
+  - Git과 GitHub 을 이용한 프로젝트 관리에 능숙
+  - GitHub Actions를 이용한 배포 자동화 경험
