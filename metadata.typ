@@ -18,7 +18,7 @@
   location: "대한민국 전남 여수시",
   address: "대한민국 전남 여수시 여문2로 110 104동 706호",
   birthday: "1999.04.04",
-  email: "me@gaebalgom.zip",
+  email: "dodok8@gmail.com",
   phone: ("+82", "10", "2674", "9189"),
   social: (github: "dodok8", twitter: "gaebalgom", solved-ac: "dodo8"),
   oss-contribs: (
