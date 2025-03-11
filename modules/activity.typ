@@ -47,14 +47,17 @@
                 }
                 #if type(to) == "datetime" {
                   [
-                    \~
+                    #text(size: 6pt, weight: 600)[
+                      \
+                      \~
+                      \
+                    ]
                     #if to != datetime.today() {
                       to.display("[year].[month]")
                     } else {
                       "Present"
                     } \
-                    #text(size: 8pt)[약 #formatDuration(to - from)
-                    ]
+                    #text(size: 8pt)[#formatDuration(to - from)]
                   ]
                 }
               ]
