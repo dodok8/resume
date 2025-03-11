@@ -378,6 +378,6 @@
 - #tech-chips.python
   - Tkinter를 통한 GUI 앱 제작 가능
   - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙
-- #tech-chips.git, #tech-chips.github, #tech-chips.github-actions
+- #tech-chips.git #tech-chips.github #tech-chips.github-actions
   - Git과 GitHub 을 이용한 프로젝트 관리에 능숙
   - GitHub Actions를 이용한 배포 자동화 경험
