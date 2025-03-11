@@ -146,7 +146,7 @@
       role: "해군 빅데이터 분석병",
       organization: "계근단 본부대대",
     )[
-      군 복무 중 해군 빅데이터 분석병으로서 업무 진행. \
+      군 복무 중 해군 빅데이터 분석병으로서 업무 진행 \
       - #pad(top: -1em / 4)[
           데이터셋 감정 분석 결과 엑셀 입출력 #h(1fr) #tech-chips.python
         ]
@@ -219,12 +219,12 @@
       organization: "GIST NetAI Lab",
       homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
     )[
-      NetAI 랩 학부 인턴으로서 업무 진행.
+      NetAI 랩 학부 인턴으로서 업무 진행
       - #pad(top: -1em / 4)[
           #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) #tech-chips.rust #tech-chips.wasm--short
         ]
       - #pad(top: -1em / 4)[
-          IOT 웹 및 네트워크 인프라 실험 수업 조교. #h(1fr) #tech-chips.github #tech-chips.docker
+          IOT 웹 및 네트워크 인프라 실험 수업 조교 #h(1fr) #tech-chips.github #tech-chips.docker
         ]
       - #pad(top: -1em / 4, bottom: -1em / 4)[
           고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행 #h(1fr) #tech-chips.python
@@ -232,11 +232,11 @@
     ],
     workExpEntry(
       from: datetime(year: 2018, month: 4, day: 14),
-      to: datetime(year: 2024, month: 2, day: 24),
+      to: datetime(year: 2023, month: 2, day: 24),
       role: "프론트엔드 엔지니어",
       organization: "GIST 학생회 인포팀",
     )[
-      지스트 학생 개발팀 인포팀 소속 프론트엔드 엔지니어로서 다음 업무 진행.
+      지스트 학생 개발팀 인포팀 소속 프론트엔드 엔지니어로서 다음 업무 진행
       - 내부 문서화 담당 및 스프린트 진행 담당
       - React 및 프론트엔드 자체 스터디
       - #pad(top: -1em / 4)[
@@ -252,7 +252,7 @@
     )[
       GIST 내 개발자를 위한 컨퍼런스 #link(
         "https://gistnews.co.kr/?p=5929",
-      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영.
+      )[#underline[GIST DEV NIGHT 파일럿 프로그램]]을 기획 및 운영
       - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
       - #pad(top: -1em / 4, bottom: -1em / 4)[
           #link("https://github.com/dodok8/vite-migrate")[#underline[CRA에서 Vite 전환 과정]]을 발표 #h(1fr) #tech-chips.vite
@@ -311,12 +311,19 @@
         #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) #tech-chips.react #tech-chips.vite
       ],
     )[
-      메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp 내부 웹 앱. Junction Asia 2022 해커톤 출품작.
+      메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp 내부 웹 앱. Junction Asia 2022 해커톤 출품작
     ],
   ),
 )
 
 == 오픈소스 기여#super[Open Source Contributions]
 
+- #gh-repo("brotli-wams") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
+    PR \#29 Fix Error(#28) in exports field in package.json
+  ]
+  #pad(left: 1em)[
+    지원이 안되는 과거 type 필드로 인한 오류 해결
+  ]
+
 - #gh-repo("velopert/velog-client") #link("https://github.com/velopert/velog-client/pull/477")[PR \#477 Fix post.ts 쿼리 오타]
-  #pad(left: 1em)[2023.12.26 - 2023.12.29. 에 존재한 글 등록 오류 해결]
+  #pad(left: 1em)[2023.12.26. - 2023.12.29. 에 존재한 글 등록 오류 해결]
