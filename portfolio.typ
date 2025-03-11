@@ -178,7 +178,7 @@
       - #pad(top: -1em / 4, bottom: -1em / 4)[
           #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) #tech-chips.github #tech-chips.docker
         ]
-        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교.
+        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교
         - Inter Connect Lab 메인 조교 담당
           - 라즈베리 파이와 본 PC 사이에 Kafka 를 이용한 연결을 만드는 InterConnect Lab 실습 진행
         - 자료 버그 수정 및 Git 과 markdown 으로 교육자료 변경 사항 추적 및 관리
@@ -215,7 +215,7 @@
           - UI/UX 설계
           - Vite 마이그레이션
             - 기존 CRA 대비 배포 시간 41% 감소
-          - Redux 기반 상태 관리.
+          - Redux 기반 상태 관리
           - TypeScript 마이그레이션
 
       - #pad(top: -1em / 4, bottom: -1em / 4)[
@@ -266,7 +266,7 @@
       - 주요 기능
         - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 가능
         - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
-        - user install 형태로 서버에 상관없이 이용가능.
+        - user install 형태로 서버에 상관없이 이용가능
     ],
     // activityEntry(
     //   from: datetime(year: 2022, month: 8, day: 21),
@@ -291,7 +291,7 @@
 
       - 주요 기여
         - React Navigation 을 통한 화면 설계
-        - Redux 기반 상태 관리.
+        - Redux 기반 상태 관리
     ],
   ),
 )
@@ -353,7 +353,7 @@
   ]
   #pad(left: 1em)[
     - package.json의 더 이상 지원되지 않는 type field 로 인한 타입 인식 에러
-    - 지원 안되는 타입 필드 대신, 새 형식에 맞춘 타입 필드를 추가하여 해결.
+    - 지원 안되는 타입 필드 대신, 새 형식에 맞춘 타입 필드를 추가하여 해결
   ]
 
 - #gh-repo("velopert/velog-client") #link("https://github.com/velopert/velog-client/pull/477")[PR \#477 Fix post.ts 쿼리 오타]
@@ -367,17 +367,17 @@
 == 기술#super[Skills]
 
 - #tech-chips.react-and-react-native
-  - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험.
-  - Redux 를 통한 상태관리에 능숙함.
+  - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
+  - Redux 를 통한 상태관리에 능숙함
 - #tech-chips.svelte
   - 라이브 서비스 중인 웹 앱 개발 경험
   - Svelte 5에 도입된 Rune 에 능숙
 - #tech-chips.bun
   - Bun 테스트 러너 기반 테스트 스크립트 작성 경험
-  - TS 기반 앱 작성 및 배포 경험.
+  - TS 기반 앱 작성 및 배포 경험
 - #tech-chips.python
   - Tkinter를 통한 GUI 앱 제작 가능
-  - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙.
+  - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙
 - #tech-chips.git, #tech-chips.github, #tech-chips.github-actions
   - Git과 GitHub 을 이용한 프로젝트 관리에 능숙
   - GitHub Actions를 이용한 배포 자동화 경험
