@@ -206,7 +206,7 @@
       role: "프론트엔드 엔지니어",
       organization: "GIST 학생회 인포팀",
     )[
-      지스트 내부의 문제를 개발로서 해결하는 인포팀 소속으로서 진행한 프로젝트입니다.
+      GIST 내부의 문제를 개발로서 해결하는 인포팀 소속으로서 진행한 프로젝트입니다.
       - #pad(top: -1em / 4, bottom: -1em / 4)[
           GISTORY #h(1fr) #tech-chips.react #tech-chips.vite #tech-chips.typescript--short
         ]
