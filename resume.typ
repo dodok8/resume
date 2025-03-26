@@ -318,7 +318,7 @@
 
 == 오픈소스 기여#super[Open Source Contributions]
 
-- #gh-repo("brotli-wams") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
+- #gh-repo("httptoolkit/brotli-wams") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
     PR \#29 Fix Error(#28) in exports field in package.json
   ]
   #pad(left: 1em)[

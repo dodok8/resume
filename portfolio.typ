@@ -348,7 +348,7 @@
 // - #gh-pull-rich(gh-pull("https://github.com/fabian-hiller/valibot/pull/429"))
 //   #pad(left: 1em)[Schema 검증 라이브러리]
 
-- #gh-repo("brotli-wams") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
+- #gh-repo("httptoolkit/brotli-wasm") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
     PR \#29 Fix Error(#28) in exports field in package.json
   ]
   #pad(left: 1em)[
