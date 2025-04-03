@@ -159,6 +159,17 @@
   ],
   (
     activityEntry(
+      from: datetime(year: 2022, month: 12, day: 21),
+      title: pad(top: -1em / 4)[
+        gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+      ],
+    )[
+      교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿. 기존 프로젝트에서 반복적으로 수행되었거나 잘못 진행된 작업들을 정리하는 목적
+      - 주요 기여
+        - 기존 프로젝트 안티 패턴 및 반복적인 세팅 분석
+        - Yarn TS 플러그인 세팅
+    ],
+    activityEntry(
       from: datetime(year: 2022, month: 8, day: 21),
       title: pad(top: -1em / 4)[
         #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
@@ -168,20 +179,47 @@
       - 내부 웹앱 제작 담당
     ],
     activityEntry(
+      from: datetime(year: 2022, month: 3, day: 10),
+      to: datetime(year: 2022, month: 7, day: 10),
+      title: pad(top: -1em / 4)[
+        #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
+      ],
+    )[
+      IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교
+      - Kafka로 IoT 장비를 연결하는 InterConnect Lab 실험 자료 담당
+      - 전체적인 자료 버그 수정 및 Git 과 markdown 으로 교육자료 변경 사항 추적 및 관리
+
+    ],
+    activityEntry(
       from: datetime(year: 2021, month: 7, day: 23),
+      to: datetime(year: 2021, month: 12, day: 23),
       title: pad(top: -1em / 4)[
         #gh-repo("Pedalers/wheelie-ts-android") #h(1fr) React Native, TypeScript
       ],
     )[
-      - 자전거 여행객을 위한 관광 플랫폼 Wheelie 제작.
-
-      - 주요 기능
-        - 자전거 여행에 적합한 여행지 정보 제공
-        - 여행지 주변 지도 및 관광정보 제공
-
-      - 주요 기여
-        - React Navigation 을 통한 화면 설계
-        - Redux 기반 상태 관리
+      자전거 여행객을 위한 관광 플랫폼 Wheelie 제작.
+      - React Navigation 을 통한 화면 담당
+      - Redux 기반 상태 관리 담당
+    ],
+    activityEntry(
+      from: datetime(year: 2021, month: 5, day: 30),
+      title: pad(top: -1em / 4)[
+        #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
+      ],
+    )[
+      JunctionXSeoul 2021 수상작. 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획 #h(1fr) #link("https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine")[#icon("lucide/earth") #underline[참여후기]]
+      - 시연용 웹 앱 제작 담당
+    ],
+    activityEntry(
+      from: datetime(year: 2020, month: 7, day: 10),
+      to: datetime(year: 2021, month: 5, day: 30),
+      title: pad(top: -1em / 4)[
+        GISTORY #h(1fr) React, Vite, TypeScript
+      ],
+    )[
+      GIST 학생을 위한 리액트 기반 BBS 커뮤니티
+      - Vite 마이그레이션을 통한 빌드 및 배포 시간 개선
+      - TypeScript 마이그레이션 및 리팩토링
     ],
   ),
 )
@@ -197,14 +235,7 @@
         #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
       ],
     )[
-      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템. 1인 개발.
-
-      - URL: https://Ilots-log.pages.dev
-      - 주요 기능
-        - 유저 점수 입력 후 레이팅 계산
-        - Best 30 차트 및 차트 이미지 다운로드
-        - 기록 갱신 곡 추천 기능
-        - 구글 드라이브 백업 기능
+      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템. #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
       - Class Rune 을 이용한 상태관리
         - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
         - Google Drive 연동 코드 단순화
@@ -216,7 +247,7 @@
         #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
       ],
     )[
-      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇. 1인 개발.
+      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇.
 
       - 주요 기능
         - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 가능
@@ -276,12 +307,9 @@
       organization: "계근단 본부대대",
     )[
       군 복무 중 수행한 프로젝트입니다. \
-      - 감정 분석 결과 활용을 위한 챗봇형 웹 클라이언트 #h(1fr) Python, HTML, CSS
-        - 감정 분석 결과를 사용자가 다루기 익숙한 UI인 챗봇 형태로 Streamlit 을 이용하여 구현
-      - 데이터셋 감정 분석 결과 엑셀 입출력 #h(1fr) Python
-        - openpyxl을 이용하여 엑셀로 입출력이 가능하도록 웹 클라이언트 개선
-      - Tkinter를 이용한 GUI 구성 #h(1fr) Python
-        - Tkinter 를 이용하여 간단한 물리 시뮬레이션 구현
+      - 감정 분석 결과 활용을 위한 챗봇형 Streamlit 웹 클라이언트 #h(1fr) Python, HTML, CSS
+      - openpyxl을 이용하여 엑셀로 입출력이 가능하도록 웹 클라이언트 개선 #h(1fr) Python
+      - Tkinter 를 이용하여 간단한 물리 시뮬레이션 구현 #h(1fr) Python
     ],
     workExpEntry(
       from: datetime(year: 2021, month: 12, day: 18),
@@ -292,21 +320,10 @@
     )[
       NetAI 랩 학부 인턴으로서 진행한 프로젝트입니다.
       - #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) Rust, Wasm
-
-        - 엣지 컴퓨팅 환경에서 스냅샷 전송
         - Rust 로 작성된 wasm 앱을 이용하여 엣지 단에서 일부 자료를 삭제하는 비식별화 구현
-
       - #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
-
-        - IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 조교
-        - Inter Connect Lab 메인 조교 담당
-          - 라즈베리 파이와 본 PC 사이에 Kafka 를 이용한 연결을 만드는 InterConnect Lab 실습 진행
-        - 자료 버그 수정 및 Git 과 markdown 으로 교육자료 변경 사항 추적 및 관리
-        - deprecated 될 내용은 미리 표시하여 다음 년도 교육자료 제작과 연계
-
       - #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) Python
-
-        - 고등학생을 대상으로 한 비전 AI 및 IOT 실습 진행
+        - Kafka를 이용한 메세지 전송, YoLo를 이용한 객체 검출 실습 진행
     ],
     workExpEntry(
       from: datetime(year: 2018, month: 4, day: 14),
@@ -315,19 +332,9 @@
       organization: "GIST 학생회 인포팀",
     )[
       GIST 내부의 문제를 개발로서 해결하는 인포팀 소속으로서 진행한 프로젝트입니다.
+      - 리액트 팀 스터디 진행 및 팀 회의록 작성
       - GISTORY #h(1fr) React, Vite, TypeScript
-        - GIST 학생을 위한 리액트 기반 BBS 커뮤니티
-        - 주요 기여
-          - UI/UX 설계
-          - Vite 마이그레이션
-          - Redux 기반 상태 관리
-          - TypeScript 마이그레이션
-
       - 프론트엔드 템플릿 저장소 #h(1fr) React, Vite, TypeScript
-        - GISTORY 제작 이후, GISTORY를 반면교사 삼아 최적의 세팅을 공유하기 위한 저장소
-        - 주요 기여
-          - GISTORY 문제점 분석 및 템플릿 방향 조율
-          - Yarn TS 플러그인 세팅
     ],
   ),
 )
