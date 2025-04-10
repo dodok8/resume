@@ -164,7 +164,7 @@
         gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
       ],
     )[
-      교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿.
+      교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
       - 기존 프로젝트 안티 패턴(스타일 시트의 낮은 코드 응집성, i81n을 배려하지 않은 설계) 및 반복적인 세팅 분석 담당
     ],
     activityEntry(
@@ -278,8 +278,8 @@
 //   #pad(left: 1em)[Schema 검증 라이브러리]
 
 #gh-repo("httptoolkit/brotli-wasm") #link("https://github.com/httptoolkit/brotli-wasm/pull/29")[
-    PR \#29 Fix Error(#28) in exports field in package.json
-  ]
+  PR \#29 Fix Error(#28) in exports field in package.json
+]
 #pad(left: 1em)[
   - package.json의 더 이상 지원되지 않는 type field 로 인한 타입 인식 에러
   - 지원 안되는 types 필드 대신, exports 내에 types 필드를 추가하여 해결
