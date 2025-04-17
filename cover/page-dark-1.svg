@@ -2575,7 +2575,7 @@
                 <g/>
             </g>
         </g>
-        <g transform="translate(211.62705308809055 737.2675223214285)">
+        <g transform="translate(211.85166246309055 737.2675223214285)">
             <g class="typst-text" transform="scale(1, -1)">
                 <use xlink:href="#gEED1E81124FF96A4F41196E21725D5F" x="0" fill="#ced4da" fill-rule="nonzero"/>
                 <use xlink:href="#gE5D81B99C39757E380BDF8C3A5B19713" x="8.642578125" fill="#ced4da" fill-rule="nonzero"/>
@@ -2591,13 +2591,13 @@
                 <use xlink:href="#g2B19D70AD07CFAD9C7B9130BE272F2D9" x="89.00390625" fill="#ced4da" fill-rule="nonzero"/>
                 <use xlink:href="#gC4A50967C744EF8D40A6FBC28307B922" x="95.244140625" fill="#ced4da" fill-rule="nonzero"/>
                 <use xlink:href="#g1EDEFC83BEF7E2CCCBAFCBB18C72DC6C" x="106.396484375" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#gAE01A00E96631F2CB9E015A2F0F8E3C3" x="111.689453125" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#gD7855A4E6B46B5F36315EA71E8471BF6" x="117.65625" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#gE5D81B99C39757E380BDF8C3A5B19713" x="128.80859375" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#gC65CDB5F2742C7566B1C0F8ED72644B" x="137.451171875" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#g343B6703ACD8E1A6386A07533057473A" x="146.09375" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#g9674628EC1F290127568A19DC89AC283" x="154.736328125" fill="#ced4da" fill-rule="nonzero"/>
-                <use xlink:href="#g510FD316C3C622267E2C614083BEC78B" x="163.37890625" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#g9167884FFA9697B972CCB2CEF995F83B" x="111.689453125" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#gD7855A4E6B46B5F36315EA71E8471BF6" x="117.20703125" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#gE5D81B99C39757E380BDF8C3A5B19713" x="128.359375" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#gC65CDB5F2742C7566B1C0F8ED72644B" x="137.001953125" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#g343B6703ACD8E1A6386A07533057473A" x="145.64453125" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#g9674628EC1F290127568A19DC89AC283" x="154.287109375" fill="#ced4da" fill-rule="nonzero"/>
+                <use xlink:href="#g510FD316C3C622267E2C614083BEC78B" x="162.9296875" fill="#ced4da" fill-rule="nonzero"/>
             </g>
         </g>
     </g>
@@ -3960,6 +3960,9 @@
         </symbol>
         <symbol id="g1EDEFC83BEF7E2CCCBAFCBB18C72DC6C" overflow="visible">
             <path d="M 3.1445313 7.0703125 L 2.265625 7.0703125 L 0.6542969 6.0058594 L 0.6542969 5.107422 L 2.2265625 6.1523438 L 2.265625 6.1523438 L 2.265625 0.7128906 L 0.6542969 0.7128906 L 0.6542969 0 L 4.6777344 0 L 4.6777344 0.7128906 L 3.1445313 0.7128906 Z "/>
+        </symbol>
+        <symbol id="g9167884FFA9697B972CCB2CEF995F83B" overflow="visible">
+            <path d="M 0.8886719 0 L 1.8066406 0 L 5.0390625 6.25 L 5.0390625 7.0703125 L 0.390625 7.0703125 L 0.390625 6.2890625 L 4.1308594 6.2890625 L 4.1308594 6.2402344 Z "/>
         </symbol>
         <symbol id="gC65CDB5F2742C7566B1C0F8ED72644B" overflow="visible">
             <path d="M 4.8046875 6.8066406 L 4.8046875 6.826172 L 7.5585938 6.826172 L 7.5585938 7.451172 L 1.0742188 7.451172 L 1.0742188 6.826172 L 3.8085938 6.826172 L 3.8085938 6.8066406 C 3.8085938 5.7421875 2.3730469 4.873047 0.83984375 4.658203 L 1.1230469 4.0527344 C 2.5341797 4.2529297 3.8378906 4.9560547 4.3066406 5.9765625 C 4.7802734 4.9560547 6.088867 4.2529297 7.4902344 4.0527344 L 7.7929688 4.658203 C 6.2597656 4.873047 4.794922 5.7421875 4.8046875 6.8066406 Z M 8.291016 3.4179688 L 0.34179688 3.4179688 L 0.34179688 2.7832031 L 3.9941406 2.7832031 L 3.9941406 1.0058594 L 4.7558594 1.0058594 L 4.7558594 2.7832031 L 8.291016 2.7832031 Z M 7.4023438 0.0390625 L 2.1289063 0.0390625 L 2.1289063 1.875 L 1.3574219 1.875 L 1.3574219 -0.60546875 L 7.4023438 -0.60546875 Z "/>
