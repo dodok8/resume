@@ -17,6 +17,7 @@ Modern résumé built with Typst
 ## Special Thanks
 
 - [shiftpsh](https://github.com/shiftpsh) for his impressive cv design and the [solved.ac](https://solved.ac) service
+- [RanolP](https://github.com/RanolP) for typst template
 - [Open Color](https://yeun.github.io/open-color/) for good palette
 - [Icones](https://icones.js.org/) for easier icon search
 - [Iconify](https://iconify.design/) for icon CDN
