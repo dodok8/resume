@@ -10,9 +10,6 @@
         Git 을 통한 여러 팀원과의 협업에 익숙합니다.
       ],
     ),
-    en: (
-      title: [*Connecting* Team with Problems, People with People],
-    ),
   ),
   role: "프론트엔드 엔지니어",
   location: "대한민국 전남 여수시",
