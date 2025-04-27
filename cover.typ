@@ -5,7 +5,9 @@
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
 
-#set page(fill: color.rgb(0, 0, 0, 0))
+#set page(
+  fill: color.rgb(0, 0, 0, 0),
+)
 
 #let theme = sys.inputs.at("theme", default: "light")
 #let palette = if theme == "light" {
@@ -23,8 +25,6 @@
     link: color.rgb("#74c0fc"),
   )
 }
-
-#set page(paper: "a4", margin: 0pt)
 
 #set text(
   font: "Pretendard",
@@ -80,7 +80,7 @@
   - TypeScript 기반 앱 작성 및 배포 경험
 - Svelte
   - 라이브 서비스 중인 웹 앱 개발 경험
-  // - Svelte 5에 도입된 Rune 에 능숙
+// - Svelte 5에 도입된 Rune 에 능숙
 // - Python
 //   - Tkinter를 통한 GUI 앱 제작 가능
 //   - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙
@@ -147,15 +147,13 @@
       title: pad(top: -1em / 4)[
         #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
       ],
-    )[
-    ],
+    )[ ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 24),
       title: pad(top: -1em / 4)[
         #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
       ],
-    )[
-    ],
+    )[ ],
   ),
 )
 
@@ -167,11 +165,9 @@
     activityEntry(
       from: datetime(year: 2022, month: 10, day: 14),
       title: belonging([스태프], [GIST DEV NIGHT]),
-    )[
-    ],
+    )[ ],
   ),
 )
-
 
 #align(center)[
   #text(size: 10pt, fill: palette.foreground2)[
