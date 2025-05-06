@@ -33,7 +33,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - run: mkdir www
-      - run: typst compile --font-path fonts resume.typ www/resume.pdf
+      - run: typst compile --font-path fonts resume.typ www/index.pdf
       - run: typst compile --font-path fonts portfolio.typ www/portfolio.pdf
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
