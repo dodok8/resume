@@ -274,7 +274,7 @@
 
       *제품 소개*
 
-      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
+      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 레이팅 계산 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
 
       *해결 문제*
 
@@ -284,7 +284,7 @@
 
       #figure(
         grid(
-          columns: 3,
+          columns:  3,
           gutter: 2mm, // space between columns
           image("./images/ilots-log_best30.png"),
           image("./images/ilots-log_songcard.png"),
@@ -296,14 +296,22 @@
 
       *주요 기여*
 
-      - Bun을 통한 위키 크롤러 스크립트 코드 세팅 및 테스트 코드 작성 단순화
+      - 위키 크롤러 #h(1fr) Bun
         - 레이팅 계산에 필요한 곡 세부 정보를 구하는 과정을 테스트 코드로 표현
-        - 이후 테스트 코드에 맞춰서 작성함으로서 복잡한 사이트를 처리하면서 필요한 곡 별 세부 정도 데이터를 얻을 수 있었음.
+        - 이후 테스트 코드에 맞춰서 크롤링 코드를 작성. 실제 작동을 보장하면서 안전하게 작성이 가능 하였음.
         - 이 과정에서 Bun을 사용함으로서 추가적인 세팅 없이 단순하게 테스트 코드와 데이터 페칭을 위한 코드를 관리할 수 있었음.
       - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
-        - 
       - Google Drive 연동을 통한 점수 저장
       - 이미지 프록시 사용으로 베스트 40 차트 제작 단순화 및 용량 최적화
+ 
+     *제품 결과*
+     - 오픈소스 개발 진행 중
+      - #link("https://github.com/dodok8/Ilots-log/pull/12")[#icon("devicon/github") PR\#12 Orb-H/issue11 ]
+        - 사용자가 기여한 레이팅 알고리즘 개선
+      - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ]
+        -  사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그
+        - 수정 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선.
+ 
     ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 24),
@@ -311,10 +319,43 @@
         #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
       ],
     )[
+      *제품 소개*
+
       알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇
-      - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 제공
-      - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
-      - user install 형태로 서버에 상관없이 이용가능
+
+    *해결 문제*
+
+    - 독서와 글쓰기를 주제로 가진 디스코드 서버에 자주 참여하면서, 도서 정보를 공유하기 위해서 디스코드에 올라온 링크를 접속해서 확인한 다음에 다시 디스코드로 돌아와야 하는 불편함이 존재했음.
+
+      #figure(
+        grid(
+          columns: 2, // 2 means 2 auto-sized columns
+          gutter: 2mm, // space between columns
+          image("./images/discord-aladin_search.png"),
+          image("./images/discord-aladin_show.png"),
+        ),
+        caption: "discord-aladin 사용 예시(`search` / `show` 커맨드 결과)",
+        supplement: none,
+      )
+
+
+    *주요 기여*
+
+      - 알라딘 Open API
+        - 국내외 자료를 다루는 알라딘에서 도서 정보 및 음반 정보 Open API 제공
+        - 해당 API를 활용, 국내 도서 / 외국 도서 / 음반 / DVD / 중고책 정보를 받아옴.
+        - 응답 정보는 TypeScript 타입을 통해  통일된 스키마로 코드 내에서 활용
+      - 디스코드 명령어 구성
+        - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 제공
+        - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
+        - user install 형태로 제공되어 서버에 상관없이 사용자가 이용 가능.
+        // 이것도 디스코드의 기능이지 내가 기술적 판단을 한 건 아니지 않나?
+      - Bun 및 fly.io 사용
+        -  개발 환경(군대) 상 빌드 및 배포 과정을 단순하게 할 필요가 존재
+        - 이와 동시에 입력 타입을 검증할 필요 또한 존재
+        - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
+        - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
+        // fly.io는 기술하고는 거리가 좀 멀지 않나?
     ],
   ),
 )
