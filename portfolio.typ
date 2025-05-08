@@ -92,21 +92,115 @@
   )
 }
 
-#text(size: 14pt, weight: 400)[
-  #set par(leading: 8pt)
-  #text(size: 8pt, weight: 900, top-edge: -0pt, bottom-edge: 0pt)[
-    자기소개 #sym.dash.em #text(tracking: 2pt)[INTRODUCTION]
-  ] \
-  #metadata.bio.ko.title \ #text(size: 10pt)[#metadata.bio.ko.body]
-]
+// #text(size: 14pt, weight: 400)[
+//   #set par(leading: 8pt)
+//   #text(size: 8pt, weight: 900, top-edge: -0pt, bottom-edge: 0pt)[
+//     자기소개 #sym.dash.em #text(tracking: 2pt)[INTRODUCTION]
+//   ] \
+//   #metadata.bio.ko.title \ #text(size: 10pt)[#metadata.bio.ko.body]
+// ]
 
 #line(length: 100%, stroke: 0.75pt)
 
 #activityList(
   header: [
-    == 팀 개발 프로젝트
+    == 프로젝트 목록
   ],
   (
+    activityEntry(
+      from: datetime(year: 2025, month: 2, day: 22),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
+      ],
+    )[
+
+      *제품 소개*
+
+      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 레이팅 계산 시스템, 1인 개발 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
+
+      *해결 문제*
+
+      - 유명 리듬게임의 경우 #link("https://chunithm-net-eng.com")[#icon("lucide/earth") #underline[chunithm-net]] 같은 공식 기록 공유 사이트 및 #link("https://x.com/arcaea_sheet_kr")[#icon("lucide/earth") #underline[Arcaea 컨설턴트 시트]]와 같은 비공식 기록 공유 사이트가 존재함.
+      - Rotaeno 에는 업데이트가 종료된 #link("https://rotaeno.imgg.dev/")[#icon("lucide/earth") #underline[RotaenoKit]] 만 존재하며, 사용자의 브라우저에 정보를 저장하기에 여러 기기에서 기록관리가 불가능함.
+
+      #figure(
+        grid(
+          columns: 3,
+          gutter: 2mm, // space between columns
+          image("./images/ilots-log_best30.png"),
+          image("./images/ilots-log_songcard.png"),
+          image("./images/ilots-log_backup.png"),
+        ),
+        caption: "Ilots-log의 주요 기능 베스트 차트 / 점수 입력 / 구글 드라이브 백업",
+        supplement: none,
+      )
+
+      *주요 기여*
+
+      - *위키 크롤러 #h(1fr) Bun*
+        - 레이팅 계산에 필요한 곡 세부 정보를 구하는 과정을 테스트 코드로 표현.
+        - 크롤러 스크립트의 동작을 보장 및 엣지 케이스 코드화화
+        - Bun을 사용함으로서 추가적인 세팅 없이 타입스크립트 코드 작성 및 타입 관리, 테스트 코드 작성이 가능했음.
+      - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
+      - Google Drive 연동을 통한 점수 저장
+      - 이미지 프록시 사용으로 베스트 40 차트 제작 단순화 및 용량 최적화
+
+      *제품 결과*
+      - 오픈소스 개발 진행 중
+        - #link("https://github.com/dodok8/Ilots-log/pull/12")[#icon("devicon/github") PR\#12 Orb-H/issue11 ]
+          - 사용자가 기여한 레이팅 알고리즘 개선
+        - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ]
+          - 사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그
+          - 수정 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선.
+
+    ],
+    activityEntry(
+      from: datetime(year: 2023, month: 12, day: 24),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
+      ],
+    )[
+      *제품 소개*
+
+      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇, 1인 개발
+
+      *해결 문제*
+
+      - 독서와 글쓰기를 주제로 가진 디스코드 서버에 자주 참여하면서, 도서 정보를 공유하기 위해서 디스코드에 올라온 링크를 접속해서 확인한 다음에 다시 디스코드로 돌아와야 하는 불편함이 존재했음.
+
+        #figure(
+          grid(
+            columns: 2, // 2 means 2 auto-sized columns
+            gutter: 2mm, // space between columns
+            image("./images/discord-aladin_search.png"),
+            image("./images/discord-aladin_show.png"),
+          ),
+          caption: "discord-aladin 사용 예시(`search` / `show` 커맨드 결과)",
+          supplement: none,
+        )
+
+
+      *주요 기여*
+
+      - *주요 커맨드*
+        - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 제공
+        - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
+        - user install 형태로 제공되어 서버에 상관없이 사용자가 이용 가능.
+      - *알라딘 Open API*
+        - 국내외 자료를 다루는 알라딘에서 도서 정보 및 음반 정보 Open API 제공
+        - 해당 API를 활용, 국내 도서 / 외국 도서 / 음반 / DVD / 중고책 정보를 받아옴.
+        - 응답 정보는 TypeScript 타입을 통해 통일된 스키마로 코드 내에서 활용
+      - *Bun, fly.io*
+        - 개발 환경(군대) 상 빌드 및 배포 과정을 단순하게 할 필요가 존재
+        - 이와 동시에 입력 타입을 검증할 필요 또한 존재
+        - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
+        - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
+
+      *제품 결과*
+      - 2025년 5월 기준 8개의 서버와 9명의 개인 사용자가 사용 중
+      - 이 중 두 서버에서 도서 정보 교환에 활발하게 이용됨.
+    ],
     activityEntry(
       from: datetime(year: 2022, month: 12, day: 21),
       title: pad(top: -1em / 4)[
@@ -131,9 +225,9 @@
         - CSS-in-JS: 도입으로 스타일 시트 응집성 문제 해결
       - *반복 작업 세팅*
         - 패키지 설치시, 반복적으로 `@types` 또한 설치를 진행해야 했음.
-        - yarn TypeScript 플러그인 적용으로 해당 작업 자동화      
+        - yarn TypeScript 플러그인 적용으로 해당 작업 자동화
       - *문서화*
-        -  적용된 린터, 포맷터 세팅 문서화
+        - 적용된 린터, 포맷터 세팅 문서화
         - 사용되는 환경 변수 이름 및 사용 상황 문서화
         - cli 를 통한 해당 템플릿 사용 방법 문서화
 
@@ -141,7 +235,7 @@
 
       - 팀 내에서 리액트 기반 SPA 만들 때 표준이 됨.
         - 팀 내에서 사용중인 리액트 관련 기술 스택을 정리하는 부가적인 효과도 나타남.
-      - 교내 팀 외부 작업에서도 SPA 리액트 앱 제작에 자주 사용됨. 
+      - 교내 팀 외부 작업에서도 SPA 리액트 앱 제작에 자주 사용됨.
     ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
@@ -176,8 +270,8 @@
         - 기존 PPT에 존재하는 오타를 수정한 버전을 제작. 이 버전을 기준으로 다시 실습을 진행하면서 발생하는 버전 충돌 과정을 탐색
         - 오타가 수정된 PPT를 기준으로, 원할한 분업 작업 및 변경사항 추적을 위해 Git 과 markdown 조합을 사용하도록 변경
       - *버전 오류 수정*
-        - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는  
-        - 해당 수업에 사용되는 flume  버전이 1.6.0 이라 해당 시점에서 지원이 끊기고, 해당 파일은 archive 저장소로 이동 됨. 도커파일에 이를 반영하도록 수정
+        - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는
+        - 해당 수업에 사용되는 flume 버전이 1.6.0 이라 해당 시점에서 지원이 끊기고, 해당 파일은 archive 저장소로 이동 됨. 도커파일에 이를 반영하도록 수정
         - 최신 버전의 마이그레이션은 다음 년도 목표로 정하고, 해당 년도에서는 실험 진행 노하우 및 버그 해결책의 문서화 하는데 초점을 맞춤.
       - *실험 후 스프린트*
         - 매주 첫 실험이 끝난 다음, 스프린트를 진행하여 교육자료의 개선점 / 발생한 버그의 해결책을 의논함
@@ -282,109 +376,6 @@
       - 이후 시장 조사 결과, 사용자가 원하는 것은 쌍방 소통 형태의 BBS 보다는 정보글만 선택해서 볼 수 있는 모아보기 형태의 앱이라는 결론이 나옴.
         - GISTORY의 서비스 종료 후, 시장 조사 결과를 반영한 공지 전달 플랫폼 Ziggle 출시
       - GISOTRY 개발 및 그 외 SPA 개발 과정에 있었던 반복된 세팅 및 안티 패턴 문제를 해결하기 위해 gsainfoteam/Infoteam-frontend-template 제작.
-    ],
-  ),
-)
-
-#pagebreak()
-
-#activityList(
-  header: [
-    == 1인 개발 프로젝트
-  ],
-  (
-    activityEntry(
-      from: datetime(year: 2025, month: 2, day: 22),
-      to: datetime.today(),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
-      ],
-    )[
-
-      *제품 소개*
-
-      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 레이팅 계산 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
-
-      *해결 문제*
-
-      - 유명 리듬게임의 경우 #link("https://chunithm-net-eng.com")[#icon("lucide/earth") #underline[chunithm-net]] 같은 공식 기록 공유 사이트 및 #link("https://v-archive.net/")[#icon("lucide/earth") #underline[V-archive]]와 같은 비공식 기록 공유 사이트가 존재함.
-      - Rotaeno 에는 업데이트가 종료된 #link("https://rotaeno.imgg.dev/")[#icon("lucide/earth") #underline[RotaenoKit]] 밖에 존재하지 않았음.
-      - 해당 사이트의 경우, 로컬에 정보를 저장하기에 다른 기기에서 같은 기록을 관리하지 못함.
-
-      #figure(
-        grid(
-          columns:  3,
-          gutter: 2mm, // space between columns
-          image("./images/ilots-log_best30.png"),
-          image("./images/ilots-log_songcard.png"),
-          image("./images/ilots-log_backup.png"),
-        ),
-        caption: "Ilots-log의 주요 기능 베스트 차트 / 점수 입력 / 구글 드라이브 백업",
-        supplement: none,
-      )
-
-      *주요 기여*
-
-      - 위키 크롤러 #h(1fr) Bun
-        - 레이팅 계산에 필요한 곡 세부 정보를 구하는 과정을 테스트 코드로 표현
-        - 이후 테스트 코드에 맞춰서 크롤링 코드를 작성. 실제 작동을 보장하면서 안전하게 작성이 가능 하였음.
-        - 이 과정에서 Bun을 사용함으로서 추가적인 세팅 없이 단순하게 테스트 코드와 데이터 페칭을 위한 코드를 관리할 수 있었음.
-      - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
-      - Google Drive 연동을 통한 점수 저장
-      - 이미지 프록시 사용으로 베스트 40 차트 제작 단순화 및 용량 최적화
- 
-     *제품 결과*
-     - 오픈소스 개발 진행 중
-      - #link("https://github.com/dodok8/Ilots-log/pull/12")[#icon("devicon/github") PR\#12 Orb-H/issue11 ]
-        - 사용자가 기여한 레이팅 알고리즘 개선
-      - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ]
-        -  사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그
-        - 수정 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선.
- 
-    ],
-    activityEntry(
-      from: datetime(year: 2023, month: 12, day: 24),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
-      ],
-    )[
-      *제품 소개*
-
-      알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇
-
-    *해결 문제*
-
-    - 독서와 글쓰기를 주제로 가진 디스코드 서버에 자주 참여하면서, 도서 정보를 공유하기 위해서 디스코드에 올라온 링크를 접속해서 확인한 다음에 다시 디스코드로 돌아와야 하는 불편함이 존재했음.
-
-      #figure(
-        grid(
-          columns: 2, // 2 means 2 auto-sized columns
-          gutter: 2mm, // space between columns
-          image("./images/discord-aladin_search.png"),
-          image("./images/discord-aladin_show.png"),
-        ),
-        caption: "discord-aladin 사용 예시(`search` / `show` 커맨드 결과)",
-        supplement: none,
-      )
-
-
-    *주요 기여*
-
-      - 알라딘 Open API
-        - 국내외 자료를 다루는 알라딘에서 도서 정보 및 음반 정보 Open API 제공
-        - 해당 API를 활용, 국내 도서 / 외국 도서 / 음반 / DVD / 중고책 정보를 받아옴.
-        - 응답 정보는 TypeScript 타입을 통해  통일된 스키마로 코드 내에서 활용
-      - 디스코드 명령어 구성
-        - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 제공
-        - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
-        - user install 형태로 제공되어 서버에 상관없이 사용자가 이용 가능.
-        // 이것도 디스코드의 기능이지 내가 기술적 판단을 한 건 아니지 않나?
-      - Bun 및 fly.io 사용
-        -  개발 환경(군대) 상 빌드 및 배포 과정을 단순하게 할 필요가 존재
-        - 이와 동시에 입력 타입을 검증할 필요 또한 존재
-        - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
-        - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
-        // fly.io는 기술하고는 거리가 좀 멀지 않나?
     ],
   ),
 )
