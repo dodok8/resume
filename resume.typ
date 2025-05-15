@@ -243,7 +243,7 @@
       - Class Rune 을 이용한 상태관리
         - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
       - Google Drive 연동을 통한 정보 저장
-      - 이미지 프록시 사용으로 베스트 40 차트 제작 단순화 및 용량 최적화
+      - AVIF 포맷 사용으로 앨범아트 용량 최적화화
     ],
     activityEntry(
       from: datetime(year: 2023, month: 12, day: 24),
