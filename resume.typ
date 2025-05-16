@@ -106,11 +106,11 @@
 
 - React, React-Native
   - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
-  - 운영 중인 앱 TypeScript 마이그레이션 경험
-  - Redux 를 통한 상태관리에 능숙함
+  - 운영 중인 앱 *TypeScript* 마이그레이션 경험
+  - Redux 를 통한 상태관리 경험
 - Bun
   - Bun 테스트 러너 기반 *테스트 스크립트 작성* 경험
-  - TypeScript 기반 앱 작성 및 배포 경험
+  - *TypeScript* 기반 앱 작성 및 배포 경험
 - Svelte
   - 라이브 서비스 중인 웹 앱 개발 경험
 // - Svelte 5에 도입된 Rune 에 능숙
