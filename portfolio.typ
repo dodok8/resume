@@ -159,7 +159,7 @@
           - 사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그
           - 수정 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선
         - #link("https://github.com/dodok8/Ilots-log/pull/26")[#icon("devicon/github") PR\#26 Dodok8/issue26 ]
-          - 이미지 용량 최적화 및 외부 사이트 의존 해결을 위한한 AVIF 포맷 교체
+          - 이미지 용량 최적화 및 외부 사이트 의존 해결을 위한 AVIF 포맷 교체
 
     ],
     activityEntry(
