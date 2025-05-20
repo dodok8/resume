@@ -292,6 +292,22 @@
   - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문에서 오타 발견, 이를 수정하여 해결함
 ]
 
+#workExpList(
+  header: [
+    == 교육
+  ],
+  (
+    workExpEntry(
+      from: datetime(year: 2018, month: 2, day: 12,),
+      to: datetime(year: 2023, month: 2, day: 20),
+      role: "전기전자컴퓨터공학부 학사",
+      organization: "광주과학기술원(GIST)",
+    )[
+      - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 수강
+      - 심리학 부전공 과정 수료료
+    ],
+  ),
+)
 
 #workExpList(
   header: [
