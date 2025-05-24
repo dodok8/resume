@@ -55,7 +55,7 @@
 #set text(font: "Pretendard", fallback: true)
 #show heading: set text(size: 16pt)
 
-= #text(size: 32pt)[#metadata.name.nickname / #metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
+= #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 #text(size: 12pt)[
   #text(weight: 900, tracking: 2pt)[#metadata.role]
   // #text(weight: 600)[\@]

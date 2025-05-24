@@ -13,7 +13,7 @@
     if here().page() != 1 {
       pad(left: -0.4cm)[
         #text(fill: color.rgb("#575049"))[
-          #text(weight: 700)[#metadata.name.nickname / #metadata.name.real-korean]
+          #text(weight: 700)[#metadata.name.real-korean]
           ---
           #text(weight: 600, tracking: 0.5pt)[#metadata.bio.ko.title]
         ]
@@ -55,7 +55,7 @@
 #set text(font: "Pretendard", fallback: true)
 #show heading: set text(size: 16pt)
 
-= #text(size: 32pt)[#metadata.name.nickname / #metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
+= #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 #text(size: 12pt)[
   #text(weight: 900, tracking: 2pt)[#metadata.role]
   // #text(weight: 600)[\@]

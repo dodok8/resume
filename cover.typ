@@ -5,9 +5,7 @@
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
 
-#set page(
-  fill: color.rgb(0, 0, 0, 0),
-)
+#set page(fill: color.rgb(0, 0, 0, 0))
 
 #let theme = sys.inputs.at("theme", default: "light")
 #let palette = if theme == "light" {
@@ -35,7 +33,7 @@
 #show heading: set text(size: 16pt)
 
 #align(center)[
-  = #text(size: 24pt)[#metadata.name.nickname / #metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
+  = #text(size: 24pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 
   #text(size: 12pt)[
     #text(weight: 900, tracking: 2pt)[#metadata.role]
@@ -95,6 +93,12 @@
     == 팀 프로젝트
   ],
   (
+    activityEntry(
+      from: datetime(year: 2025, month: 4, day: 2),
+      title: pad(top: -1em / 4)[
+        #link("https://play.google.com/store/apps/details?id=com.beside04.haruNyang&hl=ko")[#icon("lucide/earth") 하루냥] #h(1fr) Next.js, TanStack-Query, Flutter
+      ],
+    )[],
     activityEntry(
       from: datetime(year: 2022, month: 12, day: 21),
       title: pad(top: -1em / 4)[
