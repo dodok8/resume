@@ -344,7 +344,7 @@
       homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
     )[
       NetAI 랩 학부 인턴으로서 진행한 프로젝트
-      - #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) Rust, Wasm
+      - #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) Rust, wasm
         - Rust 로 작성된 wasm 앱을 이용하여 엣지 단에서 일부 자료를 삭제하는 비식별화 구현
       - #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
       - #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) Python
@@ -406,7 +406,6 @@
 이 소통 과정에서는 다양한 사람이 참여합니다. 같은 프론트엔드 엔지니어 뿐만 아니라, PO, 디자이너, 백엔드 개발자가 프론트엔드 개발자와 함께 제품의 기획에 관해 이야기하기도 하며, 제품의 디자인적 요소가 어떻게 사용자에게 영향을 끼칠지, 이를 파악하기 위해 어떤 방법을 사용할 것, 필요한 데이터는 무엇이며 어떤 형태로 주고받아야 하는지 논의하기도 합니다. 소통이 진행되는 동안, 제일 중요한 점은 자신을 포함한 팀원의 의견과 의도를 알고 반영하는 것이었습니다. 저는 프론트엔드 엔지니어로서의 역할 뿐 만이 아니라 팀원의 발언을 정리하는 역할 또한 꾸준히 해왔습니다. 이런 기록을 기반으로 상대방의 의견과 의도, 맥락을 정확히 파악해 더 좋은 답을 찾아 나설 수 있었습니다.
 
 이러한 제 경험과 성향은 저를 다양한 프로젝트로 이끌었습니다. 이력서에 소개한 코드 및 버그 수정 기여만이 아닌 다른 오픈 소스 프로젝트에도 참여하며 소통과 협력을 진행하였습니다. #link("https://github.com/IntelliJ-Localization/pycharm-kr/pulls?q=is%3Apr+is%3Aclosed+author%3Adodok8")[#icon("lucide/earth") #underline[PyCharm]], 스키마 검증용 라이브러리 #link("https://github.com/fabian-hiller/valibot/pull/429")[#icon("lucide/earth") #underline[valibot]], GitHub Discussion 기반 댓글 플랫폼 #link("https://github.com/giscus/giscus/pull/253")[#icon("lucide/earth") #underline[giscus]]에 번역 기여를 했고, 제가 알고리즘 공부에 사용했던 프로그램, basm-rs의 문서화에 #underline[#icon("lucide/earth") #link("https://github.com/boj-rs/basm-rs/pull/94")[기여하기도]] 했습니다.
-
 
 이렇게 저는 여러 소통과정을 거쳐왔고, 그 소통을 반영한 코드를 작성하기 위해 노력해 왔습니다. 이 과정을 즐기면서 개발을 해왔기에 PO, 디자이너, 백엔드, 프론트엔드, 인프라 등 여러 분야의 팀원들과 소통하며 개발하는 프론트엔드 개발자를 지향하게 되었습니다.
 
