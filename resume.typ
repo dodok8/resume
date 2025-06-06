@@ -102,21 +102,33 @@
 
 #line(length: 100%, stroke: 0.75pt)
 
-== 기술
+== 기술 및 역량
 
 - React, React-Native
   - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
-  - 운영 중인 앱 *TypeScript* 마이그레이션 경험
+  - 운영 중인 앱 TypeScript 마이그레이션 경험
   - Redux 를 통한 상태관리 경험
 - Bun
   - Bun 테스트 러너 기반 *테스트 스크립트 작성* 경험
-  - *TypeScript* 기반 앱 작성 및 배포 경험
+  - TypeScript 기반 앱 작성 및 배포 경험
 - Svelte
   - 라이브 서비스 중인 웹 앱 개발 경험
-// - Svelte 5에 도입된 Rune 에 능숙
+// TypeScript
+// - 다수의 TypeScript 앱 작성 경험
+// - 서비스 중인 앱을 TypeScript 마이그레이션 경험
+// - SQL
+//  - 시계열 데이터 관리를 위한 데이터 스키마 설계 경험
 // - Python
 //   - Tkinter를 통한 GUI 앱 제작 가능
-//   - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성에 능숙
+//   - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성 경험
+// - CI / CD
+//  - fly.io, Cloudflare Pages 를 통한 다양한 플랫폼을 통한 배포 가능
+//  - 다수의 Dockerfile 검토 및 오류 수정 경험
+// - Discord.js
+//  - Discord.js 기반 TS 기반 메신저 봇 제작 가능
+// - 커뮤니티
+//  - 다년 간의 개발팀 운영 및 관리로 소통에 능숙
+//  - 개발 컨퍼런스 운영 및 발표 경험
 - Git, Github, Github-actions
   - Git과 GitHub 을 이용한 *프로젝트 관리*에 능숙
   - *GitHub Actions*를 이용한 *배포 자동화 경험*
