@@ -65,7 +65,7 @@
 #{
   set text(size: 10pt)
   grid(
-    columns: (1fr, 1.5fr),
+    columns: (1fr, 1fr),
     grid(
       columns: (auto, 1fr),
       column-gutter: 16pt,
@@ -93,9 +93,8 @@
 }
 
 #text(size: 14pt, weight: 400)[
-  #set par(leading: 8pt)
-  #text(size: 8pt, weight: 900, top-edge: -0pt, bottom-edge: 0pt)[
-    자기소개 #sym.dash.em #text(tracking: 2pt)[INTRODUCTION]
+  #text(size: 13pt, weight: 900, top-edge: 5pt, bottom-edge: 5pt)[
+    자기소개
   ] \
   #metadata.bio.ko.title \ #text(size: 10pt)[#metadata.bio.ko.body]
 ]
@@ -104,34 +103,39 @@
 
 == 기술 및 역량
 
-- React, React-Native
-  - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
-  - 운영 중인 앱 TypeScript 마이그레이션 경험
-  - Redux 를 통한 상태관리 경험
-- Bun
-  - Bun 테스트 러너 기반 *테스트 스크립트 작성* 경험
-  - TypeScript 기반 앱 작성 및 배포 경험
-- Svelte
-  - 라이브 서비스 중인 웹 앱 개발 경험
-// TypeScript
-// - 다수의 TypeScript 앱 작성 경험
-// - 서비스 중인 앱을 TypeScript 마이그레이션 경험
-// - SQL
-//  - 시계열 데이터 관리를 위한 데이터 스키마 설계 경험
-// - Python
-//   - Tkinter를 통한 GUI 앱 제작 가능
-//   - Streamlit, Gradio 를 통한 AI 모델을 위한 웹 앱 작성 경험
-// - CI / CD
-//  - fly.io, Cloudflare Pages 를 통한 다양한 플랫폼을 통한 배포 가능
-//  - 다수의 Dockerfile 검토 및 오류 수정 경험
-// - Discord.js
-//  - Discord.js 기반 TS 기반 메신저 봇 제작 가능
-// - 커뮤니티
-//  - 다년 간의 개발팀 운영 및 관리로 소통에 능숙
-//  - 개발 컨퍼런스 운영 및 발표 경험
-- Git, Github, Github-actions
-  - Git과 GitHub 을 이용한 *프로젝트 관리*에 능숙
-  - *GitHub Actions*를 이용한 *배포 자동화 경험*
+#grid(
+  columns: (1fr, 1fr),
+  [
+    - React, React-Native
+      - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
+      - 운영 중인 앱 TypeScript 마이그레이션 경험
+      - Redux 를 통한 상태관리 경험
+    - Bun
+      - Bun 테스트 러너 기반 테스트 스크립트 작성 경험
+      - TypeScript 기반 앱 작성 및 배포 경험
+    - Svelte
+      - 라이브 서비스 중인 웹 앱 개발 경험
+    - Git, Github, Github-actions
+      - Git과 GitHub 을 이용한 프로젝트 관리에 능숙
+      - GitHub Actions를 이용한 배포 자동화 경험
+  ],
+  [
+    - TypeScript
+      - 다수의 TypeScript 앱 작성 경험
+      - 서비스 중인 앱 TypeScript 마이그레이션 경험
+    - SQL
+     - 시계열 데이터 관리를 위한 데이터 스키마 설계 경험
+    - CI / CD
+     - fly.io, Cloudflare Pages 를 통한 통한 배포 경험
+     - 다수의 Dockerfile 검토 및 오류 수정 경험
+    - 커뮤니케이션
+     - 다년 간의 개발팀 운영 및 관리로 소통에 능숙
+     - 개발 컨퍼런스 운영 및 발표 경험
+  ],
+)
+
+
+
 
 
 // #box(inset: (left: 8pt, top: 4pt))[
@@ -182,21 +186,15 @@
       - Flutter 기반 앱에서 하이브리드 웹 앱 전환 담당
         - REST API 기반 OAuth 로그인(카카오, 애플, 구글)
     ],
-    activityEntry(
-      from: datetime(year: 2022, month: 12, day: 21),
-      title: pad(top: -1em / 4)[
-        gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
-      ],
-    )[
+    activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
+      gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+    ])[
       교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
       - 기존 프로젝트 안티 패턴(스타일 시트의 낮은 코드 응집성, i81n을 고려하지 않은 설계) 및 반복적인 세팅 분석 담당
     ],
-    activityEntry(
-      from: datetime(year: 2022, month: 8, day: 21),
-      title: pad(top: -1em / 4)[
-        #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
-      ],
-    )[
+    activityEntry(from: datetime(year: 2022, month: 8, day: 21), title: pad(top: -1em / 4)[
+      #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
+    ])[
       Junction Asia 2022 해커톤 출품작. 메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp을 제작함
       - Zep 클라이언트 내부에서 실행되는 웹 앱 제작 담당
     ],
@@ -212,7 +210,6 @@
       - 자료 및 예시 도커파일에서 버전 호환성으로 인한 버그 추적 및 버전 고정
       - 실험 수업 진행 단위별 스프린트 회의 진행, 교육 자료 개선
       - Git 과 markdown 으로 교육자료 변경 사항 추적 및 관리
-
     ],
     activityEntry(
       from: datetime(year: 2021, month: 7, day: 23),
@@ -225,12 +222,9 @@
       - React Navigation 을 통한 화면 설계 담당
       - Redux 기반 위치 및 계정 정보 저장 설계 담당
     ],
-    activityEntry(
-      from: datetime(year: 2021, month: 5, day: 30),
-      title: pad(top: -1em / 4)[
-        #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
-      ],
-    )[
+    activityEntry(from: datetime(year: 2021, month: 5, day: 30), title: pad(top: -1em / 4)[
+      #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
+    ])[
       JunctionXSeoul 2021 수상작. 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획 #h(1fr) #link("https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine")[#icon("lucide/earth") #underline[참여후기]]
       - 팀 의사결정 기록 담당
       - 시연용 웹 앱 제작 담당
@@ -255,12 +249,9 @@
     == 1인 개발 프로젝트
   ],
   (
-    activityEntry(
-      from: datetime(year: 2025, month: 2, day: 22),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
-      ],
-    )[
+    activityEntry(from: datetime(year: 2025, month: 2, day: 22), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
+    ])[
       리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
       - Bun을 통한 위키 크롤러 스크립트 코드 세팅 및 테스트 코드 작성 단순화
       - Class Rune 을 이용한 상태관리
@@ -268,12 +259,9 @@
       - Google Drive 연동을 통한 정보 저장
       - AVIF 포맷 사용으로 앨범아트 용량 최적화
     ],
-    activityEntry(
-      from: datetime(year: 2023, month: 12, day: 24),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
-      ],
-    )[
+    activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
+    ])[
       알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇
       - user install 형태로 서버에 상관없이 이용가능
     ],
@@ -285,10 +273,7 @@
     == 커뮤니티 프로젝트
   ],
   (
-    activityEntry(
-      from: datetime(year: 2022, month: 10, day: 14),
-      title: belonging([스태프], [GIST DEV NIGHT]),
-    )[
+    activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
       GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램을 기획 및 운영 #h(1fr) #link("https://gistnews.co.kr/?p=5929")[#icon("lucide/earth") #underline[교내 기사]]
       - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
       - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("lucide/earth") 발표자료]]
@@ -309,7 +294,9 @@
   - 지원되지 않는 types 필드 대신, exports 내에 types 필드를 추가하여 해결
 ]
 
-#gh-repo("velopert/velog-client") #link("https://github.com/velopert/velog-client/pull/477")[PR \#477 Fix post.ts 쿼리 오타]
+#gh-repo("velopert/velog-client") #link(
+  "https://github.com/velopert/velog-client/pull/477",
+)[PR \#477 Fix post.ts 쿼리 오타]
 #pad(left: 1em)[
   - 블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 등록 불가 오류 발생
   - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문에서 오타 발견, 이를 수정하여 해결함
@@ -384,16 +371,18 @@
     activityEntry(
       from: datetime(year: 2021, month: 11, day: 18),
       title: belonging(
-        [#link("https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html")[제품/서비스 개발 부분 우수상]],
+        [#link(
+            "https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html",
+          )[제품/서비스 개발 부분 우수상]],
         [2021 관광데이터 활용 공모전],
       ),
     )[
       - 자전거 여행객 플랫폼 Wheelie
     ],
-    activityEntry(
-      from: datetime(year: 2021, month: 7, day: 23),
-      title: belonging([AutoCrypt Track 2#super("nd") Winner], [JunctionXSeoul 2021]),
-    )[
+    activityEntry(from: datetime(year: 2021, month: 7, day: 23), title: belonging(
+      [AutoCrypt Track 2#super("nd") Winner],
+      [JunctionXSeoul 2021],
+    ))[
       - 교통 약자를 위한 택시앱 Calmmuter
     ],
   ),
@@ -401,12 +390,10 @@
 
 
 #pagebreak()
-#set par(
-  first-line-indent: (
-    amount: 0.75em,
-    all: true,
-  ),
-)
+#set par(first-line-indent: (
+  amount: 0.75em,
+  all: true,
+))
 
 == 자기소개서
 이력서에 못 담은 제가 거쳐온 행동들에 담겨있는 자세한 스토리를 자기소개서에 담았습니다.
