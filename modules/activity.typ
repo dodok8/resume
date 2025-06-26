@@ -33,7 +33,7 @@
   table(
     columns: (auto, 1fr),
     inset: 0pt,
-    gutter: 15pt,
+    gutter: 17pt,
     stroke: none,
     table.header(table.cell(colspan: 2)[#header]),
     ..(
@@ -65,11 +65,11 @@
           ],
           block(breakable: false)[
             #pad(bottom: -4pt)[
-              #set text(size: 12pt, weight: 700)
+              #set text(size: 12pt, weight: 600)
               #set par(leading: 0.5em)
               #title
             ]
-            #set text(size: 10pt)
+            #set text(size: 10.5pt)
             #body
           ],
         )
@@ -95,17 +95,12 @@
   role: "#INVALID_ROLE#",
   organization: "#INVALID_COMPANY#",
   homepage: "",
-) = activityEntry(
-  body,
-  from: from,
-  to: to,
-  title: [
-    #belonging(role, organization)
-    #h(1fr)
-    #if homepage != "" {
-      show link: set text(fill: color.rgb("#1c7ed6"))
-      show link: underline
-      homepage
-    }
-  ],
-)
+) = activityEntry(body, from: from, to: to, title: [
+  #belonging(role, organization)
+  #h(1fr)
+  #if homepage != "" {
+    show link: set text(fill: color.rgb("#1c7ed6"))
+    show link: underline
+    homepage
+  }
+])

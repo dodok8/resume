@@ -1,7 +1,7 @@
 #import "components.typ": chip, icon
 
 #let gh-repo(name-with-owner) = link("https://github.com/" + name-with-owner)[
-  #icon("devicon/github", bottom: -1em / 6) #text(weight: 700)[#name-with-owner]
+  #icon("devicon/github", bottom: -1em / 6) #text(weight: 600)[#name-with-owner]
 ]
 
 #let gh-pull-chip-open(content: "Open") = {
