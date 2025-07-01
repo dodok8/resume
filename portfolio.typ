@@ -107,13 +107,9 @@
     == 프로젝트 목록
   ],
   (
-    activityEntry(
-      from: datetime(year: 2025, month: 2, day: 22),
-      to: datetime.today(),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
-      ],
-    )[
+    activityEntry(from: datetime(year: 2025, month: 2, day: 22), to: datetime.today(), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
+    ])[
 
       *제품 소개*
 
@@ -127,7 +123,8 @@
       #figure(
         grid(
           columns: 3,
-          gutter: 2mm, // space between columns
+          gutter: 2mm,
+          // space between columns
           image("./images/ilots-log_best30.png"),
           image("./images/ilots-log_songcard.png"),
           image("./images/ilots-log_backup.png"),
@@ -153,21 +150,15 @@
 
       *제품 결과*
       - 오픈소스 개발 진행 중
-        - #link("https://github.com/dodok8/Ilots-log/pull/12")[#icon("devicon/github") PR\#12 Orb-H/issue11 ]
-          - 사용자가 기여한 레이팅 알고리즘 개선
         - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ]
-          - 사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그
-          - 수정 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선
+          - 사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그를 수정하는 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선
         - #link("https://github.com/dodok8/Ilots-log/pull/26")[#icon("devicon/github") PR\#26 Dodok8/issue26 ]
           - 이미지 용량 최적화 및 외부 사이트 의존 해결을 위한 AVIF 포맷 교체
 
     ],
-    activityEntry(
-      from: datetime(year: 2023, month: 12, day: 24),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
-      ],
-    )[
+    activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
+    ])[
       *제품 소개*
 
       알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇, 1인 개발.
@@ -178,8 +169,10 @@
 
         #figure(
           grid(
-            columns: 2, // 2 means 2 auto-sized columns
-            gutter: 2mm, // space between columns
+            columns: 2,
+            // 2 means 2 auto-sized columns
+            gutter: 2mm,
+            // space between columns
             image("./images/discord-aladin_search.png", width: 85%),
             image("./images/discord-aladin_show.png", width: 85%),
           ),
@@ -207,12 +200,9 @@
       *제품 결과*
       - 2025년 5월 기준 8개의 서버와 9명의 개인 사용자가 사용 중
     ],
-    activityEntry(
-      from: datetime(year: 2022, month: 12, day: 21),
-      title: pad(top: -1em / 4)[
-        gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
-      ],
-    )[
+    activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
+      gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+    ])[
 
       *제품 소개*
 
@@ -261,10 +251,11 @@
 
       #figure(
         grid(
-          columns: 2, // 2 means 2 auto-sized columns
-          gutter: 2mm, // space between columns
-          image("./images/smartx_mini_old.png", width: 80%),
-          image("./images/smartx_mini_new.png", width: 90%),
+          columns: 2,
+          // 2 means 2 auto-sized columns
+          gutter: 2mm,
+          // space between columns
+          image("./images/smartx_mini_old.png", width: 80%), image("./images/smartx_mini_new.png", width: 90%),
         ),
         caption: "SmartX Mini InterConnect Lab 실습 교재(좌: 개선 전 PPT, 우: 개선 후 마크다운)",
         supplement: none,
@@ -310,7 +301,8 @@
       #figure(
         grid(
           columns: 3,
-          gutter: 2mm, // space between columns
+          gutter: 2mm,
+          // space between columns
           image("./images/wheelie_home.png", width: 75%),
           image("./images/wheelie_path.png", width: 75%),
           image("./images/wheelie_location.png", width: 75%),
@@ -351,10 +343,11 @@
 
       #figure(
         grid(
-          columns: 2, // 2 means 2 auto-sized columns
-          gutter: 2mm, // space between columns
-          image("./images/gistory_main.png"),
-          image("./images/gistory_article.png", width: 65%),
+          columns: 2,
+          // 2 means 2 auto-sized columns
+          gutter: 2mm,
+          // space between columns
+          image("./images/gistory_main.png"), image("./images/gistory_article.png", width: 65%),
         ),
         caption: "Gistory 메인 페이지 및 게시물 페이지",
         supplement: none,
