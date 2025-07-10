@@ -102,14 +102,13 @@
 #line(length: 100%, stroke: 0.75pt)
 
 == 기술 및 역량
-
 #grid(
   columns: (1fr, 1fr),
   [
     - React, React-Native
       - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
-      - 운영 중인 앱 TypeScript 마이그레이션 경험
-      - Redux 를 통한 상태관리 경험
+      - 운영 중인 레거시 앱의 TypeScript 마이그레이션 경험
+      - Redux 를 통한 상태관리 설계 경험
     - Bun
       - Bun 테스트 러너 기반 테스트 스크립트 작성 경험
       - TypeScript 기반 앱 작성 및 배포 경험
@@ -131,12 +130,9 @@
     - 커뮤니케이션
      - 다년 간의 개발팀 운영 및 관리로 소통에 능숙
      - 개발 컨퍼런스 운영 및 발표 경험
-     - 오픈소스 사이트 및 프로젝트 운영 경험
+     - 오픈소스 번역 및 코드 기여, 오픈소스 프로덕트 운영 경험
   ],
 )
-
-
-
 
 
 // #box(inset: (left: 8pt, top: 4pt))[
@@ -282,7 +278,7 @@
   ),
 )
 
-== 오픈 소스 기여
+== 오픈 소스 코드 기여
 
 // - #gh-pull-rich(gh-pull("https://github.com/fabian-hiller/valibot/pull/429"))
 //   #pad(left: 1em)[Schema 검증 라이브러리]
