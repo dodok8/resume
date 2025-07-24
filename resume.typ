@@ -134,6 +134,16 @@
   ],
 )
 
+// 번 대신에 TDD 역량을 적는 식으로 변경
+// 왜냐? 대부분 회사는 테스트를 원하지 번을 원하지 않음
+// 코드 베이스 파악 능력 : 기존 레거시 코드에 대한 
+// 테스트 능력
+// 문서화 능력
+// 프로토타입 제작 능력: 해커톤
+// 또 빼먹은 능력 뭐 있지?
+// AI 활용능력
+// 커뮤니케이션 역량
+
 
 // #box(inset: (left: 8pt, top: 4pt))[
 //   #align(center)[
@@ -167,6 +177,9 @@
 #line(length: 100%, stroke: 0.75pt)
 
 
+// 개발 프로젝트들 통합하기
+
+
 #activityList(
   header: [
     == 팀 개발 프로젝트
@@ -182,12 +195,14 @@
       AI를 통한 위로 및 답변을 받을 수 있는 일기 어플리케이션.
       - Flutter 기반 앱에서 하이브리드 웹 앱 전환 담당
         - REST API 기반 OAuth 로그인(카카오, 애플, 구글)
+        // 앱인 토스 내용으로 변경
     ],
     activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
     ])[
       교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
       - 기존 프로젝트 안티 패턴(스타일 시트의 낮은 코드 응집성, i81n을 고려하지 않은 설계) 및 반복적인 세팅 분석 담당
+      // 말 순서 좀 바꿔서 코드 분석 능력을 강조할 수 있을까?
     ],
     activityEntry(from: datetime(year: 2022, month: 8, day: 21), title: pad(top: -1em / 4)[
       #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
@@ -255,6 +270,8 @@
         - 사용자 점수 데이터 및 레이팅 계산 로직 단순화
       - Google Drive 연동을 통한 정보 저장
       - AVIF 포맷 사용으로 앨범아트 용량 최적화
+
+      // AI 활용 적어 보기
     ],
     activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
@@ -298,6 +315,7 @@
   - 블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 등록 불가 오류 발생
   - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문에서 오타 발견, 이를 수정하여 해결함
 ]
+// 과정에서 느낀 걸 적어라. 유닛 테스트의 중요성, 문서화의 중요성, 로그의 중요성
 
 #workExpList(
   header: [
@@ -327,7 +345,7 @@
       role: "해군 빅데이터 분석병",
       organization: "계근단 본부대대",
     )[
-      군 복무 중 수행한 프로젝트 \
+      군 복무 중 수행한 프로젝트, 이를 통해 외부 소프트웨어가 제한 된 환경에서 직접 기하 알고리즘 구현 및 활용 / JS 가 없는 환경에서의 UI 구성 경험을 해볼 수 있었음.
       - 감정 분석 결과 활용을 위한 챗봇형 Streamlit 웹 클라이언트 #h(1fr) Python, HTML, CSS
       - openpyxl을 이용한 엑셀로 입출력이 가능하도록 웹 클라이언트 개선 #h(1fr) Python
       - Tkinter 를 이용한 물리 시뮬레이션 구현 #h(1fr) Python
@@ -399,3 +417,6 @@
 
 // === 가장 큰 깨달음: 개발자는 협력을 해야 한다.
 
+// === 협력의 여정: 오픈소스
+
+// 여러 개 해봤자 정신없어서 못 본다. 내 역량을 강조할 수 있는 그런 부분에 대해 집중해서 느낀 거, 성장한 거를 강조한다.
