@@ -66,7 +66,7 @@
           block(breakable: false)[
             #pad(bottom: -4pt)[
               #set text(size: 12pt, weight: 600)
-              #set par(leading: 0.5em)
+              #set par(leading: 0.8em)
               #title
             ]
             #set text(size: 10.5pt)
