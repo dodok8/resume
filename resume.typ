@@ -318,7 +318,7 @@
     == 오픈소스 번역 기여
   ],
   (
-    activityEntry(from: datetime(year: 2024, month: 2, day: 9), title: pad(top: -1em / 4)[
+    activityEntry(from: datetime(year: 2018, month: 8, day: 9), title: pad(top: -1em / 4)[
       #gh-repo("IntelliJ-Localization/pycharm-kr ")
     ])[
       #line(length: 100%, stroke: 0.75pt)
@@ -368,8 +368,8 @@
       organization: "계근단 본부대대",
     )[
       #line(length: 100%, stroke: 0.75pt)
-    외부 소프트웨어가 제한 된 환경에서 직접 기하 알고리즘 구현 및 활용 \
-    JS 가 없는 환경에서의 UI 구성 경험을 해볼 수 있었음.
+      외부 소프트웨어가 제한 된 환경에서 직접 기하 알고리즘 구현 및 활용 \
+      JS 가 없는 환경에서의 UI 구성 경험을 해볼 수 있었음.
       - 감정 분석 결과 활용을 위한 챗봇형 Streamlit 웹 클라이언트 #h(1fr) Python, HTML, CSS
       - openpyxl을 이용한 엑셀로 입출력이 가능하도록 웹 클라이언트 개선 #h(1fr) Python
       - Tkinter 를 이용한 물리 시뮬레이션 구현 #h(1fr) Python
