@@ -221,7 +221,7 @@
         - AVIF 포맷 사용으로 앨범아트 용량 최적화
     ],
     activityEntry(from: datetime(year: 2024, month: 12, day: 29), title: pad(top: -1em / 4)[
-      #gh-repo("fedify-dev/fedify") #h(1fr) GraphQL
+      #gh-repo("velopert/velog-client") #h(1fr) GraphQL
     ])[
       *\#오픈소스 기여* *\#코드 베이스 분석*
       #line(length: 100%, stroke: 0.75pt)
