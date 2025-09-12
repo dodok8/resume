@@ -4,6 +4,7 @@
 #import "modules/github.typ": *
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
+#import "modules/information.typ": *
 
 
 #set page(
@@ -63,35 +64,7 @@
   // #text(weight: 700, tracking: 1pt)[#metadata.location]
 ]
 
-#{
-  set text(size: 10pt)
-  grid(
-    columns: (1fr, 1fr),
-    grid(
-      columns: (auto, 1fr),
-      column-gutter: 16pt,
-      row-gutter: 8pt,
-      [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
-      [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
-    ),
-    grid(
-      columns: (auto, 1fr),
-      column-gutter: 16pt,
-      row-gutter: 8pt,
-      // [#icon("lucide/house") *주소*], metadata.address,
-      [#icon("lucide/calendar") *생년월일*], metadata.birthday,
-      [#icon("devicon/github") *GitHub*],
-      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
-      // [#icon("logos/twitter") *Twitter*],
-      // link("https://twitter.com/" + metadata.social.twitter)[\@#metadata.social.twitter],
-
-      // [#icon-solved-ac() *solved.ac*],
-      // link("https://solved.ac/profile/" + metadata.social.solved-ac)[
-      //   #solved-ac-profile(metadata.social.solved-ac)
-      // ],
-    ),
-  )
-}
+#information
 
 #text(size: 14pt, weight: 400)[
   #text(size: 13pt, weight: 900, top-edge: 5pt, bottom-edge: 5pt)[
@@ -412,8 +385,8 @@
       from: datetime(year: 2021, month: 11, day: 18),
       title: belonging(
         [#link(
-            "https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html",
-          )[제품/서비스 개발 부분 우수상]],
+          "https://kto.visitkorea.or.kr/upload/flexer/upload/ktobiz/20211118/73f1fa76-480f-11ec-83c5-df9c32bb7038.hwp.files/Sections1.html",
+        )[제품/서비스 개발 부분 우수상]],
         [2021 관광데이터 활용 공모전],
       ),
     )[
