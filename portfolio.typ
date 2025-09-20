@@ -60,22 +60,44 @@
 
 #activityList(
   header: [
-    == 프로젝트 목록
+    == 포트폴리오
     #line(length: 100%, stroke: 0.75pt)
   ],
   (
+    activityEntry(from: datetime(year: 2025, month: 7, day: 4), to: datetime.today(), title: pad(top: -1em / 4)[
+      2025 OSSCA Fedify #h(1fr) TypeScript, ActivityPub
+    ])[
+      *소개*
+
+      - 2025년 오픈 소스 소프트웨어 컨트리뷰션 아케데미에 참가해서, ActivityPub과 관련된 다음 프로젝트에 기여 하였음
+        - ActivityPub 구현 프레임워크 #gh-repo("fedify-dev/fedify")
+        - ActivityPub 기반 1인 SNS #gh-repo("fedify-dev/hollo")
+        - ActivityPub 자동화 봇 프레임 워크 #gh-repo("fedify-dev/botkit")
+
+
+      *해결 문제*
+      - *Fedify CLI nodeInfo 커맨드 개선*
+      - *`@fedify/elysia` 패키지 제작*
+      - *hollo 타임라인 오류 수정*
+      - *BotKit 팔로워 목록 구현*
+      - *BotKit Remote 팔로워 구현 및 Fedify Webfinger 확장 API 추가*
+    ],
     activityEntry(from: datetime(year: 2025, month: 2, day: 22), to: datetime.today(), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
     ])[
 
-      *제품 소개*
+      *소개*
 
-      리듬게임 Rotaeno를 위한 사용자 곡 기록 및 레이팅 계산 시스템, 1인 개발 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]
+      - #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[https://Ilots-log.pages.dev]]
+      - 리듬게임 Rotaeno를 위한 사용자 곡 기록 및 레이팅 계산 시스템, 1인 개발 #h(1fr)
 
-      *제품 목표*
+      *목표*
 
       - 유명 리듬게임의 경우 #link("https://chunithm-net-eng.com")[#icon("lucide/earth") #underline[chunithm-net]] 같은 공식 기록 공유 사이트 및 #link("https://v-archive.net/")[#icon("lucide/earth") #underline[V-ARCHIVE]]와 같은 비공식 기록 공유 사이트가 존재함
       - Rotaeno 에는 업데이트가 종료된 #link("https://rotaeno.imgg.dev/")[#icon("lucide/earth") #underline[RotaenoKit]] 만 존재하며, 사용자의 브라우저에 정보를 저장하기에 여러 기기에서 기록관리가 불가능함
+
+      *현황*
+      - 오픈소스 개발 진행 중 (ver 2.13.0까지 반영)
 
       #figure(
         grid(
@@ -95,31 +117,29 @@
       - *레이팅 세부 정보 수집의 문제: 위키 크롤러 #h(1fr)* #gh-repo("dodok8/rotaeno-ch-wiki-crawler")
         - *문제점*: 각 곡별로 레이팅 정보 수집을 자동화 하는 과정에서 여러 엣지 케이스를 만났고, 코드를 수정할 때마다 다른 케이스가 작동 안하는 문제를 만남.
         - *해결책*:  케이스들을 테스트 코드로 표현하여, 코드 수정의 과정에도 엣지 케이스의 작동을 보장하는 코드를 작성할 수 있었음. Bun을 사용함으로서 추가적인 세팅 없이 타입 관리, 테스트 코드 작성이 가능해짐
-      // - *점수 레이팅 계산 로직 상태관리의 어려움: Rune의 도입*
-      //   - *문제점* : 
-      //   - 260여 곡의 점수를 Class Rune을 통해 여러 페이지에서 상태 공유를 진행하고, 파생 상태로 베스트 스코어 점수와 이를 기반으로 한 레이팅 점수를 계산함
       - *클라우드 점수 연동: Google Drive 연동*
         - *문제점*: 사용자의 localstorage 말고도, 보편적인 사용자가 존재하고 점수가 저장 가능한 공간이 필요했음.
-        - *해결책*: 구글 API 연동을 통해 구글 드라이브에 점수 정보를 저장함으로서, 여러사용자가 여러 기기에서 점수 정보 관리 가능하도록 제공.
-      - *이미지 포맷 문제: AVIF 포맷 사용*
+        - *해결책*
+          - 구글 API 연동을 통해 구글 드라이브에 점수 정보를 저장함으로서, 여러사용자가 여러 기기에서 점수 정보 관리 가능하도록 제공.
+          - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ] 사용자가 제보한 구글 로그인 관련 오류를 해결하는 과정에서 중복된 파일 탐색 로직을 발견, 반복된 로그인 UI를 거치지 않아도 되도록 개선하였음.
+      - *이미지 소스 문제: AVIF 포맷 사용*
         - *문제점*: 외부 이미지에 의존한 초기 버전에서, 소스 사이트의 문제로 이미지가 안 불러와지는 문제 발생
         - *해결책*: 사이트 내부에 이미지를 저장하도록 해서 외부 사이트 의존 문제를 해결. 이 과정에서 앨범아트로 AVIF를 사용함으로서 용량을 효율적으로 줄일 수 있었음.
-
-      *제품 결과*
-      - 오픈소스 개발 진행 중
-        - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ]
-          - 사용자가 제보한 구글 드라이브 파일을 제대로 못 찾는 버그를 수정하는 과정에서 중복된 파일 탐색 로직 제거, 반복해서 구글 로그인 창을 거치지 않아도 되도록 개선
     ],
     activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
     ])[
-      *제품 소개*
+      *소개*
 
       알라딘 Open API를 활용한 도서 정보 공유 디스코드 챗봇, 1인 개발.
 
-      *제품 목표*
+      *목표*
 
       - 디스코드에서 도서 정보를 공유하기 위해서 디스코드에 올라온 링크를 접속, 확인한 다음에 다시 디스코드로 돌아와야 하는 불편함이 존재했음
+
+      *현황*
+      - 알라딘 Link에 상세 설명 달아주기 기능, 검색 목록 기능(search), 세부 정보 보기 기능(show) 을 제공함.
+      - 2025년 5월 기준 8개의 서버와 9명의 개인 사용자가 사용 중
 
         #figure(
           grid(
@@ -134,25 +154,18 @@
           supplement: none,
         )
 
-
       *해결 문제*
-
-      - *주요 커맨드*
-        - `search` : 디스코드 내에서 알라딘 검색 결과 보여주기. 페이지네이션 제공
-        - `show` : 알라딘 검색 결과에서 한 책을 골라 상세 정보 임베딩 제공
-        - user install 형태로 제공되어 서버에 상관없이 사용자가 이용 가능
-      - *알라딘 Open API*
+      - *한국어 도서 정보 가져오기*
         - 국내외 자료를 다루는 알라딘에서 도서 정보 및 음반 정보 Open API 제공
         - 해당 API를 활용, 국내 도서 / 외국 도서 / 음반 / DVD / 중고책 정보를 받아옴
         - 응답 정보는 TypeScript 타입을 통해 통일된 스키마로 코드 내에서 활용
-      - *Bun, fly.io*
+      - *세부 항목 선택 UI 개선*
+      - *리다이렉트 URL 해석*
+      - *점진적 배포 개선*
         - 개발 환경(군대) 상 빌드 및 배포 과정을 단순하게 할 필요가 존재
         - 이와 동시에 입력 타입을 검증할 필요 또한 존재
         - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
         - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
-
-      *제품 결과*
-      - 2025년 5월 기준 8개의 서버와 9명의 개인 사용자가 사용 중
     ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
@@ -161,14 +174,24 @@
         #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
       ],
     )[
-      *제품 소개*
+      *소개*
 
       - GIST 전공 필수 IOT 웹 및 네트워크 인프라 실험 SmartX-Mini 실습 교재, 실험 조교로 참여
 
-      *제품 목표*
+      *목표*
 
-      - 기존 PPT 파일의 경우, 업무 분업 및 변경 사항 추적 불가
-      - 오타 및 사용되는 파일 및 명령어의 버전 차이로 인한 진행 불가
+      - 기존 PPT 파일의 문제였던 업무 분업 및 변경 사항 추적 불가 개선
+      - 년도가 변경되며 생긴 오타 및 사용되는 파일 및 명령어의 버전 차이로 인한 진행 불가 개선
+
+      *현황*
+
+      - *원할한 수업 진행*
+        - 오타가 없는 수업자료가 제공됨으로서 수업 시 실험 성공률이 올라감
+        - 매주 스프린트 진행 후, 발생하는 오류들에 대한 경고 및 해결 방식을 메뉴얼에 반영함으로서 다음 수업에서는 같은 오류를 막을 수 있었음
+      - *원할한 인수인계*
+        - 2022년 수정 당시는 마크다운 이전 및 버전 변경없는 버그 해결을 목표로 진행되었음
+        - 2023년 부터는 지원이 끊긴 버전을 최신 버전으로 올리는 마이그레이션을 진행.
+          - 반복되는 오류를 수정하느라 낭비되었을 인력이 버전 마이그레이션 위주로 투자 되었음
 
       #figure(
         grid(
@@ -188,20 +211,10 @@
         - 기존 PPT에 존재하는 오타를 수정한 버전을 제작. 이 버전을 기준으로 다시 실습을 진행하면서 발생하는 버전 충돌 과정을 탐색
         - 오타가 수정된 PPT를 기준으로, 원할한 분업 작업 및 변경사항 추적을 위해 Git 과 markdown 조합을 사용하도록 변경
       - *버전 오류 수정*
-        - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는
+        - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
         - 해당 수업에 사용되는 지원이 끊긴 flume 버전 1.6.0의 설치 소스를 archive 저장소 옮기도록 Dockerfile 수정
       - *실험 후 스프린트*
         - 매주 첫 실험이 끝난 다음, 스프린트를 진행하여 교육자료의 개선점 / 발생한 버그의 해결책을 의논함
-
-      *제품 결과*
-
-      - *원할한 수업 진행*
-        - 오타가 없는 수업자료가 제공됨으로서 수업 시 실험 성공률이 올라감
-        - 매주 스프린트 진행 후, 발생하는 오류들에 대한 경고 및 해결 방식을 메뉴얼에 반영함으로서 다음 수업에서는 같은 오류를 막을 수 있었음
-      - *원할한 인수인계*
-        - 2022년 수정 당시는 마크다운 이전 및 버전 변경없는 버그 해결을 목표로 진행되었음
-        - 2023년 부터는 지원이 끊긴 버전을 최신 버전으로 올리는 마이그레이션을 진행.
-          - 이전 과정에서는 매년 반복되는 오류를 수정하느라 낭비되었을 인력이 버전 마이그레이션 위주로 투자 되었음
     ],
     activityEntry(
       from: datetime(year: 2020, month: 7, day: 10),
@@ -217,6 +230,11 @@
       *제품 목표*
 
       - GIST 내부 학생들을 위한 온라인 커뮤니티 공간의 부재
+
+      *결과*
+      - 이후 시장 조사 결과, 사용자가 원하는 것은 쌍방 소통 형태의 BBS 보다는 정보글만 선택해서 볼 수 있는 모아보기 형태의 앱이라는 결론이 나옴
+        - GISTORY의 서비스 종료 후, 시장 조사 결과를 반영한 공지 전달 플랫폼 Ziggle 제작
+      - GISOTRY 개발 및 그 외 SPA 개발 과정에 있었던 반복된 세팅 및 안티 패턴 문제를 해결하기 위해 gsainfoteam/Infoteam-frontend-template 제작
 
       #figure(
         grid(
@@ -245,14 +263,9 @@
         - `boolean | undefined` 로 관리되던 로딩 상태를 안전하게 다루기 위한 헬퍼 함수 추가
           - `undefined` 와 `true`에서는 폴백 컴포넌트가 보여야 했고, `false` 에서는 본래 컴포넌트가 보여야 했음 이를 다루는 `loadComponent()` 함수 추가
         - 대형 컴포넌트 타입 작성으로 자식 컴포넌트와 타입 불일치가 발생하는 부분 발견, 버그 수정
-      - CRA 에서 Vite 마이그레이션
+      - *CRA 에서 Vite 마이그레이션*
         - 컴포넌트 증가로 인해 느려지는 빌드 및 개발서버 실행 속도를 해결하기 위해 Vite로 마이그레이션
         - 빌드 시간을 4분의 1로 단축
-
-      *제품 결과*
-      - 이후 시장 조사 결과, 사용자가 원하는 것은 쌍방 소통 형태의 BBS 보다는 정보글만 선택해서 볼 수 있는 모아보기 형태의 앱이라는 결론이 나옴
-        - GISTORY의 서비스 종료 후, 시장 조사 결과를 반영한 공지 전달 플랫폼 Ziggle 제작
-      - GISOTRY 개발 및 그 외 SPA 개발 과정에 있었던 반복된 세팅 및 안티 패턴 문제를 해결하기 위해 gsainfoteam/Infoteam-frontend-template 제작
     ],
   ),
 )
