@@ -77,8 +77,22 @@
 
       *해결 문제*
       - *Fedify CLI nodeInfo 커맨드 개선*
-      - *`@fedify/elysia` 패키지 제작*
-      - *hollo 타임라인 오류 수정*
+        - *문제점*: Fediverse 인스턴스의 nodeInfo를 출력해주는 `fedify nodeInfo` 명령어에서 터미널 에뮬레이터의 24bit 컬러 지원 여부에 따라 색상 출력이 붕괴되는 현상이 있었음.(#link("https://github.com/fedify-dev/fedify/issues/168")[#icon("devicon/github") issue \#168 ]) 이 이슈에서 출발하여 점진적으로 커맨드를 개선함.
+        - *개선 과정*
+          - #link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282]: 터미널 에뮬레이터의 256 색상 지원 여부를 감지해 미지원 하는 터미널의 경우 ANSI 256 색상을 출력하도록 변경.
+          - #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299]: 해당 기능을 포함한 nodeInfo 명령어의 구성 요소들의 유닛 테스트를 작성함. 이 과정에서 실제 ANSI 컬러값이 해당값과 매치되도록 색상 비교 로직을 재설계함.
+          - #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327]: 테스트 작성 과정에서, `--raw` 옵션이 실제로 존재함에도 불구하고 문서에는 누락되어 있는 것을 발견함. 이를 반영하여 문서를 업데이트함.
+          - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
+          - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성함.
+
+      - *Fedify CI/CD 워크플로우 개선*
+        - *문제점*: 스폰서 목록을 업데이트 하는 GitHub actions workflow가 포크된 저장소에서도 작동하여, 매시간 마다 알림이 가는 문제가 있었음.
+        - *해결책*: 해당 워크플로우를 수동으로 전환한 다음, REST API 를 통해 메인 저장소의 액션만 매시간 호출하도록 별도의 저장소와 워크플로우 작성.(#gh-repo("fedify-dev/sponsor-automation"))
+
+      - *\@fedify/elysia 패키지 제작*
+        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인 제작.
+
+      - *Hollo 타임라인 오류 수정*
       - *BotKit 팔로워 목록 구현*
       - *BotKit Remote 팔로워 구현 및 Fedify Webfinger 확장 API 추가*
     ],
@@ -207,14 +221,12 @@
 
       *해결 문제*
 
-      - *1차 오타 수정*
+      - *1차 개선*
         - 기존 PPT에 존재하는 오타를 수정한 버전을 제작. 이 버전을 기준으로 다시 실습을 진행하면서 발생하는 버전 충돌 과정을 탐색
         - 오타가 수정된 PPT를 기준으로, 원할한 분업 작업 및 변경사항 추적을 위해 Git 과 markdown 조합을 사용하도록 변경
       - *버전 오류 수정*
         - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
         - 해당 수업에 사용되는 지원이 끊긴 flume 버전 1.6.0의 설치 소스를 archive 저장소 옮기도록 Dockerfile 수정
-      - *실험 후 스프린트*
-        - 매주 첫 실험이 끝난 다음, 스프린트를 진행하여 교육자료의 개선점 / 발생한 버그의 해결책을 의논함
     ],
     activityEntry(
       from: datetime(year: 2020, month: 7, day: 10),
@@ -250,11 +262,11 @@
 
       *해결 문제*
 
-      - *REST API 연동 및 Redux 상태관리 설계*
-        - 게시물 목록 불러오기 / 게시물 보기 / 게시물 작성 / 첨부 파일 업로드 API 연동
-        - 첨부 파일 용량 파악 및 정보 파악을 위한 차트 컴포넌트(chart.js 기반)
-      - *RBAC 기반의 권한 관리를 위한 어드민 페이지 설계*
-        - 현재 유저에게 부여된 룰 목록 및 룰에 부여된 액션 목록을 쉽게 보기 위한 컴포넌트 설계
+      // - *REST API 연동 및 Redux 상태관리 설계*
+      //   - 게시물 목록 불러오기 / 게시물 보기 / 게시물 작성 / 첨부 파일 업로드 API 연동
+      //   - 첨부 파일 용량 파악 및 정보 파악을 위한 차트 컴포넌트(chart.js 기반)
+      // - *RBAC 기반의 권한 관리를 위한 어드민 페이지 설계*
+      //   - 현재 유저에게 부여된 룰 목록 및 룰에 부여된 액션 목록을 쉽게 보기 위한 컴포넌트 설계
       - *배포 솔루션 변경*
         - Jenkins에서 Cloudflare Pages 및 github-actions로 전환
         - 비용 절감, 배포 파이프라인 단순화 및 배포 시간 절감
