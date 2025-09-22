@@ -30,6 +30,7 @@
   if body-header != none {
     body-header(formatDuration(total-duration-in-weeks))
   }
+  show table: set block(breakable: true)
   table(
     columns: (auto, 1fr),
     inset: 0pt,
@@ -40,12 +41,12 @@
       entries.map(((from, to, title, body)) => {
         let row = (
           align(center)[
-            #block(breakable: false)[
+            #block()[
               #text(size: 10pt, weight: 600)[
                 #{
                   from.display("[year].[month]")
                 }
-                #if type(to) == "datetime" {
+                #if type(to) == datetime {
                   [
                     #text(size: 6pt, weight: 600)[
                       \
@@ -63,7 +64,7 @@
               ]
             ]
           ],
-          block(breakable: false)[
+          block()[
             #pad(bottom: -4pt)[
               #set text(size: 12pt, weight: 600)
               #set par(leading: 0.8em)
