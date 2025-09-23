@@ -57,11 +57,11 @@
 
 = #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 
+== 포트폴리오
+#line(length: 100%, stroke: 0.75pt)
 
 #activityList(
   header: [
-    == 포트폴리오
-    #line(length: 100%, stroke: 0.75pt)
   ],
   (
     activityEntry(from: datetime(year: 2025, month: 7, day: 4), to: datetime.today(), title: pad(top: -1em / 4)[
@@ -77,25 +77,64 @@
 
       *해결 문제*
       - *Fedify CLI nodeInfo 커맨드 개선*
-        - *문제점*: Fediverse 인스턴스의 nodeInfo를 출력해주는 `fedify nodeInfo` 명령어에서 터미널 에뮬레이터의 24bit 컬러 지원 여부에 따라 색상 출력이 붕괴되는 현상이 있었음.(#link("https://github.com/fedify-dev/fedify/issues/168")[#icon("devicon/github") issue \#168 ]) 이 이슈에서 출발하여 점진적으로 커맨드를 개선함.
+        - *문제점*: Fediverse 인스턴스의 nodeInfo를 출력해주는 `fedify nodeInfo` 명령어에서 터미널 에뮬레이터의 24bit 컬러 지원 여부에 따라 색상 출력이 붕괴되는 현상이 있었음.(#link("https://github.com/fedify-dev/fedify/issues/168")[#icon("devicon/github") issue \#168 ]) \ 이 이슈에서 출발하여 점진적으로 커맨드를 개선함.
+          #figure(
+            image("./images/fedify_nodeinfo_color.png", width: 80%),
+            caption: "fedify nodeinfo 색상 개선 결과",
+            supplement: none,
+          )
         - *개선 과정*
           - #link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282]: 터미널 에뮬레이터의 256 색상 지원 여부를 감지해 미지원 하는 터미널의 경우 ANSI 256 색상을 출력하도록 변경.
           - #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299]: 해당 기능을 포함한 nodeInfo 명령어의 구성 요소들의 유닛 테스트를 작성함. 이 과정에서 실제 ANSI 컬러값이 해당값과 매치되도록 색상 비교 로직을 재설계함.
           - #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327]: 테스트 작성 과정에서, `--raw` 옵션이 실제로 존재함에도 불구하고 문서에는 누락되어 있는 것을 발견함. 이를 반영하여 문서를 업데이트함.
           - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성함.
+      \ \ \ \ \
+      - *\@fedify/elysia 패키지 제작*
+        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
+        #figure(
+          image("images/fedify_elysia.png", width: 85%),
+          caption: "@fedify/elysia 패키지 작동 원리",
+          supplement: none,
+        )
+        - Elysia의 의존성인 Bun이 Fedify의 jsr 의존성을 지원하지 않아서 오류가 발생했음. 플러그인의 빌드 과정에 있어서 Bun 의존성은 없었기에 기존 빌드 체인인 tsdown을 사용하고, 빌드된 패키지만 Bun에서 사용하도록 하는 방식으로 해결함.
+      - *BotKit 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가*
+        - *문제점*
+          - BotKit의 기본 봇 페이지는 팔로워 목록을 제공하지 않았음. (#link("https://github.com/fedify-dev/botkit/issues/2")[#icon("devicon/github") issue \#2 ])
+          - BotKit의 봇을 팔로우 하기 위해서는 사용자가 자신의 인스턴스로 돌아가서 BotKit의 핸들을 검색해야하는 불편함이 존재하였음. 이를 해결하기 위해 Remote Follow 가 제안 됨. (#link("https://github.com/fedify-dev/botkit/issues/10")[#icon("devicon/github") issue \#10 ])
+        - *개선 과정*
+          - #link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13]: 팔로우 목록 제공 프론트엔드 제작.
+          - #link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14]: Remote Follow 구현
+            - 유저로부터 핸들 입력 받음
+            - 유저 핸들 정보로 부터 webfinger 정보 수집
+            - OStatus 1.0 따른 subscribe 항목이 있을 경우, 그에 해당하는 봇 팔로우 url로 리다이렉트
+          - 본 프로젝트인 `fedify`와 이를 기반으로 하는 앱에서 OStatus 1.0을 지원하지 않았기에 이를 확장하는 PR들을 작성함.
+            - #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404] Fedify의 Link의 타입을 확장하여, OStatus 1.0 을 지원하는 mastodon 과 같은 인스턴스의 webfinger를 받을 수 있도록 확장함.
+            - #link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407] Fedify에서 Webfinger 커스텀을 보다 더 쉽게 할 수 있도록, `setWebFingerLinksDispatcher(dispatcher)` 추가. OStatus 1.0 과 같은 추가적인 정보를 사용자가 손쉽게 지정할 수 있게 되었음.
+
+      \ \ \ \ \
+      - *Hollo 타임라인 오류 개선*
+        - *문제점*: Hollo의 타임라인에 게시물의 작성시간이 미래로 되어 있는 경우, 타임라인의 최상단에 고정되어 버리는 문제가 존재하였음. (#link("https://github.com/fedify-dev/hollo/issues/199")[#icon("devicon/github") issue \#199 ])
+        - *해결책* : #link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201] 게시물의 생성 시간과 서버시간을 비교하여, 5분 이후의 미래 게시물의 경우 타임라인에서 감쳐지도록 하였음.
 
       - *Fedify CI/CD 워크플로우 개선*
         - *문제점*: 스폰서 목록을 업데이트 하는 GitHub actions workflow가 포크된 저장소에서도 작동하여, 매시간 마다 알림이 가는 문제가 있었음.
         - *해결책*: 해당 워크플로우를 수동으로 전환한 다음, REST API 를 통해 메인 저장소의 액션만 매시간 호출하도록 별도의 저장소와 워크플로우 작성.(#gh-repo("fedify-dev/sponsor-automation"))
 
-      - *\@fedify/elysia 패키지 제작*
-        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인 제작.
-
-      - *Hollo 타임라인 오류 수정*
-      - *BotKit 팔로워 목록 구현*
-      - *BotKit Remote 팔로워 구현 및 Fedify Webfinger 확장 API 추가*
+      - *Fedify NodeInfo 타입 변경*
+        - *문제점*: Fediverse Instance의 서버 정보를 담는 NodeInfo Protocol 2.1의 스펙과 실제 Fedify의 구현이 software version 필드의 타입이 차이가 났음.
+        - *개선과정*:
+          - #link("https://github.com/fedify-dev/fedify/pull/365")[#icon("devicon/github") PR \#365]: Fedify client 측에서 nodeInfo를 가져올 때, Semver가 아니더라도 파싱할 수 있도록 fallback 을 변경함.
+          - #link("https://github.com/fedify-dev/fedify/pull/433")[#icon("devicon/github") PR \#433]: Fedify의 NodeInfo 구현체의 타입의 software version 필드를 Semver에서 String 으로 변경하고, 관련된 테스트들을 수정함.
     ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
     activityEntry(from: datetime(year: 2025, month: 2, day: 22), to: datetime.today(), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
     ])[
@@ -122,7 +161,7 @@
           image("./images/ilots-log_songcard.png"),
           image("./images/ilots-log_backup.png"),
         ),
-        caption: "Ilots-log의 주요 기능 베스트 차트 / 점수 입력 / 구글 드라이브 백업",
+        caption: "Ilots-log의 주요 기능: 베스트 차트 / 점수 입력 / 구글 드라이브 백업",
         supplement: none,
       )
 
@@ -140,6 +179,14 @@
         - *문제점*: 외부 이미지에 의존한 초기 버전에서, 소스 사이트의 문제로 이미지가 안 불러와지는 문제 발생
         - *해결책*: 사이트 내부에 이미지를 저장하도록 해서 외부 사이트 의존 문제를 해결. 이 과정에서 앨범아트로 AVIF를 사용함으로서 용량을 효율적으로 줄일 수 있었음.
     ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
     activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
     ])[
@@ -181,6 +228,14 @@
         - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
         - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
     ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
       to: datetime(year: 2022, month: 7, day: 10),
@@ -228,6 +283,14 @@
         - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
         - 해당 수업에 사용되는 지원이 끊긴 flume 버전 1.6.0의 설치 소스를 archive 저장소 옮기도록 Dockerfile 수정
     ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
     activityEntry(
       from: datetime(year: 2020, month: 7, day: 10),
       to: datetime(year: 2021, month: 5, day: 30),
