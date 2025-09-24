@@ -97,8 +97,6 @@
   - 다년 간의 개발팀 관리 경험으로 협업에 익숙
   - 개발 컨퍼런스 운영 및 발표
   - 오픈소스 프로덕트 운영
-- AI 활용 능력
-  - 테스트 코드 작성 / 리팩토링 / 개선 등 다양한 플로우에 AI를 통한 생산성 증가
 
 // #box(inset: (left: 8pt, top: 4pt))[
 //   #align(center)[
@@ -148,8 +146,6 @@
         #gh-repo("fedify-dev/fedify") #h(1fr) TypeScript, ActivityPub#footnote("W3C에서 제정한 소셜 미디어 서비스들이 서로 소통할 수 있도록 하는 프로토콜 표준")
       ],
     )[
-      *\#오픈소스 기여* *\#코드 베이스 분석* *\#테스트 코드* *\#CI/CD*  *\#문서화* \
-      #line(length: 100%, stroke: 0.75pt)
       #link("https://fedidev.kr/", "ActivityPub") 기반 어플리케이션을 쉽게 제작할 수 있도록 하는 프레임워크 \
       2025 오픈소스 컨트리뷰션 아카데미 활동의 일환으로 오픈소스 기여 진행 중 \
       - #link("https://github.com/fedify-dev/fedify/pull/282", "PR #282")
@@ -170,8 +166,6 @@
         #link("https://play.google.com/store/apps/details?id=com.beside04.haruNyang&hl=ko")[#icon("lucide/earth") 하루냥] #h(1fr) React-Router, TanStack-Query, Flutter
       ],
     )[
-      *\#팀 프로젝트*  *\#코드 베이스 분석*
-      #line(length: 100%, stroke: 0.75pt)
       AI를 통한 위로 및 답변을 받을 수 있는 일기 어플리케이션 \
       웹뷰 전환 작업을 위한 웹 프론트엔드 담당 개발자로 기여 중
       - 앱인토스 미니앱 제작
@@ -180,8 +174,6 @@
     activityEntry(from: datetime(year: 2025, month: 2, day: 22), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) SvelteKit
     ])[
-      *\#오픈소스 운영* *\#CI/CD*  *\#AI 활용 개발* \
-      #line(length: 100%, stroke: 0.75pt)
       리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]\
       1인 개발 과정에서 Claude 및 GitHub copilot의 적극적인 사용으로 개발 기간을 단축시킬 수 있었음
       - #gh-repo("dodok8/rotaeno-ch-wiki-crawler") #h(1fr) *Bun*
@@ -196,8 +188,6 @@
     activityEntry(from: datetime(year: 2024, month: 12, day: 29), title: pad(top: -1em / 4)[
       #gh-repo("velopert/velog-client") #h(1fr) GraphQL
     ])[
-      *\#오픈소스 기여* *\#코드 베이스 분석*
-      #line(length: 100%, stroke: 0.75pt)
       블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 등록 불가 오류 발생
       - #link("https://github.com/velopert/velog-client/pull/477", "PR #477")
         - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문의 버그 수정
@@ -205,8 +195,6 @@
     activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, Discord.js
     ])[
-      *\#오픈소스 운영* *\#CI/CD* \
-      #line(length: 100%, stroke: 0.75pt)
       알라딘 Open API를 활용한, user install 형태로 서버에 상관없이 이용가능한 도서 정보 공유 디스코드 챗봇
       - Bun
         - Bun 기반으로 제작하여 TypeScript 세팅에 별도 절차가 필요 없었으며, 빌드 과정을 단순화 할 수 있었음
@@ -216,8 +204,6 @@
     activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
     ])[
-      *\#팀 프로젝트* *\#코드 베이스 분석* *\#문서화*  \
-      #line(length: 100%, stroke: 0.75pt)
       교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
       - 안티 패턴 분석
         - 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i81n을 고려하지 않은 설계 문제 발견 및 문서화
@@ -237,8 +223,6 @@
         #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
       ],
     )[
-      *\#오픈소스 기여* *\#팀 프로젝트* *\#코드 베이스 분석* *\#문서화*  \
-      #line(length: 100%, stroke: 0.75pt)
       GIST 전공 필수 웹 및 네트워크 인프라 실험 SmartX-Mini 조교
       - 버전 고정 및 수정
         - 자료 및 예시 도커파일에서 버전 호환성으로 인한 버그 추적 및 버전 고정
@@ -254,8 +238,6 @@
         Pedalers/wheelie-ts-android #h(1fr) React Native
       ],
     )[
-      *\#팀 프로젝트* \
-      #line(length: 100%, stroke: 0.75pt)
       자전거 여행객을 위한 관광 플랫폼 Wheelie 제작 및 출시
       - React Navigation 을 통한 화면 설계
       - Redux 기반 위치 및 계정 정보 저장 설계
@@ -263,8 +245,6 @@
     activityEntry(from: datetime(year: 2021, month: 5, day: 30), title: pad(top: -1em / 4)[
       #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
     ])[
-      *\#팀 프로젝트* *\#해커톤*\
-      #line(length: 100%, stroke: 0.75pt)
       JunctionXSeoul 2021 AutoCrypt track 수상작. 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획 #h(1fr) #link("https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine")[#icon("lucide/earth") #underline[참여후기]]
       - 팀 의사결정 기록
       - 시연용 웹 앱 제작 담당
@@ -278,7 +258,6 @@
   ],
   (
     activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
-      #line(length: 100%, stroke: 0.75pt)
       GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램을 기획 및 운영 #h(1fr) #link("https://gistnews.co.kr/?p=5929")[#icon("lucide/earth") #underline[교내 기사]]
       - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
       - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("lucide/earth") 발표자료]]
@@ -294,7 +273,6 @@
     activityEntry(from: datetime(year: 2018, month: 8, day: 9), title: pad(top: -1em / 4)[
       #gh-repo("IntelliJ-Localization/pycharm-kr ")
     ])[
-      #line(length: 100%, stroke: 0.75pt)
       Python IDE PyCharm의 한국어 번역 프로젝트
       - #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/2", "PR #2"), #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/8", "PR #8"), #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/18", "PR #18")
         - UI 및 Editor 한국어 번역
@@ -302,7 +280,6 @@
     activityEntry(from: datetime(year: 2024, month: 2, day: 9), title: pad(top: -1em / 4)[
       #gh-repo("fabian-hiller/valibot")
     ])[
-      #line(length: 100%, stroke: 0.75pt)
       스키마 검증용 라이브러리 valibot
       - #link("https://github.com/fabian-hiller/valibot/pull/429", "PR #429")
         - 국제화 패키지 한국어 번역
@@ -322,7 +299,6 @@
       role: "전기전자컴퓨터공학부 학사",
       organization: "광주과학기술원(GIST)",
     )[
-      #line(length: 100%, stroke: 0.75pt)
       - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 전공과목 수강
       - 심리학 부전공 과정 수료
     ],
@@ -340,7 +316,6 @@
       role: "해군 빅데이터 분석병",
       organization: "계근단 본부대대",
     )[
-      #line(length: 100%, stroke: 0.75pt)
       외부 소프트웨어가 제한 된 환경에서 직접 기하 알고리즘 구현 및 활용 \
       JS 가 없는 환경에서의 UI 구성 경험을 해볼 수 있었음.
       - 감정 분석 결과 활용을 위한 챗봇형 Streamlit 웹 클라이언트 #h(1fr) Python, HTML, CSS
@@ -354,7 +329,6 @@
       organization: "GIST NetAI Lab",
       homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
     )[
-      #line(length: 100%, stroke: 0.75pt)
       - #icon("lucide/book") #link("https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224575")[교통 CCTV 엣지에서 비식별화를 위한 wasm 앱 구현 및 논문 출판] #h(1fr) Rust, wasm
         - Rust 로 작성된 wasm 앱을 이용하여 엣지 단에서 일부 자료를 삭제하는 비식별화 구현
       - #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
@@ -367,7 +341,6 @@
       role: "프론트엔드 엔지니어",
       organization: "GIST 학생회 Infoteam",
     )[
-      #line(length: 100%, stroke: 0.75pt)
       GIST 내부의 문제를 개발로서 해결하는 학생 개발팀, Infoteam 소속으로서 진행한 프로젝트
       - 리액트 팀 스터디 진행 및 팀 회의록 작성
       - GISTORY #h(1fr) React, Vite, TypeScript
@@ -396,25 +369,7 @@
       [AutoCrypt Track 2#super("nd") Winner],
       [JunctionXSeoul 2021],
     ))[
-      - 교통 약자를 위한 택시앱 Calmmuter
+      - 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획 #h(1fr) #link("https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine")[#icon("lucide/earth") #underline[참여후기]]
     ],
   ),
 )
-
-
-// #pagebreak()
-// #set par(first-line-indent: (
-//   amount: 0.75em,
-//   all: true,
-// ))
-
-// == 자기소개서
-// 이력서에 못 담은 제가 거쳐온 행동들에 담겨있는 자세한 스토리를 자기소개서에 담았습니다.
-
-// === 지원 동기: 왜 프론트엔드 개발자인가?
-
-// === 가장 큰 깨달음: 개발자는 협력을 해야 한다.
-
-// === 협력의 여정: 오픈소스
-
-// 여러 개 해봤자 정신없어서 못 본다. 내 역량을 강조할 수 있는 그런 부분에 대해 집중해서 느낀 거, 성장한 거를 강조한다.
