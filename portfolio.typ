@@ -90,8 +90,8 @@
           - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성함.
       \ \ \ \ \
-      - *\@fedify/elysia 패키지 제작*
-        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
+      - *\@fedify/elysia 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
+        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현. 
         #figure(
           image("images/fedify_elysia.png", width: 85%),
           caption: "@fedify/elysia 패키지 작동 원리",
@@ -226,7 +226,8 @@
         - 개발 환경(군대) 상 빌드 및 배포 과정을 단순하게 할 필요가 존재
         - 이와 동시에 입력 타입을 검증할 필요 또한 존재
         - 따라서 TypeScript를 지원하며 빌드 과정이 단순한 Bun을 채택함
-        - 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
+        - 첫 배포에는 무료 인스턴스와 단순한 CLI 인터페이스를 제공하는 fly.io를 통해서 배포
+        - 이후, 요금 제한과 인스턴스 성능을 감안하여 홈 서버로 이동하였음. 이 과정에서 git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성함.
     ],
   ),
 )
