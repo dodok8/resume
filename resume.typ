@@ -94,9 +94,12 @@
 - 테스트 코드 작성 능력
   - Bun, Deno, Jest 등 다양한 환경에서 테스트 코드 작성 가능
 - 협업 능력
+  - 국제적으로 운영되는 오픈소스 프로젝트 참여로 영어 작문 / 독해에 능숙
   - 다년 간의 개발팀 관리 경험으로 협업에 익숙
   - 개발 컨퍼런스 운영 및 발표 경험
   - 오픈소스 프로덕트 운영
+
+\
 
 // #box(inset: (left: 8pt, top: 4pt))[
 //   #align(center)[
@@ -254,7 +257,9 @@
       #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
     ])[
       JunctionXSeoul 2021 AutoCrypt track 수상작. 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획
-      - #link("https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine")[#icon("lucide/earth") #underline[참여후기]]
+      - #link(
+          "https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine",
+        )[#icon("lucide/earth") #underline[참여후기]]
       - 팀 의사결정 기록
       - 시연용 웹 앱 제작 담당
     ],
@@ -295,7 +300,6 @@
     ],
   ),
 )
-
 
 #workExpList(
   header: [
