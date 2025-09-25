@@ -99,7 +99,7 @@
   - 개발 컨퍼런스 운영 및 발표 경험
   - 오픈소스 프로덕트 운영
 
-\
+
 
 // #box(inset: (left: 8pt, top: 4pt))[
 //   #align(center)[
