@@ -221,12 +221,6 @@
       - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
       \
     ],
-    // activityEntry(from: datetime(year: 2022, month: 8, day: 21), title: pad(top: -1em / 4)[
-    //   #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
-    // ])[
-    //   Junction Asia 2022 해커톤 출품작. 메타버스 플랫폼 Zep 에서 돌아가는 가상 펫 플랫폼 Zepp을 제작함
-    //   - Zep 클라이언트 내부에서 실행되는 웹 앱 제작 담당
-    // ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
       to: datetime(year: 2022, month: 7, day: 10),
@@ -266,38 +260,18 @@
     activityEntry(from: datetime(year: 2018, month: 8, day: 9), title: pad(top: -1em / 4)[
       #gh-repo("IntelliJ-Localization/pycharm-kr ")
     ])[
-      Python IDE PyCharm의 한국어 번역 프로젝트
-      - #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/2", "PR #2"), #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/8", "PR #8"), #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/18", "PR #18")
-        - UI 및 Editor 한국어 번역
+      Python IDE PyCharm의 한국어 번역 프로젝트, UI 및 에디터 한국어 번역
+      \
+      (#link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/2")[#icon("devicon/github") PR \#2], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/8")[#icon("devicon/github") PR \#8], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/18")[#icon("devicon/github") PR \#18])
     ],
     activityEntry(from: datetime(year: 2024, month: 2, day: 9), title: pad(top: -1em / 4)[
       #gh-repo("fabian-hiller/valibot")
     ])[
-      스키마 검증용 라이브러리 valibot
-      - #link("https://github.com/fabian-hiller/valibot/pull/429", "PR #429")
-        - 국제화 패키지 한국어 번역
+      스키마 검증용 라이브러리 valibot, 국제화 패키지 한국어 번역 (#link("https://github.com/fabian-hiller/valibot/pull/429")[#icon("devicon/github") PR \#429])
     ],
   ),
 )
 
-#workExpList(
-  header: [
-    == 교육
-  ],
-  (
-    workExpEntry(
-      from: datetime(year: 2018, month: 2, day: 12),
-      to: datetime(year: 2023, month: 2, day: 20),
-      role: "전기전자컴퓨터공학부 학사",
-      organization: "광주과학기술원(GIST)",
-    )[
-      - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 전공과목 수강
-      - 심리학 부전공 과정 수료
-    ],
-  ),
-)
-
-#pagebreak()
 
 #workExpList(
   header: [
@@ -337,8 +311,25 @@
     )[
       GIST 내부의 문제를 개발로서 해결하는 학생 개발팀, Infoteam 소속으로서 진행한 프로젝트
       - 리액트 팀 스터디 진행 및 팀 회의록 작성
-      - GISTORY #h(1fr) React, Vite, TypeScript
+      - 커뮤니티 사이트 GISTORY #h(1fr) React, Vite, TypeScript
       - 프론트엔드 템플릿 저장소 #h(1fr) React, Vite, TypeScript
+    ],
+  ),
+)
+
+#workExpList(
+  header: [
+    == 교육
+  ],
+  (
+    workExpEntry(
+      from: datetime(year: 2018, month: 2, day: 12),
+      to: datetime(year: 2023, month: 2, day: 20),
+      role: "전기전자컴퓨터공학부 학사",
+      organization: "광주과학기술원(GIST)",
+    )[
+      - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 전공과목 수강
+      - 심리학 부전공 과정 수료
     ],
   ),
 )
