@@ -242,27 +242,6 @@
         - 실험 수업 진행 단위별 스프린트 회의 진행, 교육 자료 개선
       // - Kafka로 IoT 장비를 연결하는 InterConnect Lab 실험 자료
     ],
-    activityEntry(
-      from: datetime(year: 2021, month: 7, day: 23),
-      to: datetime(year: 2021, month: 12, day: 23),
-      title: pad(top: -1em / 4)[
-        Pedalers/wheelie-ts-android #h(1fr) React Native
-      ],
-    )[
-      자전거 여행객을 위한 관광 플랫폼 Wheelie 제작 및 출시
-      - React Navigation 을 통한 화면 설계
-      - Redux 기반 위치 및 계정 정보 저장 설계
-    ],
-    activityEntry(from: datetime(year: 2021, month: 5, day: 30), title: pad(top: -1em / 4)[
-      #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
-    ])[
-      JunctionXSeoul 2021 AutoCrypt track 수상작. 교통약자를 위한 맞춤 택시 플랫폼 Calmmuter 기획
-      - #link(
-          "https://velog.io/@dodok8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-JunctionXSeoul-2021-Team-Caffeine",
-        )[#icon("lucide/earth") #underline[참여후기]]
-      - 팀 의사결정 기록
-      - 시연용 웹 앱 제작 담당
-    ],
   ),
 )
 
