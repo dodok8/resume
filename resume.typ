@@ -152,7 +152,7 @@
       2025 OSSCA Fedify 트랙에 참가하여 ActivityPub과 관련된 다음 프로젝트에 기여 중
       - ActivityPub 구현 프레임워크 #gh-repo("fedify-dev/fedify")
       - ActivityPub 기반 1인 SNS #gh-repo("fedify-dev/hollo")
-      - ActivityPub 자동화 봇 프레임 워크 #gh-repo("fedify-dev/botkit")
+      - ActivityPub 자동화 봇 프레임워크 #gh-repo("fedify-dev/botkit")
       \
       기여 내역
       - Fedify CLI nodeInfo 커맨드 개선
