@@ -65,127 +65,68 @@
   // $bar$
 ]
 
-// #line(length: 100%, stroke: 1pt + palette.foreground1)
+== 기술 및 역량
+- React, React-Native
+- Svelte
+- Git, Github
+- TypeScript / JavaScript
+- CI / CD
+- 테스트 코드 작성 능력
+- 협업 능력
 
-== 기술
 
-#grid(
-  columns: (1fr, 1fr),
-  [
-    - React, React-Native
-      - 다수의 웹 앱 제작 경험 및 모바일 앱 제작 경험
-      - 운영 중인 레거시 앱의 TypeScript 마이그레이션 경험
-      - Redux 를 통한 상태관리 설계 경험
-    - Bun
-      - Bun 테스트 러너 기반 테스트 스크립트 작성 경험
-      - TypeScript 기반 앱 작성 및 배포 경험
-    - Svelte
-      - 라이브 서비스 중인 웹 앱 개발 경험
-    - Git, Github, Github-actions
-      - Git과 GitHub 을 이용한 프로젝트 관리에 능숙
-      - GitHub Actions를 이용한 배포 자동화 경험
+#workExpList(
+  header: [
+    == 경력
   ],
-  [
-    - TypeScript
-      - 다수의 TypeScript 앱 작성 경험
-      - 서비스 중인 앱 TypeScript 마이그레이션 경험
-    - SQL
-     - 시계열 데이터 관리를 위한 데이터 스키마 설계 경험
-    - CI / CD
-     - fly.io, Cloudflare Pages 를 통한 통한 배포 경험
-     - 다수의 Dockerfile 검토 및 오류 수정 경험
-    - 커뮤니케이션
-     - 다년 간의 개발팀 운영 및 관리로 소통에 능숙
-     - 개발 컨퍼런스 운영 및 발표 경험
-     - 오픈소스 번역 및 코드 기여, 오픈소스 프로덕트 운영 경험
-  ],
+  (
+    workExpEntry(
+      from: datetime(year: 2021, month: 12, day: 18),
+      role: "학부 인턴",
+      organization: "GIST NetAI Lab",
+      homepage: link("https://netai.smartx.kr/")[netai.smartx.kr],
+    )[],
+  ),
 )
-
 
 #activityList(
   header: [
-    == 팀 프로젝트
+    == 개발 경험
   ],
   (
     activityEntry(
-      from: datetime(year: 2025, month: 4, day: 2),
+      from: datetime(year: 2025, month: 7, day: 4),
       title: pad(top: -1em / 4)[
-        #link("https://play.google.com/store/apps/details?id=com.beside04.haruNyang&hl=ko")[#icon("lucide/earth") 하루냥] #h(1fr) Next.js, TanStack-Query, Flutter
+        2025 OSSCA Fedify 트랙 #h(1fr) TypeScript, ActivityPub
       ],
     )[],
     activityEntry(
-      from: datetime(year: 2022, month: 12, day: 21),
+      from: datetime(year: 2025, month: 4, day: 2),
       title: pad(top: -1em / 4)[
-        gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+        #link("https://play.google.com/store/apps/details?id=com.beside04.haruNyang&hl=ko")[#icon("lucide/earth") 하루냥] #h(1fr) React-Router, TanStack-Query, Flutter
       ],
-    )[ ],
-    activityEntry(
-      from: datetime(year: 2022, month: 8, day: 21),
-      title: pad(top: -1em / 4)[
-        #gh-repo("Regulus-JunctionXAsia2022/Widget") #h(1fr) React, Vite
-      ],
-    )[ ],
+    )[],
+    activityEntry(from: datetime(year: 2025, month: 2, day: 22), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/Ilots-log") #h(1fr) SvelteKit
+    ])[],
+    activityEntry(from: datetime(year: 2024, month: 12, day: 29), title: pad(top: -1em / 4)[
+      #gh-repo("velopert/velog-client") #h(1fr) GraphQL
+    ])[],
+    activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, Discord.js
+    ])[],
+    activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
+      gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+    ])[],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
-      // to: datetime(year: 2022, month: 7, day: 10),
       title: pad(top: -1em / 4)[
         #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
       ],
-    )[ ],
-    activityEntry(
-      from: datetime(year: 2021, month: 7, day: 23),
-      // to: datetime(year: 2021, month: 12, day: 23),
-      title: pad(top: -1em / 4)[
-        Pedalers/wheelie-ts-android #h(1fr) React Native, TypeScript
-      ],
-    )[ ],
-    activityEntry(
-      from: datetime(year: 2021, month: 5, day: 30),
-      title: pad(top: -1em / 4)[
-        #gh-repo("JunctionX-Seoul-Caffeine/Calmmuter") #h(1fr) React
-      ],
-    )[ ],
-    activityEntry(
-      from: datetime(year: 2020, month: 7, day: 10),
-      // to: datetime(year: 2021, month: 5, day: 30),
-      title: pad(top: -1em / 4)[
-        GISTORY #h(1fr) React, Vite, TypeScript
-      ],
-    )[ ],
+    )[],
   ),
 )
 
-#activityList(
-  header: [
-    == 1인 개발 프로젝트
-  ],
-  (
-    activityEntry(
-      from: datetime(year: 2025, month: 2, day: 22),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
-      ],
-    )[ ],
-    activityEntry(
-      from: datetime(year: 2023, month: 12, day: 24),
-      title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, TypeScript
-      ],
-    )[ ],
-  ),
-)
-
-#activityList(
-  header: [
-    == 커뮤니티 프로젝트
-  ],
-  (
-    activityEntry(
-      from: datetime(year: 2022, month: 10, day: 14),
-      title: belonging([스태프], [GIST DEV NIGHT]),
-    )[ ],
-  ),
-)
 
 #align(center)[
   #text(size: 10pt, fill: palette.foreground2)[
