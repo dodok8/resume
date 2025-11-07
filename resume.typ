@@ -136,9 +136,9 @@
       기여 내역
       - Fedify CLI nodeInfo 커맨드 개선
         - 색상 깨짐 오류, 아스키 아트 변환 및 컬러 코드 변환 점검 테스트 코드 추가, 명령어 이름 변경 및 리팩토링 진행 (#link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282], #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299], #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327], #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331], #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414])
-        \
       - \@fedify/elysia 패키지 제작
         - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])
+        \
       - BotKit 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가
         - BotKit의 기본 봇 페이지 팔로우 목록 제공 프론트엔드 제작. (#link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13])
         - BotKit의 봇의 Remote Follow 구현 (#link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14])
@@ -213,7 +213,6 @@
       - 문서 버전 관리
         - Git 과 markdown으로 교육자료 마이그레이션
         - 실험 수업 진행 단위별 스프린트 회의 진행, 교육 자료 개선
-      // - Kafka로 IoT 장비를 연결하는 InterConnect Lab 실험 자료
     ],
   ),
 )
