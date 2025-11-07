@@ -190,6 +190,8 @@
       알라딘 Open API를 활용한, user install 형태로 서버에 상관없이 이용가능한 도서 정보 공유 디스코드 챗봇
       - Bun 기반으로 제작하여 TypeScript 세팅에 별도 절차가 필요 없었으며, 빌드 과정을 단순화 할 수 있었음. Fly.io를 통한 배포로 GitHub 과 연동하여 배포 라인 구축.
       - 요금 제한과 인스턴스 성능을 감안하여 홈 서버로 이동. git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성함.
+      \
+      \
     ],
     activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
