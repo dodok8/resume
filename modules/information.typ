@@ -1,7 +1,6 @@
 #import "../metadata.typ": metadata
 #import "components.typ": *
 
-#let information = {
   set text(size: 10pt)
   grid(
     columns: (1fr, 1fr),

@@ -4,7 +4,7 @@
 #import "modules/github.typ": *
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
-#import "modules/information.typ": *
+
 
 
 #set page(
@@ -60,18 +60,34 @@
 = #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 #text(size: 12pt)[
   #text(weight: 900, tracking: 2pt)[#metadata.role]
-  // #text(weight: 600)[\@]
-  // #text(weight: 700, tracking: 1pt)[#metadata.location]
 ]
 
-#information
-
-// #text(size: 14pt, weight: 400)[
-//   #text(size: 13pt, weight: 900, top-edge: 5pt, bottom-edge: 5pt)[
-//     자기소개
-//   ] \
-//   #metadata.bio.ko.title \ #text(size: 10pt)[#metadata.bio.ko.body]
-// ]
+#set text(size: 10pt)
+  #grid(
+    columns: (1fr, 1fr),
+    grid(
+      columns: (auto, 1fr),
+      column-gutter: 10pt,
+      row-gutter: 8pt,
+      [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
+      [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
+      [#icon("lucide/calendar") *생년월일*], metadata.birthday,
+    ),
+    grid(
+      columns: (auto, 1fr),
+      column-gutter: 10pt,
+      row-gutter: 8pt,
+      
+      [#icon("devicon/github") *GitHub*],
+      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
+      
+      [#icon("lucide/cat") *Hackers' pub*],
+      link("https://hackers.pub/" + metadata.social.hackerspub)[#metadata.social.hackerspub\@hackerspub],
+      
+      [#icon("lucide/earth") *Portfolio*],
+      link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf],
+    ),
+  )
 
 #line(length: 100%, stroke: 0.75pt)
 
@@ -79,14 +95,13 @@
 - React, React-Native
   - 다수의 웹 앱 및 모바일 앱 제작
   - Redux 및 TanStack-Query 를 통한 상태 관리
-// - Svelte
-//   - 라이브 서비스 중인 웹 앱 개발
+- Svelte
+  - Svelte 5를 활용한 웹 앱 개발
 - Git, Github
   - 오픈소스 프로젝트 및 프로젝트 경험 기반 Git과 GitHub 을 이용한 협업 능력
-// - TypeScript / JavaScript
-//   - Node.js / Deno / Bun 다양한 런타임 사용 가능
-//   - #link("https://cliffy.io/", "Cliffy")기반 CLI 어플리케이션 작성
-//   - JavaScript로 구성된 레거시 앱 TypeScript 마이그레이션
+- TypeScript / JavaScript
+  - Node.js / Deno / Bun 다양한 런타임 사용 가능
+  - JavaScript로 구성된 레거시 앱 TypeScript 마이그레이션
 - CI / CD
   // - fly.io, Cloudflare Pages 를 통한 통한 배포
   - Dockerfile 검토 및 오류 수정
@@ -95,46 +110,10 @@
   - Bun, Deno, Jest 등 다양한 환경에서 테스트 코드 작성 가능
 - 협업 능력
   - 국제적으로 운영되는 오픈소스 프로젝트 참여로 영어 작문 / 독해에 능숙
+  - 교육용 문서 작성 / 개선 작업 바탕으로 한 문서화 역량
   - 다년 간의 개발팀 관리 경험으로 협업에 익숙
   - 개발 컨퍼런스 운영 및 발표 경험
   - 오픈소스 프로덕트 운영
-
-
-
-// #box(inset: (left: 8pt, top: 4pt))[
-//   #align(center)[
-//     #for row in (
-//       (
-//         tech-list.typescript--short,
-//         tech-list.javascript--short,
-//         tech-list.html,
-//         tech-list.css,
-//         tech-list.react-and-react-native,
-//         tech-list.svelte,
-//         tech-list.vite,
-//         tech-list.bun,
-//       ),
-//       (
-//         tech-list.rust,
-//         tech-list.python,
-//         tech-list.docker,
-//         tech-list.wasm,
-//         tech-list.git,
-//         tech-list.github,
-//         tech-list.github-actions,
-//       ),
-//     ) {
-//       set text(size: 8pt)
-//       enumerate(row.map(tech => (icon(tech.icon, size: 16pt, bottom: 0pt), tech.label)))
-//     }
-//   ]
-// ]
-
-// #line(length: 100%, stroke: 0.75pt)
-// #pagebreak()
-
-
-// 개발 프로젝트들 통합하기
 
 
 #activityList(
@@ -157,13 +136,13 @@
       기여 내역
       - Fedify CLI nodeInfo 커맨드 개선
         - 색상 깨짐 오류, 아스키 아트 변환 및 컬러 코드 변환 점검 테스트 코드 추가, 명령어 이름 변경 및 리팩토링 진행 (#link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282], #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299], #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327], #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331], #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414])
+        \
       - \@fedify/elysia 패키지 제작
         - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])
       - BotKit 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가
         - BotKit의 기본 봇 페이지 팔로우 목록 제공 프론트엔드 제작. (#link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13])
         - BotKit의 봇의 Remote Follow 구현 (#link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14])
         - `fedify`에서 Remote Follow를 지원할 수 있도록 API를 확장함. (#link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404], #link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407])
-        \
       - Hollo 타임라인 오류 개선
         - Hollo의 타임라인에 게시물의 작성시간이 미래로 되어 있는 경우, 타임라인의 최상단에 고정되어 버리는 \ 문제가 존재하였음. 작성 시점을 서버시간과 비교하여 필터링 하는 것으로 해결함.(#link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201])
 
@@ -211,7 +190,6 @@
       알라딘 Open API를 활용한, user install 형태로 서버에 상관없이 이용가능한 도서 정보 공유 디스코드 챗봇
       - Bun 기반으로 제작하여 TypeScript 세팅에 별도 절차가 필요 없었으며, 빌드 과정을 단순화 할 수 있었음. Fly.io를 통한 배포로 GitHub 과 연동하여 배포 라인 구축.
       - 요금 제한과 인스턴스 성능을 감안하여 홈 서버로 이동. git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성함.
-
     ],
     activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
@@ -219,7 +197,6 @@
       교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
       - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i81n을 고려하지 않은 설계 문제 발견 및 문서화
       - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
-      \
     ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
@@ -241,7 +218,7 @@
 
 #activityList(
   header: [
-    == 커뮤니티 경험
+    == 커뮤니티 발표 경험
   ],
   (
     activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
@@ -302,6 +279,8 @@
       - #gh-repo("SmartX-Labs/SmartX-Mini") #h(1fr) GitHub, Docker
       - #gh-repo("dodok8/AI_SUMMER_2022") #h(1fr) Python
         - Kafka를 이용한 메세지 전송, YoLo를 이용한 객체 검출 실습 진행
+        \
+        \
     ],
     workExpEntry(
       from: datetime(year: 2018, month: 4, day: 14),
@@ -325,11 +304,12 @@
     workExpEntry(
       from: datetime(year: 2018, month: 2, day: 12),
       to: datetime(year: 2023, month: 2, day: 20),
-      role: "전기전자컴퓨터공학부 학사",
+      role: "전기전자컴퓨터공학부 학사 졸업",
       organization: "광주과학기술원(GIST)",
     )[
-      - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 전공과목 수강
+      - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 CS 과목 수강
       - 심리학 부전공 과정 수료
+      - 전체 학점: 3.31 / 4.5
     ],
   ),
 )
