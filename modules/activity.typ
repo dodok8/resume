@@ -2,12 +2,12 @@
 
 #let formatDuration(duration) = {
   let duration-in-weeks = if type(duration) == "duration" {
-    duration.weeks()
+    duration.days() / 7.0
   } else {
-    duration
+    float(duration.weeks())
   }
-  let year = calc.floor(duration-in-weeks / 4 / 12)
-  let month = calc.rem(calc.floor(duration-in-weeks / 4), 12)
+  let year = calc.floor(duration-in-weeks / 4.0 / 12.0)
+  let month = calc.rem(calc.floor(duration-in-weeks / 4.0), 12)
   [
     #if year > 0 {
       str(year) + "년"
