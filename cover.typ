@@ -66,13 +66,12 @@
 ]
 
 == 기술 및 역량
-- React, React-Native
-- Svelte
-- Git, Github
+- React, React-Native, Svelte 사용 능력
+- Git, Github 을 통한 협업
 - TypeScript / JavaScript
-- CI / CD
+- CI / CD 개선 경험
 - 테스트 코드 작성 능력
-- 협업 능력
+- 문서화를 통한 협업 능력
 
 
 #workExpList(
