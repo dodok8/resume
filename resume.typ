@@ -63,31 +63,30 @@
 ]
 
 #set text(size: 10pt)
-  #grid(
-    columns: (1fr, 1fr),
-    grid(
-      columns: (auto, 1fr),
-      column-gutter: 10pt,
-      row-gutter: 8pt,
-      [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
-      [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
-      [#icon("lucide/calendar") *생년월일*], metadata.birthday,
-    ),
-    grid(
-      columns: (auto, 1fr),
-      column-gutter: 10pt,
-      row-gutter: 8pt,
-      
-      [#icon("devicon/github") *GitHub*],
-      link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
-      
-      [#icon("lucide/cat") *Hackers' pub*],
-      link("https://hackers.pub/" + metadata.social.hackerspub)[#metadata.social.hackerspub\@hackerspub],
-      
-      [#icon("lucide/earth") *Portfolio*],
-      link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf],
-    ),
-  )
+#grid(
+  columns: (1fr, 1fr),
+  grid(
+    columns: (auto, 1fr),
+    column-gutter: 10pt,
+    row-gutter: 8pt,
+    [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
+    [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
+    [#icon("lucide/calendar") *생년월일*], metadata.birthday,
+  ),
+  grid(
+    columns: (auto, 1fr),
+    column-gutter: 10pt,
+    row-gutter: 8pt,
+
+    [#icon("devicon/github") *GitHub*], link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
+
+    [#icon("lucide/cat") *Hackers' pub*],
+    link("https://hackers.pub/" + metadata.social.hackerspub)[#metadata.social.hackerspub\@hackerspub],
+
+    [#icon("lucide/earth") *Portfolio*],
+    link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf],
+  ),
+)
 
 #line(length: 100%, stroke: 0.75pt)
 
@@ -197,7 +196,7 @@
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
     ])[
       교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
-      - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i81n을 고려하지 않은 설계 문제 발견 및 문서화
+      - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i18n을 고려하지 않은 설계 문제 발견 및 문서화
       - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
     ],
     activityEntry(
