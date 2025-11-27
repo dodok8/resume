@@ -65,14 +65,14 @@
   ],
   (
     activityEntry(from: datetime(year: 2025, month: 7, day: 4), to: datetime.today(), title: pad(top: -1em / 4)[
-      2025 OSSCA Fedify #h(1fr) TypeScript, ActivityPub
+      Fedify #h(1fr) TypeScript, ActivityPub
     ])[
       *소개*
 
-      - 2025년 오픈 소스 소프트웨어 컨트리뷰션 아케데미에 참가해서, ActivityPub과 관련된 다음 프로젝트에 기여 하였음
+      - 2025년 오픈 소스 소프트웨어 컨트리뷰션 아카데미가 계기가 되어, ActivityPub과 관련된 다음 프로젝트에 기여하였음
         - ActivityPub 구현 프레임워크 #gh-repo("fedify-dev/fedify")
         - ActivityPub 기반 1인 SNS #gh-repo("fedify-dev/hollo")
-        - ActivityPub 자동화 봇 프레임 워크 #gh-repo("fedify-dev/botkit")
+        - ActivityPub 자동화 봇 프레임워크 #gh-repo("fedify-dev/botkit")
 
 
       *해결 문제*
@@ -84,7 +84,7 @@
             supplement: none,
           )
         - *개선 과정*
-          - #link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282]: 터미널 에뮬레이터의 256 색상 지원 여부를 감지해 미지원 하는 터미널의 경우 ANSI 256 색상을 출력하도록 변경.
+          - #link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282]: 터미널 에뮬레이터의 256 색상 지원 여부를 감지해 미지원하는 터미널의 경우 ANSI 256 색상을 출력하도록 변경.
           - #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299]: 해당 기능을 포함한 nodeInfo 명령어의 구성 요소들의 유닛 테스트를 작성함. 이 과정에서 실제 ANSI 컬러값이 해당값과 매치되도록 색상 비교 로직을 재설계함.
           - #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327]: 테스트 작성 과정에서, `--raw` 옵션이 실제로 존재함에도 불구하고 문서에는 누락되어 있는 것을 발견함. 이를 반영하여 문서를 업데이트함.
           - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
@@ -115,7 +115,7 @@
       \ \ \ \ \ \ \
       - *Hollo 타임라인 오류 개선*
         - *문제점*: Hollo의 타임라인에 게시물의 작성시간이 미래로 되어 있는 경우, 타임라인의 최상단에 고정되어 버리는 문제가 존재하였음. (#link("https://github.com/fedify-dev/hollo/issues/199")[#icon("devicon/github") issue \#199 ])
-        - *해결책* : #link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201] 게시물의 생성 시간과 서버시간을 비교하여, 5분 이후의 미래 게시물의 경우 타임라인에서 감쳐지도록 하였음.
+        - *해결책* : #link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201] 게시물의 생성 시간과 서버시간을 비교하여, 5분 이후의 미래 게시물의 경우 타임라인에서 숨겨지도록 하였음.
 
       - *Fedify CI/CD 워크플로우 개선*
         - *문제점*: 스폰서 목록을 업데이트 하는 GitHub actions workflow가 포크된 저장소에서도 작동하여, 매시간 마다 알림이 가는 문제가 있었음.
@@ -174,7 +174,7 @@
         - *문제점*: 사용자의 localstorage 말고도, 보편적인 사용자가 존재하고 점수가 저장 가능한 공간이 필요했음.
         - *해결책*
           - 구글 API 연동을 통해 구글 드라이브에 점수 정보를 저장함으로서, 여러사용자가 여러 기기에서 점수 정보 관리 가능하도록 제공.
-          - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR\#13 Dodok8/issue10 ] 사용자가 제보한 구글 로그인 관련 오류를 해결하는 과정에서 중복된 파일 탐색 로직을 발견, 반복된 로그인 UI를 거치지 않아도 되도록 개선하였음.
+          - #link("https://github.com/dodok8/Ilots-log/pull/13")[#icon("devicon/github") PR \#13 Dodok8/issue10 ] 사용자가 제보한 구글 로그인 관련 오류를 해결하는 과정에서 중복된 파일 탐색 로직을 발견, 반복된 로그인 UI를 거치지 않아도 되도록 개선하였음.
       - *이미지 소스 문제: AVIF 포맷 사용*
         - *문제점*: 외부 이미지에 의존한 초기 버전에서, 소스 사이트의 문제로 이미지가 안 불러와지는 문제 발생
         - *해결책*: 사이트 내부에 이미지를 저장하도록 해서 외부 사이트 의존 문제를 해결. 이 과정에서 앨범아트로 AVIF를 사용함으로서 용량을 효율적으로 줄일 수 있었음.
@@ -256,7 +256,7 @@
       *현황*
 
       - *원할한 수업 진행*
-        - 오타가 없는 수업자료가 제공됨으로서 수업 시 실험 성공률이 올라감
+        - 오타가 없는 수업자료가 제공됨으로써 수업 시 실험 성공률이 올라감
         - 매주 스프린트 진행 후, 발생하는 오류들에 대한 경고 및 해결 방식을 메뉴얼에 반영함으로서 다음 수업에서는 같은 오류를 막을 수 있었음
       - *원할한 인수인계*
         - 2022년 수정 당시는 마크다운 이전 및 버전 변경없는 버그 해결을 목표로 진행되었음
@@ -281,7 +281,7 @@
         - 기존 PPT에 존재하는 오타를 수정한 버전을 제작. 이 버전을 기준으로 다시 실습을 진행하면서 발생하는 버전 충돌 과정을 탐색
         - 오타가 수정된 PPT를 기준으로, 원할한 분업 작업 및 변경사항 추적을 위해 Git 과 markdown 조합을 사용하도록 변경
       - *버전 오류 수정*
-        - 분업 후 Kafka와 flume으 로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
+        - 분업 후 Kafka와 flume으로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
         - 해당 수업에 사용되는 지원이 끊긴 flume 버전 1.6.0의 설치 소스를 archive 저장소 옮기도록 Dockerfile 수정
     ],
   ),
