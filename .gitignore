@@ -1,8 +1,9 @@
 assets/.automatic
-resume.pdf
 *.pdf
 
 .DS_Store
 ._.DS_Store
 **/.DS_Store
 **/._.DS_Store
+
+fonts/*.otf
