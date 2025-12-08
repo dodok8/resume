@@ -25,10 +25,9 @@ jobs:
         with:
           typst-version: 0.14.0
       - run: |
-          curl -Lf https://github.com/orioncactus/pretendard/releases/download/v1.3.9/Pretendard-1.3.9.zip --output Pretendard.zip;
-          unzip Pretendard.zip public/static/*.otf;
+          curl https://ridicorp.com/wp-content/themes/ridicorp/css/font/RIDIBatang.otf
           mkdir fonts;
-          cp -r public/static fonts;
+          cp -r RIDIBatang.otf fonts;
       - run: ./scripts/src/prebuild.ts
         env:
           GH_TOKEN: ${{ github.token }}

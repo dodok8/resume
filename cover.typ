@@ -25,7 +25,7 @@
 }
 
 #set text(
-  font: "Pretendard",
+  font: "RIDIBatang",
   fill: palette.foreground1,
   features: ("ss06",),
   fallback: true,

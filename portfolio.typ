@@ -52,7 +52,7 @@
     ]
   ],
 )
-#set text(font: "Pretendard", fallback: true)
+#set text(font: "RIDIBatang", fallback: true)
 #show heading: set text(size: 16pt)
 
 = #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
@@ -91,7 +91,7 @@
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성함.
       \ \ \
       - *\@fedify/elysia 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
-        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현. 
+        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
         #figure(
           image("images/fedify_elysia.png", width: 85%),
           caption: "@fedify/elysia 패키지 작동 원리",

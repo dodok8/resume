@@ -53,7 +53,7 @@
     ]
   ],
 )
-#set text(font: "Pretendard", fallback: true)
+#set text(font: "RIDIBatang", fallback: true)
 #set par(leading: 0.8em)
 #show heading: set text(size: 16pt)
 
@@ -64,27 +64,32 @@
 
 #set text(size: 10pt)
 #grid(
-  columns: (1fr, 1fr),
+  columns: (0.5fr, 1fr),
   grid(
     columns: (auto, 1fr),
     column-gutter: 10pt,
     row-gutter: 8pt,
-    [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
-    [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
-    [#icon("lucide/calendar") *생년월일*], metadata.birthday,
+    [#icon("lucide/mail") *전자 우편*], pad(top: +1em / 4)[#link("mailto:" + metadata.email)[#metadata.email]],
+    [#icon("lucide/phone") *전화*],
+    pad(top: +1em / 4)[#link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")]],
+
+    [#icon("lucide/calendar") *생년월일*], pad(top: +1em / 4)[#metadata.birthday],
   ),
   grid(
     columns: (auto, 1fr),
     column-gutter: 10pt,
     row-gutter: 8pt,
 
-    [#icon("devicon/github") *GitHub*], link("https://github.com/" + metadata.social.github)[\@#metadata.social.github],
+    [#icon("devicon/github") *GitHub*],
+    pad(top: +1em / 4)[#link("https://github.com/" + metadata.social.github)[\@#metadata.social.github]],
 
     [#icon("lucide/cat") *Hackers' pub*],
-    link("https://hackers.pub/" + metadata.social.hackerspub)[#metadata.social.hackerspub\@hackerspub],
+    pad(top: +1em / 4)[#link(
+      "https://hackers.pub/" + metadata.social.hackerspub,
+    )[#metadata.social.hackerspub\@hackerspub]],
 
     [#icon("lucide/earth") *Portfolio*],
-    link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf],
+    pad(top: +1em / 4)[#link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf]],
   ),
 )
 
