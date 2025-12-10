@@ -86,7 +86,7 @@
     [#icon("lucide/cat") *Hackers' pub*],
     pad(top: +1em / 4)[#link(
       "https://hackers.pub/" + metadata.social.hackerspub,
-    )[#metadata.social.hackerspub\@hackerspub]],
+    )[#metadata.social.hackerspub\@hackers.pub]],
 
     [#icon("lucide/earth") *Portfolio*],
     pad(top: +1em / 4)[#link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf]],
