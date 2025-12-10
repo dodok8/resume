@@ -10,9 +10,7 @@ const icons: string[] = (
   await Promise.all(
     [
       ["resume.typ"],
-      ["cover.typ", "--input", "theme=light"],
-      ["cover.typ", "--input", "theme=dark"],
-    ].map((file) => $`typst query ${file} '<icon>' --field value`.json())
+    ].map((file) => $`typst query ${file} '<icon>' --field value`.json()),
   )
 ).flat();
 
@@ -22,9 +20,11 @@ for (const icon of icons) {
     prefix,
     name,
     query: rawQuery,
-  } = /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+\=[\w#-]+(&\w+\=[\w#-]+)*))?/.exec(
-    icon
-  )?.groups ?? {};
+  } =
+    /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+\=[\w#-]+(&\w+\=[\w#-]+)*))?/
+      .exec(
+        icon,
+      )?.groups ?? {};
   const query = parse(rawQuery);
 
   const filename = `${prefix}/${name}${
@@ -40,11 +40,13 @@ for (const icon of icons) {
     "solved-ac": {
       get url() {
         const solveTier = /^solve-tier-(\d+)$/.exec(name);
-        if (solveTier)
+        if (solveTier) {
           return `https://static.solved.ac/tier_small/${solveTier[1]}.svg`;
+        }
         const arenaTier = /^arena-tier-(\d+)$/.exec(name);
-        if (arenaTier)
+        if (arenaTier) {
           return `https://static.solved.ac/tier_arena/${arenaTier[1]}.svg`;
+        }
 
         throw new Error(`no icon found: ${icon}`);
       },
