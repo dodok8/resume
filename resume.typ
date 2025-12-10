@@ -109,14 +109,16 @@
     )[
       ActivityPub 구현 및 테스트를 돕는 라이브러리
       - Fedify CLI nodeInfo 커맨드 개선
-        - 색상 깨짐 오류, 아스키 아트 변환 및 컬러 코드 변환 점검 테스트 코드 추가, 커맨드 변경 및 리팩토링 진행 \ (#link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282], #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299], #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327], #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331], #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414])
+        - 색상 깨짐 오류, 아스키 아트 및 컬러 변환 테스트 코드 추가, 커맨드 이름 변경 및 리팩토링 \ (#link("https://github.com/fedify-dev/fedify/pull/282")[#icon("devicon/github") PR \#282], #link("https://github.com/fedify-dev/fedify/pull/299")[#icon("devicon/github") PR \#299], #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327], #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331], #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414])
       - \@fedify/elysia 패키지 제작
-        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])
+        - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/339")[#icon("devicon/github") PR \#339])
+      - \@fedify/fresh 패키지 제작
+        - Deno 기반 백엔드 프레임워크 Fresh와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/478")[#icon("devicon/github") PR \#478])
       - Fedify NodeInfo 타입 변경
         - Fediverse Instance의 서버 정보를 담는 NodeInfo Protocol 2.1의 스펙과 실제 Fedify의 구현 차이를 해결함 (#link("https://github.com/fedify-dev/fedify/pull/365")[#icon("devicon/github") PR \#365], #link("https://github.com/fedify-dev/fedify/pull/433")[#icon("devicon/github") PR \#433])
       - Fedify 에서 Webfinger 커스텀이 가능하도록 API 확장 (#link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407], #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404])
       - Fedify CI/CD 저장소 워크플로우 개선
-        - 스폰서 목록을 업데이트 하는 GitHub actions workflow가 포크된 저장소에서도 작동하는 문제를 해결함 (#gh-repo("fedify-dev/sponsor-automation"))
+        - 스폰서 목록 업데이트 workflow를 upstream에서만 작동하도록 변경 \ (#gh-repo("fedify-dev/sponsor-automation"))
     ],
     activityEntry(
       from: datetime(year: 2025, month: 7, day: 4),
@@ -126,7 +128,9 @@
       ],
     )[
       Fedify 기반 1인 사용에 특화된 ActivityPub SNS
-      - 타임라인에 작성시간이 미래인 게시물이 있는 경우, 최상단에 고정되어 버리는 문제를 해결함 (#link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201])
+      - 타임라인에 작성시간이 미래인 게시물이 있는 경우, 최상단에 고정되는 문제를 해결함 (#link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201])
+      - Public이 아닌 리플이 공개되는 문제를 해결함. (#link("https://github.com/fedify-dev/hollo/pull/248")[#icon("devicon/github") PR \#248])
+      - 로그인만 되어 있으면, 멘션되지 않은 사용자도 DM을 볼 수 있었던 문제를 해결함. (#link("https://github.com/fedify-dev/hollo/pull/255")[#icon("devicon/github") PR \#255])
     ],
     activityEntry(
       from: datetime(year: 2025, month: 7, day: 4),
@@ -136,8 +140,18 @@
       ],
     )[
       Fedify 기반 ActivityPub 자동화 봇 프레임워크
-      - BotKit의 기본 봇 페이지 팔로우 목록 제공 프론트엔드 제작. (#link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13])
-      - BotKit의 봇의 Remote Follow 구현 (#link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14])
+      - BotKit 봇의 팔로우 목록 제공 프론트엔드 제작. (#link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13])
+      - BotKit 봇의 Remote Follow 구현 (#link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14])
+    ],
+    activityEntry(
+      from: datetime(year: 2025, month: 11, day: 22),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("hackers-pub/hackerspub") #h(1fr) Fedify, Solid, GraphQL
+      ],
+    )[
+      Fedify 기반 IT 전문 오픈소스 SNS
+      - 해쉬태그 탐색 로직 오류 해결 및 해쉬 태그 페이지 제작 (#link("https://github.com/hackers-pub/hackerspub/pull/171")[#icon("devicon/github") PR \#171])
     ],
     activityEntry(
       from: datetime(year: 2025, month: 4, day: 2),
@@ -149,24 +163,23 @@
       AI를 통한 위로 및 답변을 받을 수 있는 일기 어플리케이션 \
       웹뷰 전환 작업을 위한 웹 프론트엔드 담당 개발자로 기여 중
       - 앱인토스 미니앱 제작 : 기존 Flutter로 구성된 앱을 리액트로 재작성 및 API 연동
+      \
     ],
     activityEntry(from: datetime(year: 2025, month: 2, day: 22), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) SvelteKit
     ])[
       리듬게임 Rotaeno를 위한 사용자 곡 기록 및 추천 시스템 #h(1fr) #link("https://Ilots-log.pages.dev")[#icon("lucide/earth") #underline[사이트]]\
-      1인 개발 과정에서 Claude 및 GitHub copilot의 적극적인 사용으로 개발 기간을 단축시킬 수 있었음
       - #gh-repo("dodok8/rotaeno-ch-wiki-crawler") #h(1fr) *Bun*
-        - Bun기반 TypeScript 위키 크롤러 코드
+        - Bun기반 TypeScript 위키 크롤러
         - TDD로 엣지 케이스 관리 및 리팩토링 과정 단순화
-      - 유저 점수 데이터 저장 및 관리
-        - Class Rune을 이용한 상태관리로 사용자 점수 데이터 및 레이팅 계산 로직 단순화
-        - Google Drive 연동을 통한 다른 기기간 정보 연동
+      - Class Rune을 이용한 상태관리로 사용자 점수 데이터 및 레이팅 계산 로직 단순화
+      - Google Drive 연동을 통한 다른 기기간 정보 연동
       - AVIF 포맷 사용으로 앨범아트 용량 최적화 (#link("https://github.com/dodok8/Ilots-log/pull/26")[#icon("devicon/github") PR \#26])
     ],
     activityEntry(from: datetime(year: 2023, month: 12, day: 29), title: pad(top: -1em / 4)[
       #gh-repo("velopert/velog-client") #h(1fr) GraphQL
     ])[
-      블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 등록 불가 오류 발생
+      블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 수정 불가 오류 발생
       - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문의 버그 수정(#link("https://github.com/velopert/velog-client/pull/477")[#icon("devicon/github") PR \#477])
     ],
     activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
@@ -208,7 +221,7 @@
     activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
       GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램을 기획 및 운영 #h(1fr) #link("https://gistnews.co.kr/?p=5929")[#icon("lucide/earth") #underline[교내 기사]]
       - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
-      - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("lucide/earth") 발표자료]]
+      - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("devicon/github") 발표자료]]
     ],
   ),
 )

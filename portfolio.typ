@@ -69,15 +69,15 @@
     ])[
       *소개*
 
-      - 2025년 오픈 소스 소프트웨어 컨트리뷰션 아카데미가 계기가 되어, ActivityPub과 관련된 다음 프로젝트에 기여하였음
-        - ActivityPub 구현 프레임워크 #gh-repo("fedify-dev/fedify")
-        - ActivityPub 기반 1인 SNS #gh-repo("fedify-dev/hollo")
-        - ActivityPub 자동화 봇 프레임워크 #gh-repo("fedify-dev/botkit")
-
+      - 2025년 오픈 소스 소프트웨어 컨트리뷰션 아카데미가 계기가 되어, 다음 프로젝트에 기여 중
+        - ActivityPub 구현 프레임워크 #gh-repo("fedify-dev/fedify") #h(1fr) Typescript, ActivityPub
+        - Fedify 기반 1인 SNS #gh-repo("fedify-dev/hollo") #h(1fr) Fedify
+        - Fedify 기반 Fediverse 자동 봇 프레임워크 #gh-repo("fedify-dev/botkit") #h(1fr) Fedify
+        - Fedify 기반 IT 전문 오픈소스 SNS #gh-repo("hackers-pub/hackerspub") #h(1fr) Fedify, Solid, GraphQL
 
       *해결 문제*
       - *Fedify CLI nodeInfo 커맨드 개선*
-        - *문제점*: Fediverse 인스턴스의 nodeInfo를 출력해주는 `fedify nodeInfo` 명령어에서 터미널 에뮬레이터의 24bit 컬러 지원 여부에 따라 색상 출력이 붕괴되는 현상이 있었음.(#link("https://github.com/fedify-dev/fedify/issues/168")[#icon("devicon/github") issue \#168 ]) \ 이 이슈에서 출발하여 점진적으로 커맨드를 개선함.
+        - *문제점*: Fediverse 인스턴스의 nodeInfo를 출력해주는 `fedify nodeInfo` 명령어에서 터미널 에뮬레이터의 24bit 컬러 지원 여부에 따라 색상 출력이 붕괴되는 현상이 있었음. (#link("https://github.com/fedify-dev/fedify/issues/168")[#icon("devicon/github") issue \#168 ]) \ 이 이슈에서 출발하여 점진적으로 커맨드를 개선함.
           #figure(
             image("./images/fedify_nodeinfo_color.png", width: 80%),
             caption: "fedify nodeinfo 색상 개선 결과",
@@ -91,13 +91,17 @@
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성함.
       \ \ \
       - *\@fedify/elysia 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
-        - Bun에서 작동하는 백엔드 프레임워크 Elysia와 Fedify 의 통합 플러그인. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
+        - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
         #figure(
           image("images/fedify_elysia.png", width: 85%),
           caption: "@fedify/elysia 패키지 작동 원리",
           supplement: none,
         )
-        - Elysia의 의존성인 Bun이 Fedify의 jsr 의존성을 지원하지 않아서 오류가 발생했음. 플러그인의 빌드 과정에 있어서 Bun 의존성은 없었기에 기존 빌드 체인인 tsdown을 사용하고, 빌드된 패키지만 Bun에서 사용하도록 하는 방식으로 해결함.
+        - Bun이 Fedify의 jsr 의존성을 지원하지 않아서 오류가 발생했음. 플러그인의 빌드 과정에 있어서 Bun 의존성은 없었기에 기존 빌드 체인인 tsdown을 사용하고, 빌드된 패키지만 Bun에서 사용하도록 하는 방식으로 해결함.
+      - *\@fedify/fresh 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
+        - Deno 기반 웹 프레임워크 Fresh 2 와 Fedify 의 통합 플러그인. 기존 Fresh 연동과 유사한 구조를 가지도록 설계하였음.
+        - Fresh 2에서 사용 중인 Vite 서비스와 Fedify의 의존성 사이에 오류가 발생하여, 이를 해결 하는 Vite 설정을 문서화함.
+        - 더 이상 사용되지 않은 Preact 의존성으로 인한 오류를 해결함.
       - *BotKit 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가*
         - *문제점*
           - BotKit의 기본 봇 페이지는 팔로워 목록을 제공하지 않았음. (#link("https://github.com/fedify-dev/botkit/issues/2")[#icon("devicon/github") issue \#2 ])
@@ -112,7 +116,6 @@
             - #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404] Fedify의 Link의 타입을 확장하여, OStatus 1.0 을 지원하는 mastodon 과 같은 인스턴스의 webfinger를 받을 수 있도록 확장함.
             - #link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407] Fedify에서 Webfinger 커스텀을 보다 더 쉽게 할 수 있도록, `setWebFingerLinksDispatcher(dispatcher)` 추가. OStatus 1.0 과 같은 추가적인 정보를 사용자가 손쉽게 지정할 수 있게 되었음.
 
-      \ \ \ \ \ \ \
       - *Hollo 타임라인 오류 개선*
         - *문제점*: Hollo의 타임라인에 게시물의 작성시간이 미래로 되어 있는 경우, 타임라인의 최상단에 고정되어 버리는 문제가 존재하였음. (#link("https://github.com/fedify-dev/hollo/issues/199")[#icon("devicon/github") issue \#199 ])
         - *해결책* : #link("https://github.com/fedify-dev/hollo/pull/201")[#icon("devicon/github") PR \#201] 게시물의 생성 시간과 서버시간을 비교하여, 5분 이후의 미래 게시물의 경우 타임라인에서 숨겨지도록 하였음.
@@ -126,6 +129,10 @@
         - *개선과정*:
           - #link("https://github.com/fedify-dev/fedify/pull/365")[#icon("devicon/github") PR \#365]: Fedify client 측에서 nodeInfo를 가져올 때, Semver가 아니더라도 파싱할 수 있도록 fallback 을 변경함.
           - #link("https://github.com/fedify-dev/fedify/pull/433")[#icon("devicon/github") PR \#433]: Fedify의 NodeInfo 구현체의 타입의 software version 필드를 Semver에서 String 으로 변경하고, 관련된 테스트들을 수정함.
+      - *Hackers' Pub 해쉬태그 관련 오류 수정*
+        - *문제점*: 알파벳 및 숫자가 아닌 문자가 포함된 해쉬태그 검색이 제대로 되지 않았음.
+        - *개선과정*:
+          - #link("https://github.com/hackers-pub/hackerspub/pull/171")[#icon("devicon/github") PR \#171]: 검색 쿼리에서 알파벳과 숫자가 아닌 문자도 지원하도록 정규식 수정. 이를 반영하여 해쉬 태그 페이지 구현
     ],
   ),
 )
@@ -326,11 +333,6 @@
 
       *해결 문제*
 
-      // - *REST API 연동 및 Redux 상태관리 설계*
-      //   - 게시물 목록 불러오기 / 게시물 보기 / 게시물 작성 / 첨부 파일 업로드 API 연동
-      //   - 첨부 파일 용량 파악 및 정보 파악을 위한 차트 컴포넌트(chart.js 기반)
-      // - *RBAC 기반의 권한 관리를 위한 어드민 페이지 설계*
-      //   - 현재 유저에게 부여된 룰 목록 및 룰에 부여된 액션 목록을 쉽게 보기 위한 컴포넌트 설계
       - *배포 솔루션 변경*
         - Jenkins에서 Cloudflare Pages 및 github-actions로 전환
         - 비용 절감, 배포 파이프라인 단순화 및 배포 시간 절감
