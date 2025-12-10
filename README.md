@@ -1,8 +1,8 @@
-<picture>
+<!-- <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./cover/page-dark-1.svg">
   <source media="(prefers-color-scheme: light)" srcset="./cover/page-light-1.svg">
   <img src="./cover/page-light-1.svg">
-</picture>
+</picture> -->
 
 # résumé
 
