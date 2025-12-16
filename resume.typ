@@ -187,7 +187,7 @@
     ])[
       알라딘 Open API를 활용한, user install 형태로 서버에 상관없이 이용 가능한 도서 정보 공유 디스코드 챗봇
       - Bun 기반으로 제작하여 빌드 및 TS 세팅 과정 단순화. Fly.io를 통한 GitHub 과 연동 배포 라인 구축.
-      - 이후 홈 서버로 이전, git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성함.
+      - 홈 서버로 이전 후 git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성.
     ],
     activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
       gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
@@ -296,6 +296,14 @@
   ],
   (
     workExpEntry(
+      from: datetime(year: 2025, month: 7, day: 4),
+      to: datetime(year: 2025, month: 11, day: 7),
+      role: "Fedify 트랙",
+      organization: "2025 오픈소스 소프트웨어 컨트리뷰션 아카데미",
+    )[
+      - Fedify 및 Hollo, Botkit에 기여
+    ],
+    workExpEntry(
       from: datetime(year: 2018, month: 2, day: 12),
       to: datetime(year: 2023, month: 2, day: 20),
       role: "전기전자컴퓨터공학부 학사 졸업",
@@ -304,14 +312,6 @@
       - 컴퓨터 네트워크, 컴퓨터 시스템 이론 및 실습, 프로그래밍 언어와 컴파일러 등 CS 과목 수강
       - 심리학 부전공 과정 수료
       - 전체 학점: 3.31 / 4.5
-    ],
-    workExpEntry(
-      from: datetime(year: 2025, month: 7, day: 4),
-      to: datetime(year: 2025, month: 11, day: 7),
-      role: "Fedify 트랙",
-      organization: "2025 오픈소스 소프트웨어 컨트리뷰션 아카데미",
-    )[
-      - Fedify 및 Hollo, Botkit에 기여
     ],
   ),
 )
