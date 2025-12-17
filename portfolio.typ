@@ -98,7 +98,7 @@
           supplement: none,
         )
         - Bun이 Fedify의 jsr 의존성을 지원하지 않아서 오류가 발생했음. 플러그인의 빌드 과정에 있어서 Bun 의존성은 없었기에 기존 빌드 체인인 tsdown을 사용하고, 빌드된 패키지만 Bun에서 사용하도록 하는 방식으로 해결함.
-      - *\@fedify/fresh 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
+      - *\@fedify/fresh 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/478")[#icon("devicon/github") PR \#478])*
         - Deno 기반 웹 프레임워크 Fresh 2 와 Fedify 의 통합 플러그인. 기존 Fresh 연동과 유사한 구조를 가지도록 설계하였음.
         - Fresh 2에서 사용 중인 Vite 서비스와 Fedify의 의존성 사이에 오류가 발생하여, 이를 해결 하는 Vite 설정을 문서화함.
         - 더 이상 사용되지 않은 Preact 의존성으로 인한 오류를 해결함.
