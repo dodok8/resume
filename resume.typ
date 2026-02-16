@@ -107,7 +107,7 @@
         #gh-repo("dodok8/gaji") #h(1fr) TypeScript, GitHub Actions, Rust
       ],
     )[
-      GitHub Actions 워크플로우를 TypeScript로 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구 #h(1fr) #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
+      GitHub Actions 워크플로우를 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구 #h(1fr) #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
       - 사용되는 액션 목록을 파싱 후, action.yml 정의에서 TypeScript 타입을 자동 생성하여 IDE 자동완성 및 컴파일 시점 타입 체크 제공
       - Rust 단일 바이너리에 QuickJS를 내장하여 외부 런타임 없이 동작
       - 복합 액션(Composite Action) 및 재사용 가능한 워크플로우(Reusable Workflow) 등 다양한 기능 지원
