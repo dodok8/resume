@@ -61,8 +61,49 @@
 #line(length: 100%, stroke: 0.75pt)
 
 #activityList(
-  header: [
-  ],
+  header: [],
+  (
+    activityEntry(from: datetime(year: 2026, month: 2, day: 11), to: datetime.today(), title: pad(top: -1em / 4)[
+      #gh-repo("dodok8/gaji") #h(1fr) TypeScript, GitHub Actions, Rust
+    ])[
+      *소개*
+      - GitHub Actions 워크플로우를 TypeScript로 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구
+
+        - #link("https://hackers.pub/@gaebalgom/2026/%EC%99%9C-gaji%EC%9D%B8%EA%B0%80-ts%EB%A1%9C-%EC%95%88%EC%A0%84%ED%95%98%EA%B2%8C-github-actions-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0")[#icon("lucide/earth") #underline[제작기 및 제작이유]]
+        - #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
+
+      *해결 문제*
+
+      - YAML은 데이터 표현 언어로, CI/CD 동작(behavior)을 표현하기에 부적절함.
+      - 액션 입력값에 대한 IDE 자동완성 및 타입 검증이 불가능하여, 필수 입력 누락이나 잘못된 값을 사전에 감지할 수 없음.
+
+      GitHub Actions의 위와 같은 단점을 TS를 이용해 워크플로우 작성시에 해결하는 것을 목적으로 삼음.
+
+      *주요 기능*
+    
+      - *action.yml 기반 자동 타입 생성*
+        - action.yml 정의에서 TypeScript 타입을 자동 생성하여, `getAction()` 함수를 통해 액션 입력값의 IDE 자동완성 및 컴파일 시점 타입 체크 제공
+        - `gaji dev --watch` 로 파일 변경 감시 시, 새로운 액션 참조를 자동 감지하여 타입 생성
+      - *빌더 패턴 API*
+        - `Workflow` → `Job` → `Step` 구조의 빌더 패턴으로 워크플로우를 구성하고, `.build()`로 YAML 컴파일
+        - `CompositeAction`, `JavaScriptAction`, `DockerAction` 등 다양한 액션 타입 정의 지원
+        - `CallJob`으로 재사용 가능한 워크플로우 호출, `CompositeJob`으로 매개변수화된 작업 패턴 구현
+      - *Rust + QuickJS 아키텍처*
+        - Rust 단일 바이너리에 QuickJS를 내장하여 Node.js 런타임 의존 없이 동작
+      - *기존 워크플로우 마이그레이션*
+        - 기존 YAML 워크플로우를 `Workflow.fromObject()`로 TypeScript로 변환 가능
+     
+
+      *현황*
+      - gaji 그 자체의 워크플로우를 gaji로 작성하여, 이를 통해 더 효울적인 배포 과정 작성이 가능해짐.
+    ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
   (
     activityEntry(from: datetime(year: 2025, month: 7, day: 4), to: datetime.today(), title: pad(top: -1em / 4)[
       Fedify #h(1fr) TypeScript, ActivityPub
@@ -89,7 +130,7 @@
           - #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327]: 테스트 작성 과정에서, `--raw` 옵션이 실제로 존재함에도 불구하고 문서에는 누락되어 있는 것을 발견함. 이를 반영하여 문서를 업데이트함.
           - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성.
-      \ \ \
+    \ \ \ \ \ \ \ \
       - *\@fedify/elysia 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
         - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
         #figure(
@@ -290,60 +331,6 @@
       - *버전 오류 수정*
         - 분업 후 Kafka와 flume으로 IoT 장비를 연결 실습을 담당하는 InterConnect Lab랩 담당.
         - 해당 수업에 사용되는 지원이 끊긴 flume 버전 1.6.0의 설치 소스를 archive 저장소 옮기도록 Dockerfile 수정
-    ],
-  ),
-)
-
-#pagebreak()
-
-#activityList(
-  header: [],
-  (
-    activityEntry(
-      from: datetime(year: 2020, month: 7, day: 10),
-      to: datetime(year: 2021, month: 5, day: 30),
-      title: pad(top: -1em / 4)[
-        GISTORY #h(1fr) React, Vite, TypeScript
-      ],
-    )[
-      *제품 소개*
-
-      GIST 학생을 위한 리액트 기반 BBS 커뮤니티. React 프론트엔드 개발자로 참여
-
-      *제품 목표*
-
-      - GIST 내부 학생들을 위한 온라인 커뮤니티 공간의 부재
-
-      *결과*
-      - 이후 시장 조사 결과, 사용자가 원하는 것은 쌍방 소통 형태의 BBS 보다는 정보글만 선택해서 볼 수 있는 모아보기 형태의 앱이라는 결론이 나옴
-        - GISTORY의 서비스 종료 후, 시장 조사 결과를 반영한 공지 전달 플랫폼 Ziggle 제작
-      - GISOTRY 개발 및 그 외 SPA 개발 과정에 있었던 반복된 세팅 및 안티 패턴 문제를 해결하기 위해 gsainfoteam/Infoteam-frontend-template 제작
-
-      #figure(
-        grid(
-          columns: 2,
-          // 2 means 2 auto-sized columns
-          gutter: 2mm,
-          // space between columns
-          image("./images/gistory_main.png"), image("./images/gistory_article.png", width: 65%),
-        ),
-        caption: "Gistory 메인 페이지 및 게시물 페이지",
-        supplement: none,
-      )
-
-      *해결 문제*
-
-      - *배포 솔루션 변경*
-        - Jenkins에서 Cloudflare Pages 및 github-actions로 전환
-        - 비용 절감, 배포 파이프라인 단순화 및 배포 시간 절감
-      - *TypeScript 마이그레이션*
-        - 버그의 주요 원인인 타입 불일치를 해결하기 위하여 진행
-        - `boolean | undefined` 로 관리되던 로딩 상태를 안전하게 다루기 위한 헬퍼 함수 추가
-          - `undefined` 와 `true`에서는 폴백 컴포넌트가 보여야 했고, `false` 에서는 본래 컴포넌트가 보여야 했음 이를 다루는 `loadComponent()` 함수 추가
-        - 대형 컴포넌트 타입 작성으로 자식 컴포넌트와 타입 불일치가 발생하는 부분 발견, 버그 수정
-      - *CRA 에서 Vite 마이그레이션*
-        - 컴포넌트 증가로 인해 느려지는 빌드 및 개발서버 실행 속도를 해결하기 위해 Vite로 마이그레이션
-        - 빌드 시간을 4분의 1로 단축
     ],
   ),
 )

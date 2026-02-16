@@ -101,6 +101,18 @@
   ],
   (
     activityEntry(
+      from: datetime(year: 2026, month: 2, day: 11),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/gaji") #h(1fr) TypeScript, GitHub Actions, Rust
+      ],
+    )[
+      GitHub Actions 워크플로우를 TypeScript로 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구 #h(1fr) #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
+      - 사용되는 액션 목록을 파싱 후, action.yml 정의에서 TypeScript 타입을 자동 생성하여 IDE 자동완성 및 컴파일 시점 타입 체크 제공
+      - Rust 단일 바이너리에 QuickJS를 내장하여 외부 런타임 없이 동작
+      - 복합 액션(Composite Action) 및 재사용 가능한 워크플로우(Reusable Workflow) 등 다양한 기능 지원
+    ],
+    activityEntry(
       from: datetime(year: 2025, month: 7, day: 4),
       to: datetime.today(),
       title: pad(top: -1em / 4)[
@@ -142,6 +154,7 @@
       Fedify 기반 ActivityPub 자동화 봇 프레임워크
       - BotKit 봇의 팔로우 목록 제공 프론트엔드 제작. (#link("https://github.com/fedify-dev/botkit/pull/13")[#icon("devicon/github") PR \#13])
       - BotKit 봇의 Remote Follow 구현 (#link("https://github.com/fedify-dev/botkit/pull/14")[#icon("devicon/github") PR \#14])
+      \
     ],
     activityEntry(
       from: datetime(year: 2025, month: 11, day: 22),
@@ -163,7 +176,6 @@
       AI를 통한 위로 및 답변을 받을 수 있는 일기 어플리케이션 \
       웹뷰 전환 작업을 위한 웹 프론트엔드 담당 개발자로 기여 중
       - 앱인토스 미니앱 제작 : 기존 Flutter로 구성된 앱을 리액트로 재작성 및 API 연동
-      \
     ],
     activityEntry(from: datetime(year: 2025, month: 2, day: 22), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) SvelteKit
@@ -189,13 +201,13 @@
       - Bun 기반으로 제작하여 빌드 및 TS 세팅 과정 단순화. Fly.io를 통한 GitHub 과 연동 배포 라인 구축.
       - 홈 서버로 이전 후 git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성.
     ],
-    activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
-      gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
-    ])[
-      교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
-      - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i18n을 고려하지 않은 설계 문제 발견 및 문서화
-      - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
-    ],
+    // activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
+    //   gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
+    // ])[
+    //   교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
+    //   - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i18n을 고려하지 않은 설계 문제 발견 및 문서화
+    //   - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
+    // ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
       to: datetime(year: 2022, month: 7, day: 10),
@@ -213,44 +225,23 @@
   ),
 )
 
-#activityList(
-  header: [
-    == 커뮤니티 발표 경험
-  ],
-  (
-    activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
-      GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램을 기획 및 운영 #h(1fr) #link("https://gistnews.co.kr/?p=5929")[#icon("lucide/earth") #underline[교내 기사]]
-      - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
-      - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("devicon/github") 발표자료]]
-    ],
-  ),
-)
-
-#activityList(
-  header: [
-    == 오픈소스 번역 기여
-  ],
-  (
-    activityEntry(from: datetime(year: 2018, month: 8, day: 9), title: pad(top: -1em / 4)[
-      #gh-repo("IntelliJ-Localization/pycharm-kr ")
-    ])[
-      PyCharm의 한국어 번역 프로젝트, UI 및 에디터 한국어 번역
-      (#link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/2")[#icon("devicon/github") PR \#2], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/8")[#icon("devicon/github") PR \#8], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/18")[#icon("devicon/github") PR \#18])
-    ],
-    activityEntry(from: datetime(year: 2024, month: 2, day: 9), title: pad(top: -1em / 4)[
-      #gh-repo("fabian-hiller/valibot")
-    ])[
-      스키마 검증용 라이브러리 valibot, i18n 패키지 한국어 번역 (#link("https://github.com/fabian-hiller/valibot/pull/429")[#icon("devicon/github") PR \#429])
-    ],
-  ),
-)
-
-
 #workExpList(
   header: [
     == 경력
   ],
   (
+    workExpEntry(
+      from: datetime(year: 2026, month: 1, day: 5),
+      to: datetime(year: 2026, month: 2, day: 27),
+      role: "Frontend Platform Assistant",
+      organization: "Toss Client DevOps팀",
+    )[
+      - 대규모 CI / CD 개선 작업
+        - 더 효율적인 토큰 관리를 위한 Hashicorp Vault GitHub Actions에 적용
+        - 의존성 관리를 위한 Snyk Test 재사용 가능한 작업 제작 및 적용
+        - Circle CI로 구성된 기존 필수 CI 작업들을 GitHub Actions로 마이그레이션
+      - 서비스 배포 상황을 체크하기 위한 명령어 제작 및 메세지 핸들러 제작
+    ],
     workExpEntry(
       from: datetime(year: 2023, month: 6, day: 5),
       to: datetime(year: 2025, month: 2, day: 4),
@@ -289,6 +280,39 @@
     ],
   ),
 )
+
+#activityList(
+  header: [
+    == 커뮤니티 발표 경험
+  ],
+  (
+    activityEntry(from: datetime(year: 2022, month: 10, day: 14), title: belonging([스태프], [GIST DEV NIGHT]))[
+      GIST 내 개발자를 위한 컨퍼런스 GIST DEV NIGHT 파일럿 프로그램을 기획 및 운영 #h(1fr) #link("https://gistnews.co.kr/?p=5929")[#icon("lucide/earth") #underline[교내 기사]]
+      - Code of Conduct 작성, 발표자 선정, 네트워킹 세션 진행을 담당
+      - CRA에서 Vite 전환 과정을 발표 #h(1fr) #link("https://github.com/dodok8/vite-migrate")[#underline[#icon("devicon/github") 발표자료]]
+    ],
+  ),
+)
+
+#activityList(
+  header: [
+    == 오픈소스 번역 기여
+  ],
+  (
+    activityEntry(from: datetime(year: 2018, month: 8, day: 9), title: pad(top: -1em / 4)[
+      #gh-repo("IntelliJ-Localization/pycharm-kr ")
+    ])[
+      PyCharm의 한국어 번역 프로젝트, UI 및 에디터 한국어 번역
+      (#link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/2")[#icon("devicon/github") PR \#2], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/8")[#icon("devicon/github") PR \#8], #link("https://github.com/IntelliJ-Localization/pycharm-kr/pull/18")[#icon("devicon/github") PR \#18])
+    ],
+    activityEntry(from: datetime(year: 2024, month: 2, day: 9), title: pad(top: -1em / 4)[
+      #gh-repo("fabian-hiller/valibot")
+    ])[
+      스키마 검증용 라이브러리 valibot, i18n 패키지 한국어 번역 (#link("https://github.com/fabian-hiller/valibot/pull/429")[#icon("devicon/github") PR \#429])
+    ],
+  ),
+)
+
 
 #workExpList(
   header: [
