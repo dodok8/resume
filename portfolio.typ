@@ -143,7 +143,7 @@
         - Deno 기반 웹 프레임워크 Fresh 2 와 Fedify 의 통합 플러그인. 기존 Fresh 연동과 유사한 구조를 가지도록 설계하였음.
         - Fresh 2에서 사용 중인 Vite 서비스와 Fedify의 의존성 사이에 오류가 발생하여, 이를 해결 하는 Vite 설정을 문서화함.
         - 더 이상 사용되지 않은 Preact 의존성으로 인한 오류를 해결함.
-      - *BotKit 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가*
+      - *BotKit, Hackers' Pub 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가*
         - *문제점*
           - BotKit의 기본 봇 페이지는 팔로워 목록을 제공하지 않았음. (#link("https://github.com/fedify-dev/botkit/issues/2")[#icon("devicon/github") issue \#2 ])
           - BotKit의 봇을 팔로우 하기 위해서는 사용자가 자신의 인스턴스로 돌아가서 BotKit의 핸들을 검색해야하는 불편함이 존재하였음. 이를 해결하기 위해 Remote Follow 가 제안 됨. (#link("https://github.com/fedify-dev/botkit/issues/10")[#icon("devicon/github") issue \#10 ])
@@ -156,6 +156,7 @@
           - 본 프로젝트인 `fedify`와 이를 기반으로 하는 앱에서 OStatus 1.0을 지원하지 않았기에 이를 확장하는 PR들을 작성함.
             - #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404] Fedify의 Link의 타입을 확장하여, OStatus 1.0 을 지원하는 mastodon 과 같은 인스턴스의 webfinger를 받을 수 있도록 확장함.
             - #link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407] Fedify에서 Webfinger 커스텀을 보다 더 쉽게 할 수 있도록, `setWebFingerLinksDispatcher(dispatcher)` 추가. OStatus 1.0 과 같은 추가적인 정보를 사용자가 손쉽게 지정할 수 있게 되었음.
+          - BotKit에서 구현한 Remote Follow를 Hackers' Pub에도 적용 (#link("https://github.com/hackers-pub/hackerspub/issues/173")[#icon("devicon/github") issue \#173], #link("https://github.com/hackers-pub/hackerspub/pull/180")[#icon("devicon/github") PR \#180])
 
       - *Hollo 타임라인 오류 개선*
         - *문제점*: Hollo의 타임라인에 게시물의 작성시간이 미래로 되어 있는 경우, 타임라인의 최상단에 고정되어 버리는 문제가 존재하였음. (#link("https://github.com/fedify-dev/hollo/issues/199")[#icon("devicon/github") issue \#199 ])

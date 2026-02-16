@@ -165,6 +165,7 @@
     )[
       Fedify 기반 IT 전문 오픈소스 SNS
       - 해쉬태그 탐색 로직 오류 해결 및 해쉬 태그 페이지 제작 (#link("https://github.com/hackers-pub/hackerspub/pull/171")[#icon("devicon/github") PR \#171])
+      - Remote Follow 기능 구현 (#link("https://github.com/hackers-pub/hackerspub/pull/180")[#icon("devicon/github") PR \#180])
     ],
     activityEntry(
       from: datetime(year: 2025, month: 4, day: 2),
