@@ -63,13 +63,76 @@
 #activityList(
   header: [],
   (
-    activityEntry(from: datetime(year: 2026, month: 2, day: 11), to: datetime.today(), title: pad(top: -1em / 4)[
+    activityEntry(from: datetime(year: 2026, month: 4, day: 1), to: datetime.today(), title: pad(
+      top: -1em / 4,
+    )[
+      #gh-repo("dodok8/gelite") #h(1fr) Rust
+    ])[
+      *소개*
+      - Gel에서 영감을 받은 쿼리 언어를 SQLite SQL로 컴파일하는 no_std Rust 기반 DB 엔진
+
+      *해결 문제*
+
+      - SQLite는 테이블과 JOIN 중심의 조회 모델이라, 애플리케이션에서 필요한 중첩 객체 구조를 쿼리 언어 차원에서 직접 표현하기 어려움.
+      - Gel은 shaped select, object type, link traversal 같은 객체 중심 쿼리 모델을 제공하지만, Postgres 위에 구축되어 있어 SQLite 같은 임베디드 백엔드로는 바로 사용할 수 없음.
+      - 쿼리 텍스트를 단순히 SQL 문자열로 치환하면 타입/필드/link 검증, 중간 표현 검사, 백엔드별 lowering 과정을 분리하기 어려움.
+
+      Gelite는 Gel-like query language를 작은 Rust 코드베이스로 재구현하면서, `AST → Semantic IR → SQLite Plan → SQL`로 이어지는 query compiler pipeline을 설계하고 검증하는 것을 목표로 개발 중.
+
+      *주요 기능*
+
+      - *Gel-like query language MVP*
+        - `select Post { title, author: { name } }` 형태의 shaped select 문법 지원
+        - 객체 간 관계를 `link`로 표현하고, 중첩 shape를 통해 필요한 객체 구조를 쿼리에서 직접 선언
+        - `filter`, `order by`, `limit`, `offset`을 포함한 read/query 중심 문법 구현
+
+      - *스키마 기반 semantic resolution*
+        - object type, scalar field, link field, cardinality, implicit `id`를 포함하는 schema catalog 구현
+        - 쿼리의 타입명, 필드명, link traversal, nested shape 규칙을 catalog 기준으로 검증
+        - 잘못된 필드 접근, scalar field에 대한 nested shape, link field의 shape 누락 등을 SQL 생성 전에 오류로 감지
+
+      - *단계별 query compiler pipeline*
+        - query text를 바로 SQL로 변환하지 않고, `AST → Semantic IR → SQLite Plan → SQL` 단계로 분리
+        - backend-independent Semantic IR을 통해 쿼리 의미와 SQLite 물리 계획을 분리
+        - 각 단계의 책임을 crate 단위로 나누어 테스트와 확장이 쉬운 구조로 설계
+
+      - *SQLite lowering 및 SQL rendering*
+        - object type을 SQLite table로, scalar field를 column으로, single link를 foreign key join으로 매핑
+        - resolved query를 SQLite-specific structured plan으로 변환
+
+      - *no_std Rust 엔진 구조*
+        - 핵심 엔진 crate를 `no_std` 기반으로 작성하여 표준 라이브러리 의존을 줄임
+        - parser, schema catalog, resolver, IR, SQLite plan, SQL generator를 독립 crate로 분리
+        - 다양한 클라이언트와 제한된 실행 환경으로 확장 가능한 구조를 지향
+
+      - *컴파일러 학습 및 inspection 도구*
+        - `tools/repl`을 통해 쿼리를 입력하고 현재 pipeline 결과를 확인할 수 있는 inspection 환경 제공
+        - `--debug` 옵션으로 중간 표현을 출력하여 parser, resolver, planner, SQL generator의 동작을 단계별로 확인 가능
+        - `spec/`와 `plan/` 문서로 query language, schema model, IR, SQLite storage mapping, 구현 순서를 명시
+
+      *현황*
+      - `select` 문 파싱, semantic resolution, SQLite planning, SQL rendering 구현 완료
+      - schema source parser, migration, SQLite execution runtime 구현 중
+    ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
+    activityEntry(from: datetime(year: 2026, month: 2, day: 11), to: datetime(year: 2026, month: 5, day: 1), title: pad(
+      top: -1em / 4,
+    )[
       #gh-repo("dodok8/gaji") #h(1fr) TypeScript, GitHub Actions, Rust
     ])[
       *소개*
       - GitHub Actions 워크플로우를 TypeScript로 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구
 
-        - #link("https://hackers.pub/@gaebalgom/2026/%EC%99%9C-gaji%EC%9D%B8%EA%B0%80-ts%EB%A1%9C-%EC%95%88%EC%A0%84%ED%95%98%EA%B2%8C-github-actions-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0")[#icon("lucide/earth") #underline[제작기 및 제작이유]]
+        - #link(
+            "https://hackers.pub/@gaebalgom/2026/%EC%99%9C-gaji%EC%9D%B8%EA%B0%80-ts%EB%A1%9C-%EC%95%88%EC%A0%84%ED%95%98%EA%B2%8C-github-actions-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0",
+          )[#icon("lucide/earth") #underline[제작기 및 제작이유]]
         - #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
 
       *해결 문제*
@@ -80,7 +143,7 @@
       GitHub Actions의 위와 같은 단점을 TS를 이용해 워크플로우 작성시에 해결하는 것을 목적으로 삼음.
 
       *주요 기능*
-    
+
       - *action.yml 기반 자동 타입 생성*
         - action.yml 정의에서 TypeScript 타입을 자동 생성하여, `getAction()` 함수를 통해 액션 입력값의 IDE 자동완성 및 컴파일 시점 타입 체크 제공
         - `gaji dev --watch` 로 파일 변경 감시 시, 새로운 액션 참조를 자동 감지하여 타입 생성
@@ -92,7 +155,6 @@
         - Rust 단일 바이너리에 QuickJS를 내장하여 Node.js 런타임 의존 없이 동작
       - *기존 워크플로우 마이그레이션*
         - 기존 YAML 워크플로우를 `Workflow.fromObject()`로 TypeScript로 변환 가능
-     
 
       *현황*
       - gaji 그 자체의 워크플로우를 gaji로 작성하여, 이를 통해 더 효울적인 배포 과정 작성이 가능해짐.
@@ -130,7 +192,7 @@
           - #link("https://github.com/fedify-dev/fedify/pull/327")[#icon("devicon/github") PR \#327]: 테스트 작성 과정에서, `--raw` 옵션이 실제로 존재함에도 불구하고 문서에는 누락되어 있는 것을 발견함. 이를 반영하여 문서를 업데이트함.
           - #link("https://github.com/fedify-dev/fedify/pull/331")[#icon("devicon/github") PR \#331]: NodeInfo 를 가져오는 명령어 임에도 불구하고, 기존에는 `node` 여서 혼동을 주는 이슈가 있었음. 이를 `nodeinfo`로 명령어를 변경함으로서 해결함.
           - #link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#414]: 호환성을 위해 전체적으로 CLI를 재작성 하는 과정에서, nodeInfo를 담당하여 CLI를 재작성.
-    \ \ \ \ \ \ \ \
+      \ \ \ \ \ \ \ \
       - *\@fedify/elysia 패키지 제작 (#link("https://github.com/fedify-dev/fedify/pull/414")[#icon("devicon/github") PR \#339])*
         - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지. Elysia의 `onRequest` 라이프 사이클에서 `fedify`의 `federation.fetch`를 호출하여 ActivityPub 요청인지 구별하도록 구현.
         #figure(
@@ -143,6 +205,8 @@
         - Deno 기반 웹 프레임워크 Fresh 2 와 Fedify 의 통합 플러그인. 기존 Fresh 연동과 유사한 구조를 가지도록 설계하였음.
         - Fresh 2에서 사용 중인 Vite 서비스와 Fedify의 의존성 사이에 오류가 발생하여, 이를 해결 하는 Vite 설정을 문서화함.
         - 더 이상 사용되지 않은 Preact 의존성으로 인한 오류를 해결함.
+      - *\@fedify/solidstart 패키지 제작 참여 (#link("https://github.com/fedify-dev/fedify/pull/601")[#icon("devicon/github") PR \#601], #link("https://github.com/fedify-dev/fedify/pull/601")[#icon("devicon/github") PR \#652])*
+        - Solid 기반 웹 프레임워크 SolidStart용 연동 패키지 제작에 참여.
       - *BotKit, Hackers' Pub 팔로잉 관련 기능 개선 및 Fedify Webfinger 확장 API 추가*
         - *문제점*
           - BotKit의 기본 봇 페이지는 팔로워 목록을 제공하지 않았음. (#link("https://github.com/fedify-dev/botkit/issues/2")[#icon("devicon/github") issue \#2 ])

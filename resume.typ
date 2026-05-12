@@ -101,13 +101,24 @@
   ],
   (
     activityEntry(
-      from: datetime(year: 2026, month: 2, day: 11),
+      from: datetime(year: 2026, month: 4, day: 1),
       to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("dodok8/gelite") #h(1fr) Rust
+      ],
+    )[
+      #link("https://www.geldata.com/")[Gel]에서 영향을 받아, sqlite를 백엔드로 사용하는 쿼리 랭귀지 기반 DB.
+      - 쿼리 랭귀지 기반 select, 타입(테이블) 정의 기능
+      - no std Rust로 엔진이 작성되어 다양한 클라이언트 및 환경에 적용 가능
+    ],
+    activityEntry(
+      from: datetime(year: 2026, month: 2, day: 11),
+      to: datetime(year: 2026, month: 5, day: 1),
       title: pad(top: -1em / 4)[
         #gh-repo("dodok8/gaji") #h(1fr) TypeScript, GitHub Actions, Rust
       ],
     )[
-      GitHub Actions 워크플로우를 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구 #h(1fr) #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]]
+      GitHub Actions 워크플로우를 타입 안전하게 작성 후 YAML로 컴파일하는 CLI 도구 #h(1fr) #link("https://gaji.gaebalgom.work")[#icon("lucide/earth") #underline[문서]] #link("https://hackers.pub/@gaebalgom/2026/%EC%99%9C-gaji%EC%9D%B8%EA%B0%80-ts%EB%A1%9C-%EC%95%88%EC%A0%84%ED%95%98%EA%B2%8C-github-actions-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0")[#icon("lucide/earth") #underline[제작]]
       - 사용되는 액션 목록을 파싱 후, action.yml 정의에서 TypeScript 타입을 자동 생성하여 IDE 자동완성 및 컴파일 시점 타입 체크 제공
       - Rust 단일 바이너리에 QuickJS를 내장하여 외부 런타임 없이 동작
       - 복합 액션(Composite Action) 및 재사용 가능한 워크플로우(Reusable Workflow) 등 다양한 기능 지원
@@ -126,6 +137,8 @@
         - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/339")[#icon("devicon/github") PR \#339])
       - \@fedify/fresh 패키지 제작
         - Deno 기반 백엔드 프레임워크 Fresh와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/478")[#icon("devicon/github") PR \#478])
+      - \@fedify/fresh 패키지 제작
+        - Deno 기반 백엔드 프레임워크 Fresh와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/601")[#icon("devicon/github") PR \#601], #link("https://github.com/fedify-dev/fedify/pull/652")[#icon("devicon/github") PR \#652])
       - Fedify NodeInfo 타입 변경
         - Fediverse Instance의 서버 정보를 담는 NodeInfo Protocol 2.1의 스펙과 실제 Fedify의 구현 차이를 해결함 (#link("https://github.com/fedify-dev/fedify/pull/365")[#icon("devicon/github") PR \#365], #link("https://github.com/fedify-dev/fedify/pull/433")[#icon("devicon/github") PR \#433])
       - Fedify 에서 Webfinger 커스텀이 가능하도록 API 확장 (#link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407], #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404])
@@ -232,7 +245,7 @@
   ],
   (
     workExpEntry(
-      from: datetime(year: 2026, month: 1, day: 5),
+      from: datetime(year: 2026, month: 1, day: 1),
       to: datetime(year: 2026, month: 2, day: 27),
       role: "Frontend Platform Assistant",
       organization: "Toss Client DevOps팀",
