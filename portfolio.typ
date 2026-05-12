@@ -117,8 +117,6 @@
   ),
 )
 
-#pagebreak()
-
 #activityList(
   header: [],
   (
