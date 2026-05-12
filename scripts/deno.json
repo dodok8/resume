@@ -1,14 +1,16 @@
 {
-  "name": "scripts",
-  "module": "index.ts",
-  "type": "module",
-  "scripts": {
-    "prepare": "git config core.hooksPath scripts/git-hooks",
+  "compilerOptions": {
+    "lib": ["deno.ns", "deno.window"]
+  },
+  "tasks": {
     "download-icons": "deno run --allow-read --allow-write --allow-run --allow-net=api.iconify.design,static.solved.ac ./src/download-icons.ts",
     "fetch-github-metadata": "deno run --allow-read --allow-write --allow-run ./src/fetch-github-metadata.ts",
     "fetch-solved-metadata": "deno run --allow-read --allow-write --allow-run --allow-net=solved.ac ./src/fetch-solved-metadata.ts",
     "generate-cover": "deno run --allow-read --allow-write --allow-run ./src/generate-cover.ts",
     "prebuild": "deno run --allow-read --allow-write --allow-run --allow-net ./src/prebuild.ts",
     "reset": "deno run --allow-read --allow-write ./src/reset.ts"
+  },
+  "fmt": {
+    "lineWidth": 100
   }
 }

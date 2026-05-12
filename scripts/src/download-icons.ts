@@ -1,16 +1,20 @@
-#!/usr/bin/env bun
-import { $ } from "bun";
-import { parse, stringify } from "node:querystring";
-import path from "node:path";
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net=api.iconify.design,static.solved.ac
+import { chdirRoot, commandJson, download, ensureDir, writeJson } from "./util.ts";
 
-$.cwd(path.resolve(import.meta.dir, "../../"));
-await $`mkdir -p assets/.automatic/icon/`;
+function dirname(path: string) {
+  return path.slice(0, path.lastIndexOf("/"));
+}
+
+chdirRoot();
+await ensureDir("assets/.automatic/icon/");
 
 const icons: string[] = (
   await Promise.all(
     [
       ["resume.typ"],
-    ].map((file) => $`typst query ${file} '<icon>' --field value`.json()),
+    ].map(([file]) =>
+      commandJson<string[]>("typst", ["query", file, "<icon>", "--field", "value"])
+    ),
   )
 ).flat();
 
@@ -20,20 +24,23 @@ for (const icon of icons) {
     prefix,
     name,
     query: rawQuery,
-  } =
-    /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+\=[\w#-]+(&\w+\=[\w#-]+)*))?/
-      .exec(
-        icon,
-      )?.groups ?? {};
-  const query = parse(rawQuery);
+  } = /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+\=[\w#-]+(&\w+\=[\w#-]+)*))?/
+    .exec(
+      icon,
+    )?.groups ?? {};
+  const query = new URLSearchParams(rawQuery ?? "");
+  const color = query.get("color");
 
-  const filename = `${prefix}/${name}${
-    query.color ? `-${query.color}` : ""
-  }.svg`;
+  const filename = `${prefix}/${name}${color ? `-${color}` : ""}.svg`;
   const file = `assets/.automatic/icon/${filename}`;
   data[icon] = filename;
-  if (await Bun.file(file).exists()) {
+  try {
+    await Deno.stat(file);
     continue;
+  } catch (error) {
+    if (!(error instanceof Deno.errors.NotFound)) {
+      throw error;
+    }
   }
 
   const source = {
@@ -52,16 +59,15 @@ for (const icon of icons) {
       },
       name: "solvedac",
     },
-  }[prefix] ?? {
-    url: `https://api.iconify.design/${prefix}/${name}.svg?${stringify(query)}`,
+  }[prefix ?? ""] ?? {
+    url: `https://api.iconify.design/${prefix}/${name}.svg${query.size ? `?${query}` : ""}`,
     name: "iconify",
   };
 
   console.log(`Downloading ${icon} from ${source.name}`);
 
-  await $`mkdir -p ${path.dirname(file)}`;
-  console.log(`curl -Lf '${source.url}' > ${file}`);
-  await $`curl -Lf '${source.url}' > ${file}`.throws(true);
+  await ensureDir(dirname(file));
+  await download(source.url, file);
 }
 
-await $`echo ${JSON.stringify(data)} > assets/.automatic/icon/manifest.json`;
+await writeJson("assets/.automatic/icon/manifest.json", data);

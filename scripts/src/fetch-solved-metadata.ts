@@ -1,24 +1,28 @@
-#!/usr/bin/env bun
-import { $ } from "bun";
-import path from "node:path";
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net=solved.ac
+import { chdirRoot, commandJson, ensureDir, writeJson } from "./util.ts";
 
-$.cwd(path.resolve(import.meta.dir, "../../"));
-await $`mkdir -p assets/.automatic/solved/`;
+chdirRoot();
+await ensureDir("assets/.automatic/solved/");
 
 // stat
 
-const { userCount } = await $`curl https://solved.ac/api/v3/site/stats`.json();
+const { userCount } = await (await fetch("https://solved.ac/api/v3/site/stats")).json();
 
 // user
 
-const users: Array<string> =
-  await $`typst query resume.typ '<solved-ac-user>' --field value`.json();
+const users: Array<string> = await commandJson("typst", [
+  "query",
+  "resume.typ",
+  "<solved-ac-user>",
+  "--field",
+  "value",
+]);
 
 const userData: Record<string, unknown> = {};
 for (const user of users) {
   console.log(`Loading solved.ac user ${user}`);
   const { tier, rating, solvedCount, arenaTier, arenaRating, rank } =
-    await $`curl "https://solved.ac/api/v3/user/show?handle=${user}"`.json();
+    await (await fetch(`https://solved.ac/api/v3/user/show?handle=${user}`)).json();
   userData[user] = {
     solveTier: tier,
     solveRating: rating,
@@ -29,4 +33,4 @@ for (const user of users) {
     topPercent: (100 * rank) / userCount,
   };
 }
-await $`echo ${JSON.stringify(userData)} > assets/.automatic/solved/user.json`;
+await writeJson("assets/.automatic/solved/user.json", userData);

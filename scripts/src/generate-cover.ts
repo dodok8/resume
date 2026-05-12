@@ -1,8 +1,23 @@
-#!/usr/bin/env bun
-import { $ } from "bun";
-import path from "node:path";
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run
+import { chdirRoot, ensureDir, run } from "./util.ts";
 
-$.cwd(path.resolve(import.meta.dir, "../../"));
-await $`mkdir cover`.quiet().nothrow();
-await $`typst compile cover.typ cover/page-dark-{n}.svg --input theme=dark -f svg`;
-await $`typst compile cover.typ cover/page-light-{n}.svg --input theme=light -f svg`;
+chdirRoot();
+await ensureDir("cover");
+await run("typst", [
+  "compile",
+  "cover.typ",
+  "cover/page-dark-{n}.svg",
+  "--input",
+  "theme=dark",
+  "-f",
+  "svg",
+]);
+await run("typst", [
+  "compile",
+  "cover.typ",
+  "cover/page-light-{n}.svg",
+  "--input",
+  "theme=light",
+  "-f",
+  "svg",
+]);

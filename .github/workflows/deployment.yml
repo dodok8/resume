@@ -18,9 +18,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
+      - uses: denoland/setup-deno@v2
         with:
-          bun-version: 1.1.5
+          deno-version: vx.x.x
+          cache: true
       - uses: typst-community/setup-typst@v3
         with:
           typst-version: 0.14.0

@@ -1,9 +1,17 @@
-#!/usr/bin/env bun
-import { $ } from "bun";
-import path from "node:path";
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net
+import { chdirRoot, run } from "./util.ts";
 
-$.cwd(path.resolve(import.meta.dir, "../../"));
-await $`./scripts/src/reset.ts`;
-await $`./scripts/src/fetch-github-metadata.ts`;
-await $`./scripts/src/fetch-solved-metadata.ts`;
-await $`./scripts/src/download-icons.ts`;
+chdirRoot();
+const deno = Deno.execPath();
+const permissions = ["--allow-read", "--allow-write", "--allow-run", "--allow-net"];
+
+for (
+  const script of [
+    "scripts/src/reset.ts",
+    "scripts/src/fetch-github-metadata.ts",
+    "scripts/src/fetch-solved-metadata.ts",
+    "scripts/src/download-icons.ts",
+  ]
+) {
+  await run(deno, ["run", ...permissions, script]);
+}

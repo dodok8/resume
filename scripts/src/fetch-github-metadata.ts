@@ -1,14 +1,18 @@
-#!/usr/bin/env bun
-import { $ } from "bun";
-import path from "node:path";
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run
+import { chdirRoot, commandJson, ensureDir, writeJson } from "./util.ts";
 
-$.cwd(path.resolve(import.meta.dir, "../../"));
-await $`mkdir -p assets/.automatic/github/`;
+chdirRoot();
+await ensureDir("assets/.automatic/github/");
 
 // pull
 
-const pulls: Array<string> =
-  await $`typst query resume.typ '<github-pull>' --field value`.json();
+const pulls: Array<string> = await commandJson("typst", [
+  "query",
+  "resume.typ",
+  "<github-pull>",
+  "--field",
+  "value",
+]);
 const pullData: Record<string, unknown> = {};
 for (const pull of pulls) {
   console.log(`Loading PR ${pull}`);
@@ -17,7 +21,12 @@ for (const pull of pulls) {
     state,
     title,
     updatedAt: updatedAtString,
-  } = await $`gh pr view ${pull} --json number,state,title,updatedAt`.json();
+  } = await commandJson<{
+    number: number;
+    state: string;
+    title: string;
+    updatedAt: string;
+  }>("gh", ["pr", "view", pull, "--json", "number,state,title,updatedAt"]);
   const updatedAt = new Date(updatedAtString);
   pullData[pull] = {
     number,
@@ -31,12 +40,17 @@ for (const pull of pulls) {
     },
   };
 }
-await $`echo ${JSON.stringify(pullData)} > assets/.automatic/github/pull.json`;
+await writeJson("assets/.automatic/github/pull.json", pullData);
 
 // issue
 
-const issues: Array<string> =
-  await $`typst query resume.typ '<github-issue>' --field value`.json();
+const issues: Array<string> = await commandJson("typst", [
+  "query",
+  "resume.typ",
+  "<github-issue>",
+  "--field",
+  "value",
+]);
 const issueData: Record<string, unknown> = {};
 for (const issue of issues) {
   console.log(`Loading Issue ${issue}`);
@@ -45,7 +59,12 @@ for (const issue of issues) {
     state,
     title,
     updatedAt: updatedAtString,
-  } = await $`gh issue view ${issue} --json number,state,title,updatedAt`.json();
+  } = await commandJson<{
+    number: number;
+    state: string;
+    title: string;
+    updatedAt: string;
+  }>("gh", ["issue", "view", issue, "--json", "number,state,title,updatedAt"]);
   const updatedAt = new Date(updatedAtString);
   issueData[issue] = {
     number,
@@ -59,6 +78,4 @@ for (const issue of issues) {
     },
   };
 }
-await $`echo ${JSON.stringify(
-  issueData
-)} > assets/.automatic/github/issue.json`;
+await writeJson("assets/.automatic/github/issue.json", issueData);
