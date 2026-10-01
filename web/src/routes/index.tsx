@@ -58,6 +58,7 @@ export default function Home() {
               </For>
             </div>
             <Link
+              rel="me"
               href={`https://hackers.pub/${profile.social.hackerspub}`}
               aria-label={`Hackers' Pub: ${profile.social.hackerspub}`}
             >
