@@ -1,55 +1,46 @@
+import { execFile, spawn } from "node:child_process";
+import { once } from "node:events";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
+
 export const root = new URL("../../", import.meta.url);
+const execFileAsync = promisify(execFile);
 
 export function chdirRoot() {
-  Deno.chdir(root);
+  process.chdir(fileURLToPath(root));
 }
 
 export async function ensureDir(path: string) {
-  await Deno.mkdir(path, { recursive: true });
+  await mkdir(path, { recursive: true });
 }
 
 export async function readJsonOr<T>(path: string, fallback: T): Promise<T> {
   try {
-    return JSON.parse(await Deno.readTextFile(path)) as T;
+    return JSON.parse(await readFile(path, "utf8")) as T;
   } catch {
     return fallback;
   }
 }
 
 export async function writeJson(path: string, data: unknown) {
-  await Deno.writeTextFile(path, JSON.stringify(data));
+  await writeFile(path, JSON.stringify(data));
 }
 
 export async function commandText(command: string, args: string[]) {
-  const output = await new Deno.Command(command, {
-    args,
-    stdout: "piped",
-    stderr: "piped",
-  }).output();
-
-  if (!output.success) {
-    const stderr = new TextDecoder().decode(output.stderr);
-    throw new Error(`${command} ${args.join(" ")} failed\n${stderr}`);
-  }
-
-  return new TextDecoder().decode(output.stdout);
+  const { stdout } = await execFileAsync(command, args, { encoding: "utf8" });
+  return stdout;
 }
 
 export async function commandJson<T>(command: string, args: string[]): Promise<T> {
   return JSON.parse(await commandText(command, args)) as T;
 }
 
-export async function run(command: string, args: string[], options?: { allowFailure?: boolean }) {
-  const child = new Deno.Command(command, {
-    args,
-    stdin: "inherit",
-    stdout: "inherit",
-    stderr: "inherit",
-  });
-  const status = await child.output();
-
-  if (!status.success && !options?.allowFailure) {
-    throw new Error(`${command} ${args.join(" ")} failed with code ${status.code}`);
+export async function run(command: string, args: string[]) {
+  const child = spawn(command, args, { stdio: "inherit" });
+  const [code, signal] = await once(child, "close");
+  if (code !== 0) {
+    throw new Error(`${command} ${args.join(" ")} failed with ${signal ?? `code ${code}`}`);
   }
 }
 
@@ -59,5 +50,5 @@ export async function download(url: string, file: string) {
     throw new Error(`Failed to download ${url}: ${response.status} ${response.statusText}`);
   }
 
-  await Deno.writeFile(file, new Uint8Array(await response.arrayBuffer()));
+  await writeFile(file, new Uint8Array(await response.arrayBuffer()));
 }

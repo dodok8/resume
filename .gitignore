@@ -1,9 +1,11 @@
-assets/.automatic
-*.pdf
-
-.DS_Store
-._.DS_Store
 **/.DS_Store
 **/._.DS_Store
-
+*.pdf
+*.tsbuildinfo
+.DS_Store
+._.DS_Store
+.pnpm-store/
+assets/.automatic
 fonts/*.otf
+node_modules/
+www/

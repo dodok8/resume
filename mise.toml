@@ -1,0 +1,28 @@
+[tools]
+node = "24.18.0"
+pnpm = "11.17.0"
+typst = "0.14.0"
+
+[tasks.check]
+run = "pnpm exec tsc --noEmit"
+
+[tasks.download-icons]
+run = "node scripts/src/download-icons.ts"
+
+[tasks.fetch-github-metadata]
+run = "node scripts/src/fetch-github-metadata.ts"
+
+[tasks.fetch-solved-metadata]
+run = "node scripts/src/fetch-solved-metadata.ts"
+
+[tasks.generate-cover]
+run = "node scripts/src/generate-cover.ts"
+
+[tasks."hooks:install"]
+run = "git config core.hooksPath scripts/git-hooks"
+
+[tasks.prebuild]
+run = "node scripts/src/prebuild.ts"
+
+[tasks.reset]
+run = "node scripts/src/reset.ts"

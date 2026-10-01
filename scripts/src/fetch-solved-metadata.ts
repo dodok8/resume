@@ -1,14 +1,8 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net=solved.ac
+#!/usr/bin/env node
 import { chdirRoot, commandJson, ensureDir, writeJson } from "./util.ts";
 
 chdirRoot();
 await ensureDir("assets/.automatic/solved/");
-
-// stat
-
-const { userCount } = await (await fetch("https://solved.ac/api/v3/site/stats")).json();
-
-// user
 
 const users: Array<string> = await commandJson("typst", [
   "query",
@@ -17,6 +11,10 @@ const users: Array<string> = await commandJson("typst", [
   "--field",
   "value",
 ]);
+
+const { userCount } = users.length
+  ? await (await fetch("https://solved.ac/api/v3/site/stats")).json()
+  : { userCount: 0 };
 
 const userData: Record<string, unknown> = {};
 for (const user of users) {

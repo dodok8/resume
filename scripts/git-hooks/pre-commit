@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-./scripts/src/prebuild.ts
-echo Generate cover...
-./scripts/src/generate-cover.ts
-git add cover
+set -e
+mise run check
+mise run prebuild
+if [ -f cover.typ ]; then
+  mise run generate-cover
+  git add cover
+fi

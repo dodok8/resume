@@ -11,8 +11,17 @@ Modern résumé built with Typst
 ## Dev Environment
 
 - Use VS Code for editor (contains recommended extension and settings).
-- Use mise or asdf-compatible version manager and activate here.
-- Run `./scripts/src/prebuild.ts` when you need and compile it with `typst compile resume.typ`.
+- Install [mise](https://mise.jdx.dev/) and activate it in your shell.
+- Run `mise install` to install the Node.js, pnpm, and Typst versions pinned in `mise.toml`.
+- Run `pnpm install --frozen-lockfile` to install development dependencies.
+- Install the GitHub CLI (`gh`) and authenticate it for fetching GitHub metadata.
+- Run `mise run prebuild` to fetch metadata and icons, then compile with `typst compile resume.typ` or `typst compile portfolio.typ`.
+- Run `mise run check` for TypeScript checks.
+- Optionally run `mise run hooks:install` to enable the pre-commit hook, which runs checks and prebuild. Cover generation runs only when `cover.typ` exists.
+
+Scripts run directly on Node.js using its built-in TypeScript support. All commands
+are managed as mise tasks and run from the repository root; Deno and a separate scripts package are no longer required.
+CI uses the same mise configuration and continues deploying the PDFs through GitHub Pages.
 
 ## Special Thanks
 

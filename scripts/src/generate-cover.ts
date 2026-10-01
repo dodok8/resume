@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run
+#!/usr/bin/env node
 import { chdirRoot, ensureDir, run } from "./util.ts";
 
 chdirRoot();

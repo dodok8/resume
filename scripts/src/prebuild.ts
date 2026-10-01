@@ -1,9 +1,7 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net
+#!/usr/bin/env node
 import { chdirRoot, run } from "./util.ts";
 
 chdirRoot();
-const deno = Deno.execPath();
-const permissions = ["--allow-read", "--allow-write", "--allow-run", "--allow-net"];
 
 for (
   const script of [
@@ -13,5 +11,5 @@ for (
     "scripts/src/download-icons.ts",
   ]
 ) {
-  await run(deno, ["run", ...permissions, script]);
+  await run(process.execPath, [script]);
 }

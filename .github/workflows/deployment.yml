@@ -18,17 +18,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: vx.x.x
-          cache: true
-      - uses: typst-community/setup-typst@v3
-        with:
-          typst-version: 0.14.0
+      - uses: jdx/mise-action@v3
+      - run: pnpm install --frozen-lockfile
+      - run: mise run check
       - run: |
           mkdir fonts;
           curl -o fonts/RIDIBatang.otf https://ridicorp.com/wp-content/themes/ridicorp/css/font/RIDIBatang.otf
-      - run: ./scripts/src/prebuild.ts
+      - run: mise run prebuild
         env:
           GH_TOKEN: ${{ github.token }}
       - run: mkdir www

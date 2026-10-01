@@ -1,9 +1,7 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-net=api.iconify.design,static.solved.ac
+#!/usr/bin/env node
+import { stat } from "node:fs/promises";
+import { dirname } from "node:path";
 import { chdirRoot, commandJson, download, ensureDir, writeJson } from "./util.ts";
-
-function dirname(path: string) {
-  return path.slice(0, path.lastIndexOf("/"));
-}
 
 chdirRoot();
 await ensureDir("assets/.automatic/icon/");
@@ -35,10 +33,10 @@ for (const icon of icons) {
   const file = `assets/.automatic/icon/${filename}`;
   data[icon] = filename;
   try {
-    await Deno.stat(file);
+    await stat(file);
     continue;
   } catch (error) {
-    if (!(error instanceof Deno.errors.NotFound)) {
+    if (!(error instanceof Error && "code" in error && error.code === "ENOENT")) {
       throw error;
     }
   }
