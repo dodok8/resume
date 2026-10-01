@@ -6,6 +6,5 @@
 ._.DS_Store
 .pnpm-store/
 assets/.automatic
-fonts/*.otf
 node_modules/
 www/

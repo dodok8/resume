@@ -1,20 +1,10 @@
 #!/usr/bin/env node
-import { access } from "node:fs/promises";
-import { chdirRoot, documents, download, ensureDir, run } from "./util.ts";
+import { cp } from "node:fs/promises";
+import { chdirRoot, documents, ensureDir, run } from "./util.ts";
 
 chdirRoot();
-await ensureDir("fonts");
 await ensureDir("www");
-
-const font = "fonts/RIDIBatang.otf";
-try {
-  await access(font);
-} catch (error) {
-  if (!(error instanceof Error && "code" in error && error.code === "ENOENT")) {
-    throw error;
-  }
-  await download("https://ridicorp.com/wp-content/themes/ridicorp/css/font/RIDIBatang.otf", font);
-}
+await cp("fonts", "www/fonts", { recursive: true });
 
 for (const source of documents) {
   const output = source === "resume.typ" ? "index.pdf" : source.replace(/\.typ$/, ".pdf");

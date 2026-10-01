@@ -55,8 +55,8 @@ Website rendering and PDF deployment are independent.
 
 ## PDF Build and Deployment
 
-Run `mise run build-pdf` to fetch metadata and icons, download RIDIBatang if needed,
-and compile all three documents into `www/`. This task does not depend on a website
+Run `mise run build-pdf` to fetch metadata and icons, copy the bundled font and its
+license, and compile all three documents into `www/`. This task does not depend on a website
 build or JSON export. GitHub Actions runs the same task and deploys `www/` to Pages.
 
 | Source | Output | Published PDF |
@@ -66,6 +66,11 @@ build or JSON export. GitHub Actions runs the same task and deploys `www/` to Pa
 | `graveyard.typ` | `www/graveyard.pdf` | [Graveyard](https://dodok8.github.io/resume/graveyard.pdf) |
 
 The existing PDF filenames and URLs remain available independently of web routes.
+
+RIDIBatang is bundled unchanged from [RIDI's official download](https://ridicorp.com/wp-content/themes/ridicorp/css/font/RIDIBatang.otf).
+The font copyright notice and the full SIL Open Font License 1.1 are in
+`fonts/LICENSE.txt`. Both the font and license are deployed under `www/fonts/`;
+CI does not download the font from RIDI.
 
 ## Special Thanks
 
