@@ -46,7 +46,7 @@ export function Document(props: { document: DocumentData }) {
             title={`${props.document.title} — ${props.document.profile.name["real-korean"]}`}
             url={new URL(props.document.route.slice(1), props.document.profile.website).href}
           />
-          <PrintButton pages={props.document.print.pages} />
+          <PrintButton />
         </div>
       </header>
       <main id="content" class={`screen-content ${styles.paper}`}>

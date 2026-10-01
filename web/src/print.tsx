@@ -2,7 +2,7 @@ import { Button } from "@kobalte/core/button";
 import { For, createSignal, onMount } from "solid-js";
 import styles from "./controls.module.css";
 
-export function PrintButton(props: { pages: string[] }) {
+export function PrintButton() {
   const [status, setStatus] = createSignal<"loading" | "ready" | "failed">("loading");
   onMount(async () => {
     try {
