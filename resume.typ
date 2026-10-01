@@ -142,8 +142,6 @@
         - Bun 기반 백엔드 프레임워크 Elysia와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/339")[#icon("devicon/github") PR \#339])
       - \@fedify/fresh 패키지 제작
         - Deno 기반 백엔드 프레임워크 Fresh와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/478")[#icon("devicon/github") PR \#478])
-      - \@fedify/fresh 패키지 제작
-        - Deno 기반 백엔드 프레임워크 Fresh와 Fedify 의 통합 패키지 (#link("https://github.com/fedify-dev/fedify/pull/601")[#icon("devicon/github") PR \#601], #link("https://github.com/fedify-dev/fedify/pull/652")[#icon("devicon/github") PR \#652])
       - Fedify NodeInfo 타입 변경
         - Fediverse Instance의 서버 정보를 담는 NodeInfo Protocol 2.1의 스펙과 실제 Fedify의 구현 차이를 해결함 (#link("https://github.com/fedify-dev/fedify/pull/365")[#icon("devicon/github") PR \#365], #link("https://github.com/fedify-dev/fedify/pull/433")[#icon("devicon/github") PR \#433])
       - Fedify 에서 Webfinger 커스텀이 가능하도록 API 확장 (#link("https://github.com/fedify-dev/fedify/pull/407")[#icon("devicon/github") PR \#407], #link("https://github.com/fedify-dev/fedify/pull/404")[#icon("devicon/github") PR \#404])
