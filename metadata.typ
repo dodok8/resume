@@ -15,6 +15,7 @@
     ),
   ),
   role: "소프트웨어 엔지니어",
+  website: "https://gaebalgom.work/",
   location: "대한민국 서울특별시",
   address: "비공개",
   birthday: "1999.04.04",

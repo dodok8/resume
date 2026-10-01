@@ -70,6 +70,7 @@
     profile: (
       name: profile.name,
       role: profile.role,
+      website: profile.website,
       tagline: web-content(profile.bio.ko.title),
       email: profile.email,
       phone: profile.phone,

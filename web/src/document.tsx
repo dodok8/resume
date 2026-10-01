@@ -2,6 +2,7 @@ import { For } from "solid-js";
 import type site from "./generated/site.json";
 import { InlineContent, RichContent } from "./content";
 import { PrintButton, PrintPages } from "./print";
+import { PageMetadata } from "./metadata";
 
 type DocumentData = (typeof site)[keyof typeof site];
 
@@ -9,6 +10,7 @@ export function Document(props: { document: DocumentData }) {
   const base = import.meta.env.BASE_URL;
   return (
     <div class={`document document--${props.document.id}`}>
+      <PageMetadata document={props.document.id as keyof typeof site} />
       <main id="content" class="screen-content">
         <header>
           <h1>
