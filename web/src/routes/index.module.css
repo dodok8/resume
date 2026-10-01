@@ -5,6 +5,7 @@
 }
 
 .card {
+  font-family: var(--font-document);
   display: grid;
   grid-template-columns: 12rem minmax(0, 1fr);
   grid-template-areas: "portrait identity" "qr documents";
@@ -37,71 +38,6 @@
   font-size: 0.8rem;
 }
 
-.identity {
-  grid-area: identity;
-  min-inline-size: 0;
-}
-
-.role {
-  margin: 0 0 0.75rem;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-}
-
-.identity h1 {
-  margin: 0;
-  font-size: clamp(1.9rem, 4vw, 2.7rem);
-  line-height: 1.25;
-  letter-spacing: -0.05em;
-}
-
-.identity h1 span {
-  display: inline-block;
-  margin-inline-start: 0.25em;
-  margin-inline-end: 0.25em;
-  color: var(--color-accent);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-.englishName {
-  margin: 0.65rem 0 1.75rem;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.contacts {
-  display: grid;
-  justify-items: start;
-  gap: 0.75rem;
-  font-style: normal;
-  font-size: 0.9rem;
-}
-
-.contacts a {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.25em;
-  overflow-wrap: anywhere;
-}
-
-.contactIcon {
-  flex-shrink: 0;
-  inline-size: 1.15em;
-  block-size: 1.15em;
-  background: currentColor;
-  mask: var(--contact-icon) center / contain no-repeat;
-}
-
-.emails {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 1.25rem;
-  row-gap: 0.5rem;
-}
-
 .qr {
   grid-area: qr;
   display: grid;
@@ -118,6 +54,13 @@
   color: var(--color-text-muted);
   font-size: 0.8rem;
   text-decoration: none;
+}
+
+.siteDetails {
+  display: grid;
+  justify-items: start;
+  min-inline-size: 0;
+  gap: 0.5rem;
 }
 
 .documents {
@@ -169,18 +112,6 @@
 
   .portrait {
     inline-size: 8rem;
-  }
-
-  .identity h1 {
-    font-size: 2rem;
-  }
-
-  .englishName {
-    margin-block-end: 1.5rem;
-  }
-
-  .emails {
-    flex-direction: column;
   }
 
   .qr {

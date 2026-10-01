@@ -1,4 +1,11 @@
+@font-face {
+  font-family: "RIDIBatang";
+  src: url("/fonts/RIDIBatang.otf") format("opentype");
+  font-display: swap;
+}
+
 :root {
+  --font-document: "RIDIBatang", serif;
   color-scheme: light;
   --color-background: #f5f3ff;
   --color-surface: #ffffff;

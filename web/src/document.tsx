@@ -1,8 +1,15 @@
+import { Link } from "@kobalte/core/link";
+import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import type site from "./generated/site.json";
 import { InlineContent, RichContent } from "./content";
 import { PrintButton, PrintPages } from "./print";
 import { PageMetadata } from "./metadata";
+import styles from "./document.module.css";
+import toolbar from "./toolbar.module.css";
+import controls from "./controls.module.css";
+import entryStyles from "./entry.module.css";
+import { ShareButton } from "./share";
 
 type DocumentData = (typeof site)[keyof typeof site];
 
@@ -11,71 +18,76 @@ export function Document(props: { document: DocumentData }) {
   return (
     <div class={`document document--${props.document.id}`}>
       <PageMetadata document={props.document.id as keyof typeof site} />
-      <main id="content" class="screen-content">
-        <header>
-          <h1>
-            {props.document.title} — {props.document.profile.name["real-korean"]}
-          </h1>
-          <p>{props.document.profile.role}</p>
+      <header class={`site-header ${toolbar.toolbar}`}>
+        <nav class={toolbar.navigation} aria-label="문서">
+          <Link as={A} href="/" end>
+            홈
+          </Link>
+          <Link as={A} href="/resume/">
+            레쥬메
+          </Link>
+          <Link as={A} href="/portfolio/">
+            포트폴리오
+          </Link>
+          <Link as={A} href="/graveyard/">
+            그레이브야드
+          </Link>
+        </nav>
+        <div class={toolbar.actions}>
+          <Link
+            class={controls.action}
+            href={`${base}${props.document.print.pdf}`}
+            download={`${props.document.id}.pdf`}
+          >
+            다운로드
+          </Link>
+          <ShareButton
+            class={controls.action}
+            title={`${props.document.title} — ${props.document.profile.name["real-korean"]}`}
+            url={new URL(props.document.route.slice(1), props.document.profile.website).href}
+          />
+          <PrintButton pages={props.document.print.pages} />
+        </div>
+      </header>
+      <main id="content" class={`screen-content ${styles.paper}`}>
+        <header class={styles.title}>
+          <h1>{props.document.title}</h1>
           <p>
-            <InlineContent nodes={props.document.profile.tagline} />
+            <time datetime={props.document.updated}>{props.document.updated}</time> 기준
           </p>
-          <For each={props.document.profile.email}>
-            {(email) => (
-              <div>
-                <a href={`mailto:${email}`}>{email}</a>
-              </div>
-            )}
-          </For>
-          <dl>
-            <dt>전화</dt>
-            <dd>
-              <a href={`tel:${props.document.profile.phone.join("")}`}>
-                {props.document.profile.phone.join(" ")}
-              </a>
-            </dd>
-            <dt>생년월일</dt>
-            <dd>{props.document.profile.birthday}</dd>
-            <dt>GitHub</dt>
-            <dd>
-              <a href={`https://github.com/${props.document.profile.social.github}`}>
-                @{props.document.profile.social.github}
-              </a>
-            </dd>
-            <dt>Hackers' Pub</dt>
-            <dd>
-              <a href={`https://hackers.pub/${props.document.profile.social.hackerspub}`}>
-                {props.document.profile.social.hackerspub}
-              </a>
-            </dd>
-          </dl>
-          <div class="document-actions">
-            <a href={`${base}${props.document.print.pdf}`} download={`${props.document.id}.pdf`}>
-              PDF 다운로드
-            </a>
-            <PrintButton pages={props.document.print.pages} />
-          </div>
         </header>
         <For each={props.document.sections}>
           {(section) => (
-            <section>
-              <RichContent nodes={section.heading} />
+            <section class={styles.section}>
+              <div class={styles.sectionHeading}>
+                <RichContent nodes={section.heading} />
+              </div>
               <For each={section.entries}>
                 {(entry) => (
-                  <article>
-                    <h3>
-                      <InlineContent nodes={entry.title} />
-                    </h3>
-                    <p>
-                      <time datetime={entry.from ?? undefined}>{entry.from}</time>
+                  <article class={entryStyles.entry}>
+                    <p class={entryStyles.period}>
+                      <time datetime={entry.from ?? undefined}>
+                        {entry.from?.slice(0, 7).replace("-", ".")}
+                      </time>
                       {entry.to && (
                         <>
-                          {" "}
-                          — {entry.ongoing ? "현재" : <time datetime={entry.to}>{entry.to}</time>}
+                          <span aria-hidden="true">—</span>
+                          {entry.ongoing ? (
+                            <span>현재</span>
+                          ) : (
+                            <time datetime={entry.to}>
+                              {entry.to.slice(0, 7).replace("-", ".")}
+                            </time>
+                          )}
                         </>
                       )}
                     </p>
-                    <RichContent nodes={entry.body} />
+                    <div class={entryStyles.entryBody}>
+                      <h3 class={entryStyles.entryTitle}>
+                        <InlineContent nodes={entry.title} />
+                      </h3>
+                      <RichContent nodes={entry.body} />
+                    </div>
                   </article>
                 )}
               </For>

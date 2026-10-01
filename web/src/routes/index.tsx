@@ -3,7 +3,9 @@ import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import site from "../generated/site.json";
 import styles from "./index.module.css";
+import identity from "./profile.module.css";
 import { PageMetadata } from "../metadata";
+import { ShareButton } from "../share";
 
 export default function Home() {
   const profile = site.resume.profile;
@@ -23,21 +25,30 @@ export default function Home() {
             GitHub <span aria-hidden="true">↗</span>
           </span>
         </Link>
-        <header class={styles.identity}>
-          <p class={styles.role}>{profile.role}</p>
-          <h1 id="name">
-            {profile.name["real-korean"]} <span>==</span> {profile.name.nickname}
-          </h1>
-          <p class={styles.englishName}>
+        <header class={identity.identity}>
+          <p class={identity.role}>{profile.role}</p>
+          <div class={identity.nameRow}>
+            <h1 id="name">
+              <span>
+                {profile.name["real-korean"]}
+                <span>==</span> {profile.name.nickname}
+              </span>
+            </h1>
+            <ShareButton
+              title={`${profile.name["real-korean"]} · ${profile.name.nickname}`}
+              url={profile.website}
+            />
+          </div>
+          <p class={identity.englishName}>
             {profile.name["real-english"]} / {profile.name["nickname-eng"]}
           </p>
-          <address class={styles.contacts}>
-            <div class={styles.emails}>
+          <address class={identity.contacts}>
+            <div class={identity.emails}>
               <For each={profile.email}>
                 {(email) => (
                   <Link href={`mailto:${email}`} aria-label={`이메일: ${email}`}>
                     <span
-                      class={styles.contactIcon}
+                      class={identity.contactIcon}
                       style={{ "--contact-icon": `url(${base}icons/lucide/mail.svg)` }}
                       aria-hidden="true"
                     />
@@ -51,7 +62,7 @@ export default function Home() {
               aria-label={`Hackers' Pub: ${profile.social.hackerspub}`}
             >
               <span
-                class={styles.contactIcon}
+                class={identity.contactIcon}
                 style={{ "--contact-icon": `url(${base}icons/lucide/cat.svg)` }}
                 aria-hidden="true"
               />
@@ -62,7 +73,7 @@ export default function Home() {
               aria-label={`전화: ${profile.phone.join(" ")}`}
             >
               <span
-                class={styles.contactIcon}
+                class={identity.contactIcon}
                 style={{ "--contact-icon": `url(${base}icons/lucide/phone.svg)` }}
                 aria-hidden="true"
               />
@@ -79,9 +90,11 @@ export default function Home() {
               alt="이 홈페이지로 연결되는 QR 코드"
             />
           </Link>
-          <Link class={styles.siteAddress} href={profile.website}>
-            {new URL(profile.website).host}
-          </Link>
+          <div class={styles.siteDetails}>
+            <Link class={styles.siteAddress} href={profile.website}>
+              {new URL(profile.website).host}
+            </Link>
+          </div>
         </div>
         <nav class={styles.documents} aria-label="문서">
           <Link as={A} class={styles.documentLink} href="/resume/">

@@ -1,0 +1,49 @@
+.region {
+  position: fixed;
+  inset-block-end: 1rem;
+  inset-inline-end: 1rem;
+  inline-size: min(24rem, calc(100vw - 2rem));
+  z-index: 100;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toast {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+}
+
+.toast > div {
+  min-inline-size: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.description {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+@media print {
+  .region {
+    display: none;
+  }
+}

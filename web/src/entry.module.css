@@ -1,0 +1,99 @@
+.entry {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.entry:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.period {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  margin: 0;
+  padding-top: 0.15rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.entryBody {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.entryTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.4rem;
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.entryBody p {
+  margin-block: 0.65rem;
+}
+
+.entryBody ul,
+.entryBody ol {
+  margin-block: 0.65rem;
+  padding-inline-start: 1.3rem;
+}
+
+.entryBody li {
+  margin-block: 0.25rem;
+}
+
+.entryBody li > p {
+  margin-block: 0.25rem;
+}
+
+.entryBody figure {
+  margin-block: 1.5rem;
+}
+
+.entryBody figcaption {
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+}
+
+.entryBody pre {
+  padding: 1rem;
+  font-size: 0.85rem;
+  overflow-wrap: normal;
+}
+
+.entryBody :global(img.icon[src*="/lucide/"]),
+.entryBody :global(img.icon[src*="/devicon/github.svg"]) {
+  filter: brightness(0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .entryBody :global(img.icon[src*="/lucide/"]),
+  .entryBody :global(img.icon[src*="/devicon/github.svg"]) {
+    filter: brightness(0) invert(1);
+  }
+}
+
+@media (max-width: 42rem) {
+  .entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+  .period {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
