@@ -21,7 +21,7 @@ export function Document(props: { document: DocumentData }) {
           <dt>Hackers' Pub</dt><dd><a href={`https://hackers.pub/${props.document.profile.social.hackerspub}`}>{props.document.profile.social.hackerspub}</a></dd>
         </dl>
         <div class="document-actions">
-          <a href={`${base}${props.document.print.pdf}`}>PDF 다운로드</a>
+          <a href={`${base}${props.document.print.pdf}`} download={`${props.document.id}.pdf`}>PDF 다운로드</a>
           <PrintButton pages={props.document.print.pages} />
         </div>
       </header>
