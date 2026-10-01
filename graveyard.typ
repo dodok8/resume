@@ -13,7 +13,7 @@
 
 = #text(size: 32pt)[#metadata.name.real-korean#super[#upper[#metadata.name.real-english]]]
 
-== Graveyard
+== 그래이브야드 - 종료된 프로젝트들
 #line(length: 100%, stroke: 0.75pt)
 
 #activityList(
@@ -115,4 +115,3 @@
     ],
   ),
 )
-
