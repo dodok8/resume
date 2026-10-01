@@ -21,7 +21,7 @@ Modern résumé built with Typst
 
 Scripts run directly on Node.js using its built-in TypeScript support. All commands
 are managed as mise tasks and run from the repository root; Deno and a separate scripts package are no longer required.
-CI uses the same mise configuration and continues deploying the PDFs through GitHub Pages.
+CI uses the same mise configuration and deploys the website and PDFs through GitHub Pages.
 
 ## Content Sources
 
@@ -57,8 +57,8 @@ Website rendering and PDF deployment are independent.
 
 Run `mise run build-pdf` to fetch metadata and icons, copy the bundled font and its
 license, and compile all three documents into `www/`. This task does not depend on a website
- build or JSON export. GitHub Actions runs `build-print`, which includes this task,
- and deploys `www/` to Pages.
+build or JSON export. GitHub Actions runs `check-web` and `build-web`, which include
+the PDF and print build tasks, then deploys `web/.output/public/` to Pages.
 
 | Source | Output | Published PDF |
 | --- | --- | --- |
@@ -95,7 +95,10 @@ Vite updates UI changes during development. After changing Typst content, rerun
 Run `mise run check-web` for website TypeScript checks or `mise run build-web`
 for a static build in `web/.output/public/`. Run `mise run preview` to preview it
 on port 4173. Set `SITE_BASE=/resume/` when building for that hosting prefix.
-Website deployment is separate from the existing PDF deployment workflow.
+CI obtains the hosting prefix from `actions/configure-pages`, so both custom domains
+and repository Pages paths use the same build configuration. Static output includes
+all four HTML routes, PDFs with their existing filenames, print SVGs, and font licenses.
+The standalone `build-pdf` task remains available independently.
 
 ## Browser Printing
 

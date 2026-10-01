@@ -21,11 +21,16 @@ jobs:
       - uses: jdx/mise-action@v3
       - run: pnpm install --frozen-lockfile
       - run: mise run check
-      - run: mise run build-print
+      - uses: actions/configure-pages@v4
+        id: pages
+      - run: mise run check-web
         env:
           GH_TOKEN: ${{ github.token }}
-      - uses: actions/configure-pages@v4
+      - run: mise run build-web
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: www
+          path: web/.output/public
       - uses: actions/deploy-pages@v4
