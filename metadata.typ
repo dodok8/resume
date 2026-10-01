@@ -18,7 +18,7 @@
   location: "대한민국 서울특별시",
   address: "비공개",
   birthday: "1999.04.04",
-  email: "dodok8@gmail.com",
+  email: ("dodok8@gmail.com", "gaebalgom@necrass.rs"),
   phone: ("+82", "10", "2674", "9189"),
   social: (github: "dodok8", hackerspub: "@gaebalgom", solved-ac: "dodo8"),
   oss-contribs: (

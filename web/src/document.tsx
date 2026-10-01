@@ -18,7 +18,13 @@ export function Document(props: { document: DocumentData }) {
           <p>
             <InlineContent nodes={props.document.profile.tagline} />
           </p>
-          <a href={`mailto:${props.document.profile.email}`}>{props.document.profile.email}</a>
+          <For each={props.document.profile.email}>
+            {(email) => (
+              <div>
+                <a href={`mailto:${email}`}>{email}</a>
+              </div>
+            )}
+          </For>
           <dl>
             <dt>전화</dt>
             <dd>

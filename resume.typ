@@ -67,12 +67,14 @@
 
 #set text(size: 10pt)
 #grid(
-  columns: (0.5fr, 1fr),
+  columns: (1.2fr, 1fr),
   grid(
     columns: (auto, 1fr),
     column-gutter: 10pt,
     row-gutter: 8pt,
-    [#icon("lucide/mail") *전자 우편*], pad(top: +1em / 4)[#link("mailto:" + metadata.email)[#metadata.email]],
+    [#icon("lucide/mail") *전자 우편*], pad(top: +1em / 4)[
+      #metadata.email.map(email => link("mailto:" + email)[#email]).join(" / ")
+    ],
     [#icon("lucide/phone") *전화*],
     pad(top: +1em / 4)[#link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")]],
 
@@ -92,7 +94,7 @@
     )[#metadata.social.hackerspub\@hackers.pub]],
 
     [#icon("lucide/earth") *Portfolio*],
-    pad(top: +1em / 4)[#link("https://dodok8.github.io/resume/portfolio.pdf")[dodok8.github.io/resume/portfolio.pdf]],
+    pad(top: +1em / 4)[#link("https://geabalgom.work/portfolio")[geabalgom.work/portfolio]],
   ),
 )
 

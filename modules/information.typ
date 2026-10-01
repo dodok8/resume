@@ -1,6 +1,7 @@
 #import "../metadata.typ": metadata
 #import "components.typ": *
 
+#let information() = {
   set text(size: 10pt)
   grid(
     columns: (1fr, 1fr),
@@ -8,7 +9,7 @@
       columns: (auto, 1fr),
       column-gutter: 16pt,
       row-gutter: 8pt,
-      [#icon("lucide/mail") *전자 우편*], link("mailto:" + metadata.email)[#metadata.email],
+      [#icon("lucide/mail") *전자 우편*], metadata.email.map(email => link("mailto:" + email)[#email]).join(linebreak()),
       [#icon("lucide/phone") *전화*], link("tel:" + metadata.phone.join())[#metadata.phone.join(" ")],
       [#icon("lucide/calendar") *생년월일*], metadata.birthday,
     ),
