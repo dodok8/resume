@@ -1,16 +1,10 @@
 #!/usr/bin/env node
-import { chdirRoot, commandJson, ensureDir, writeJson } from "./util.ts";
+import { chdirRoot, ensureDir, queryMetadata, writeJson } from "./util.ts";
 
 chdirRoot();
 await ensureDir("assets/.automatic/solved/");
 
-const users: Array<string> = await commandJson("typst", [
-  "query",
-  "resume.typ",
-  "<solved-ac-user>",
-  "--field",
-  "value",
-]);
+const users = await queryMetadata("<solved-ac-user>");
 
 const { userCount } = users.length
   ? await (await fetch("https://solved.ac/api/v3/site/stats")).json()

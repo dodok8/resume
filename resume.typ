@@ -4,6 +4,9 @@
 #import "modules/github.typ": *
 #import "modules/solved-ac.typ": *
 #import "metadata.typ": metadata
+#import "modules/web.typ": web-document
+
+#web-document("resume", "레쥬메", metadata)
 
 
 

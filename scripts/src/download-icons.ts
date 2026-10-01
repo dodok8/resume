@@ -1,20 +1,12 @@
 #!/usr/bin/env node
 import { stat } from "node:fs/promises";
 import { dirname } from "node:path";
-import { chdirRoot, commandJson, download, ensureDir, writeJson } from "./util.ts";
+import { chdirRoot, download, ensureDir, queryMetadata, writeJson } from "./util.ts";
 
 chdirRoot();
 await ensureDir("assets/.automatic/icon/");
 
-const icons: string[] = (
-  await Promise.all(
-    [
-      ["resume.typ"],
-    ].map(([file]) =>
-      commandJson<string[]>("typst", ["query", file, "<icon>", "--field", "value"])
-    ),
-  )
-).flat();
+const icons = await queryMetadata("<icon>");
 
 const data: Record<string, string> = {};
 for (const icon of icons) {

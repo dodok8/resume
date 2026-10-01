@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 
 export const root = new URL("../../", import.meta.url);
+export const documents = ["resume.typ", "portfolio.typ", "graveyard.typ"];
 const execFileAsync = promisify(execFile);
 
 export function chdirRoot() {
@@ -34,6 +35,13 @@ export async function commandText(command: string, args: string[]) {
 
 export async function commandJson<T>(command: string, args: string[]): Promise<T> {
   return JSON.parse(await commandText(command, args)) as T;
+}
+
+export async function queryMetadata(selector: string): Promise<string[]> {
+  const values = await Promise.all(documents.map(file =>
+    commandJson<string[]>("typst", ["query", file, selector, "--field", "value"])
+  ));
+  return [...new Set(values.flat())];
 }
 
 export async function run(command: string, args: string[]) {

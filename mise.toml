@@ -9,6 +9,9 @@ run = "pnpm exec tsc --noEmit"
 [tasks.download-icons]
 run = "node scripts/src/download-icons.ts"
 
+[tasks.export-web]
+run = "node scripts/src/export-web.ts"
+
 [tasks.fetch-github-metadata]
 run = "node scripts/src/fetch-github-metadata.ts"
 

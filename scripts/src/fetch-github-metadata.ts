@@ -1,18 +1,12 @@
 #!/usr/bin/env node
-import { chdirRoot, commandJson, ensureDir, writeJson } from "./util.ts";
+import { chdirRoot, commandJson, ensureDir, queryMetadata, writeJson } from "./util.ts";
 
 chdirRoot();
 await ensureDir("assets/.automatic/github/");
 
 // pull
 
-const pulls: Array<string> = await commandJson("typst", [
-  "query",
-  "resume.typ",
-  "<github-pull>",
-  "--field",
-  "value",
-]);
+const pulls = await queryMetadata("<github-pull>");
 const pullData: Record<string, unknown> = {};
 for (const pull of pulls) {
   console.log(`Loading PR ${pull}`);
@@ -44,13 +38,7 @@ await writeJson("assets/.automatic/github/pull.json", pullData);
 
 // issue
 
-const issues: Array<string> = await commandJson("typst", [
-  "query",
-  "resume.typ",
-  "<github-issue>",
-  "--field",
-  "value",
-]);
+const issues = await queryMetadata("<github-issue>");
 const issueData: Record<string, unknown> = {};
 for (const issue of issues) {
   console.log(`Loading Issue ${issue}`);

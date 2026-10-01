@@ -1,4 +1,5 @@
 #import "util.typ": *
+#import "web.typ": export-web, web-content, web-date
 
 #let formatDuration(duration) = {
   let duration-in-weeks = if type(duration) == "duration" {
@@ -19,6 +20,19 @@
 }
 
 #let activityList(entries, body-header: none, header: none) = {
+  if export-web {
+    return [#metadata((
+      type: "section",
+      heading: web-content(header),
+      entries: entries.map(((from, to, title, body)) => (
+        from: web-date(from),
+        to: web-date(to),
+        ongoing: to == datetime.today(),
+        title: web-content(title),
+        body: web-content(body),
+      )),
+    )) <web-data>]
+  }
   let total-duration-in-weeks = 0
   for (from, to, ..) in entries {
     if type(to) != "datetime" {

@@ -1,3 +1,5 @@
+#import "web.typ": export-web
+
 #let base-icon(url, size: 1em, width: none, height: none, bottom: -1em / 8) = {
   box[
     #pad(bottom: bottom)[
@@ -20,6 +22,7 @@
 }
 
 #let icon(query, size: 1em, width: none, height: none, bottom: -1em / 8) = {
+  if export-web { return metadata((type: "icon", name: query)) }
   [#metadata(query) <icon>]
   let icon-db = json("../assets/.automatic/icon/manifest.json")
   if icon-db.at(query, default: none) != none {

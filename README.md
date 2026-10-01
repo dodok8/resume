@@ -23,6 +23,36 @@ Scripts run directly on Node.js using its built-in TypeScript support. All comma
 are managed as mise tasks and run from the repository root; Deno and a separate scripts package are no longer required.
 CI uses the same mise configuration and continues deploying the PDFs through GitHub Pages.
 
+## Content Sources
+
+| Source | Web route | Content |
+| --- | --- | --- |
+| `resume.typ` | `/resume/` | Résumé |
+| `portfolio.typ` | `/portfolio/` | Portfolio |
+| `graveyard.typ` | `/graveyard/` | Previously operated projects |
+
+`/` is reserved for separate homepage content. Shared profile information stays in
+`metadata.typ`. Edit the Typst sources, not generated JSON.
+
+Run `mise run prebuild`, then `mise run export-web` to generate
+`assets/.automatic/web/{resume,portfolio,graveyard}.json`. The generated files are
+ignored by Git. Each document contains `schemaVersion`, `id`, `title`, `route`,
+`updated`, `profile`, and `sections`. Sections contain `heading` and `entries`;
+entries contain ISO dates (`from`, `to`), `ongoing`, `title`, and `body`.
+
+Rich content is an array of semantic nodes: `text`, `link`, `strong`, `emph`,
+`list-item`, `ordered-item`, `code`, `heading`, `figure`, `image`, `icon`, `super`,
+`sub`, and `footnote`. Nested content uses `children`; figures also have `caption`.
+`parbreak` and `linebreak` preserve paragraph and line boundaries. Consecutive list
+items form a list; nested list items remain inside their parent's `children`.
+Image `src` values refer to source paths in the repository, and `alt` can be null.
+Icons use their existing query names. PDF layout wrappers and visual styles are
+omitted; unsupported elements stop export instead of silently dropping content.
+
+JSON export uses `typst query --input export-web=true` and does not require the
+experimental HTML exporter. Without that input, the same sources compile to PDF.
+Website rendering and PDF deployment for the new document are separate steps.
+
 ## Special Thanks
 
 - [shiftpsh](https://github.com/shiftpsh) for his impressive cv design and the [solved.ac](https://solved.ac) service
@@ -31,3 +61,4 @@ CI uses the same mise configuration and continues deploying the PDFs through Git
 - [Icones](https://icones.js.org/) for easier icon search
 - [Iconify](https://iconify.design/) for icon CDN
 - [Typst](https://typst.app/) for awesome markup language
+- [SolidStart](https://start.solidjs.com/) for awesome fullstack experience
