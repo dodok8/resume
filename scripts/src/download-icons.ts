@@ -14,10 +14,8 @@ for (const icon of icons) {
     prefix,
     name,
     query: rawQuery,
-  } = /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+\=[\w#-]+(&\w+\=[\w#-]+)*))?/
-    .exec(
-      icon,
-    )?.groups ?? {};
+  } = /(?<prefix>[\w-]+)\/(?<name>[\w-]+)(\?(?<query>\w+=[\w#-]+(&\w+=[\w#-]+)*))?/.exec(icon)
+    ?.groups ?? {};
   const query = new URLSearchParams(rawQuery ?? "");
   const color = query.get("color");
 

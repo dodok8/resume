@@ -34,7 +34,20 @@ dir = "web"
 run = "node ../node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 4173"
 
 [tasks.check]
+depends = ["format:check", "lint"]
 run = "pnpm exec tsc --noEmit"
+
+[tasks.format]
+run = "pnpm exec oxfmt --write ."
+
+[tasks."format:check"]
+run = "pnpm exec oxfmt --check ."
+
+[tasks.lint]
+run = "pnpm exec oxlint --ignore-path .gitignore --deny-warnings ."
+
+[tasks."lint:fix"]
+run = "pnpm exec oxlint --ignore-path .gitignore --fix --deny-warnings ."
 
 [tasks.download-icons]
 run = "node scripts/src/download-icons.ts"

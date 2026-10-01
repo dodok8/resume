@@ -1,21 +1,73 @@
-body { margin: 2rem auto; padding: 0 1rem; max-width: 56rem; font-family: system-ui, sans-serif; line-height: 1.6; }
-nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1rem 2rem; }
-article { margin-block: 2rem; }
-figure { margin-inline: 0; }
-figure img { max-width: 100%; height: auto; }
-figcaption { font-size: 0.9rem; }
-.icon { width: 1em; height: 1em; vertical-align: middle; }
-pre { overflow-x: auto; }
-.document-actions { margin-block: 1rem; }
-button { margin-inline-start: 1rem; padding: 0.4rem 1rem; font: inherit; }
-:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-.print-pages { display: none; }
+body {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 56rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1rem 2rem;
+}
+article {
+  margin-block: 2rem;
+}
+figure {
+  margin-inline: 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+figcaption {
+  font-size: 0.9rem;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+pre {
+  overflow-x: auto;
+}
+.document-actions {
+  margin-block: 1rem;
+}
+button {
+  margin-inline-start: 1rem;
+  padding: 0.4rem 1rem;
+  font: inherit;
+}
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.print-pages {
+  display: none;
+}
 
-@page { size: A4 portrait; margin: 0; }
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
 @media print {
-  html, body, #app { margin: 0; padding: 0; width: auto; max-width: none; }
-  .screen-content, .site-header { display: none !important; }
-  .print-pages { display: block; }
+  html,
+  body,
+  #app {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    max-width: none;
+  }
+  .screen-content,
+  .site-header {
+    display: none !important;
+  }
+  .print-pages {
+    display: block;
+  }
   .print-page {
     width: 210mm;
     height: 297mm;
@@ -25,6 +77,12 @@ button { margin-inline-start: 1rem; padding: 0.4rem 1rem; font: inherit; }
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
-  .print-page:last-child { break-after: auto; }
-  .print-page img { display: block; width: 100%; height: 100%; }
+  .print-page:last-child {
+    break-after: auto;
+  }
+  .print-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }

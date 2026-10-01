@@ -17,7 +17,9 @@ for (const source of documents) {
 }
 await writeJson("web/src/generated/site.json", content);
 for (const [source, target] of [
-  ["www/print", "print"], ["fonts", "fonts"], ["images", "images"],
+  ["www/print", "print"],
+  ["fonts", "fonts"],
+  ["images", "images"],
   ["assets/.automatic/icon", "icons"],
 ]) {
   await cp(source, `web/public/${target}`, { recursive: true });

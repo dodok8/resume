@@ -16,7 +16,11 @@ Modern résumé built with Typst
 - Run `pnpm install --frozen-lockfile` to install development dependencies.
 - Install the GitHub CLI (`gh`) and authenticate it for fetching GitHub metadata.
 - Run `mise run prebuild` to fetch metadata and icons, then compile with `typst compile resume.typ` or `typst compile portfolio.typ`.
-- Run `mise run check` for TypeScript checks.
+- Run `mise run format` to format supported source and configuration files with Oxfmt.
+- Run `mise run lint` for Oxlint, including the Solid TypeScript preset through its
+  ESLint-compatible JS plugin support. Use `mise run lint:fix` for automatic fixes.
+- Run `mise run check` for format, lint, and script TypeScript checks. CI and the
+  optional pre-commit hook run the same checks.
 - Optionally run `mise run hooks:install` to enable the pre-commit hook, which runs checks and prebuild. Cover generation runs only when `cover.typ` exists.
 
 Scripts run directly on Node.js using its built-in TypeScript support. All commands
@@ -25,10 +29,10 @@ CI uses the same mise configuration and deploys the website and PDFs through Git
 
 ## Content Sources
 
-| Source | Web route | Content |
-| --- | --- | --- |
-| `resume.typ` | `/resume/` | Résumé |
-| `portfolio.typ` | `/portfolio/` | Portfolio |
+| Source          | Web route     | Content                      |
+| --------------- | ------------- | ---------------------------- |
+| `resume.typ`    | `/resume/`    | Résumé                       |
+| `portfolio.typ` | `/portfolio/` | Portfolio                    |
 | `graveyard.typ` | `/graveyard/` | Previously operated projects |
 
 `/` is reserved for separate homepage content. Shared profile information stays in
@@ -60,9 +64,9 @@ license, and compile all three documents into `www/`. This task does not depend 
 build or JSON export. GitHub Actions runs `check-web` and `build-web`, which include
 the PDF and print build tasks, then deploys `web/.output/public/` to Pages.
 
-| Source | Output | Published PDF |
-| --- | --- | --- |
-| `resume.typ` | `www/index.pdf` | [Résumé](https://dodok8.github.io/resume/index.pdf) |
+| Source          | Output              | Published PDF                                              |
+| --------------- | ------------------- | ---------------------------------------------------------- |
+| `resume.typ`    | `www/index.pdf`     | [Résumé](https://dodok8.github.io/resume/index.pdf)        |
 | `portfolio.typ` | `www/portfolio.pdf` | [Portfolio](https://dodok8.github.io/resume/portfolio.pdf) |
 | `graveyard.typ` | `www/graveyard.pdf` | [Graveyard](https://dodok8.github.io/resume/graveyard.pdf) |
 
@@ -79,10 +83,10 @@ Run `mise run dev` and open `http://127.0.0.1:5173/`. This prepares the Typst JS
 PDFs, and print SVGs before starting SolidStart 2. Page components use file-based
 routing in `web/src/routes/`:
 
-| Route | Component |
-| --- | --- |
-| `/` | `web/src/routes/index.tsx` |
-| `/resume/` | `web/src/routes/resume.tsx` |
+| Route         | Component                      |
+| ------------- | ------------------------------ |
+| `/`           | `web/src/routes/index.tsx`     |
+| `/resume/`    | `web/src/routes/resume.tsx`    |
 | `/portfolio/` | `web/src/routes/portfolio.tsx` |
 | `/graveyard/` | `web/src/routes/graveyard.tsx` |
 

@@ -38,9 +38,11 @@ export async function commandJson<T>(command: string, args: string[]): Promise<T
 }
 
 export async function queryMetadata(selector: string): Promise<string[]> {
-  const values = await Promise.all(documents.map(file =>
-    commandJson<string[]>("typst", ["query", file, selector, "--field", "value"])
-  ));
+  const values = await Promise.all(
+    documents.map((file) =>
+      commandJson<string[]>("typst", ["query", file, selector, "--field", "value"]),
+    ),
+  );
   return [...new Set(values.flat())];
 }
 
