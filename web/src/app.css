@@ -1,9 +1,56 @@
+:root {
+  color-scheme: light;
+  --color-background: #f5f3ff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #ebe6ff;
+  --color-text: #20163b;
+  --color-text-muted: #655779;
+  --color-accent: #603be4;
+  --color-accent-hover: #4e2cc4;
+  --color-on-accent: #ffffff;
+  --color-border: #cbbfe5;
+  --color-focus: #603be4;
+  --color-selection: #dccfff;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #171126;
+    --color-surface: #21182f;
+    --color-surface-muted: #2a203a;
+    --color-text: #f5f3ff;
+    --color-text-muted: #b4aac9;
+    --color-accent: #b8a5ff;
+    --color-accent-hover: #d0c2ff;
+    --color-on-accent: #171126;
+    --color-border: #685386;
+    --color-focus: #b8a5ff;
+    --color-selection: #423553;
+  }
+}
+
+::selection {
+  background: var(--color-selection);
+  color: var(--color-text);
+}
+
 body {
   margin: 2rem auto;
   padding: 0 1rem;
   max-width: 56rem;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+a {
+  color: var(--color-accent);
+}
+a:hover {
+  color: var(--color-accent-hover);
 }
 nav {
   display: flex;
@@ -24,6 +71,12 @@ figure img {
 figcaption {
   font-size: 0.9rem;
 }
+figcaption,
+dt,
+time,
+[role="status"] {
+  color: var(--color-text-muted);
+}
 .icon {
   width: 1em;
   height: 1em;
@@ -32,6 +85,10 @@ figcaption {
 pre {
   overflow-x: auto;
 }
+pre,
+code {
+  background: var(--color-surface-muted);
+}
 .document-actions {
   margin-block: 1rem;
 }
@@ -39,9 +96,21 @@ button {
   margin-inline-start: 1rem;
   padding: 0.4rem 1rem;
   font: inherit;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: 1px solid var(--color-accent);
+}
+button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+button:disabled {
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
 }
 :focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--color-focus);
   outline-offset: 3px;
 }
 .print-pages {
@@ -53,6 +122,11 @@ button {
   margin: 0;
 }
 @media print {
+  :root {
+    color-scheme: light;
+    background: #ffffff;
+    color: #000000;
+  }
   html,
   body,
   #app {
@@ -60,6 +134,8 @@ button {
     padding: 0;
     width: auto;
     max-width: none;
+    background: #ffffff;
+    color: #000000;
   }
   .screen-content,
   .site-header {
