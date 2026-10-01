@@ -57,7 +57,8 @@ Website rendering and PDF deployment are independent.
 
 Run `mise run build-pdf` to fetch metadata and icons, copy the bundled font and its
 license, and compile all three documents into `www/`. This task does not depend on a website
-build or JSON export. GitHub Actions runs the same task and deploys `www/` to Pages.
+ build or JSON export. GitHub Actions runs `build-print`, which includes this task,
+ and deploys `www/` to Pages.
 
 | Source | Output | Published PDF |
 | --- | --- | --- |
@@ -71,6 +72,45 @@ RIDIBatang is bundled unchanged from [RIDI's official download](https://ridicorp
 The font copyright notice and the full SIL Open Font License 1.1 are in
 `fonts/LICENSE.txt`. Both the font and license are deployed under `www/fonts/`;
 CI does not download the font from RIDI.
+
+## Website Development
+
+Run `mise run dev` and open `http://127.0.0.1:5173/`. This prepares the Typst JSON,
+PDFs, and print SVGs before starting SolidStart 2. Page components use file-based
+routing in `web/src/routes/`:
+
+| Route | Component |
+| --- | --- |
+| `/` | `web/src/routes/index.tsx` |
+| `/resume/` | `web/src/routes/resume.tsx` |
+| `/portfolio/` | `web/src/routes/portfolio.tsx` |
+| `/graveyard/` | `web/src/routes/graveyard.tsx` |
+
+Edit route components for page-specific layouts, `web/src/document.tsx` for shared
+document markup, and `web/src/app.css` for styles. Document wrappers have
+`document--resume`, `document--portfolio`, and `document--graveyard` classes.
+Vite updates UI changes during development. After changing Typst content, rerun
+`mise run prepare-web` to regenerate content and print assets.
+
+Run `mise run check-web` for website TypeScript checks or `mise run build-web`
+for a static build in `web/.output/public/`. Run `mise run preview` to preview it
+on port 4173. Set `SITE_BASE=/resume/` when building for that hosting prefix.
+Website deployment is separate from the existing PDF deployment workflow.
+
+## Browser Printing
+
+`mise run build-print` compiles the same three Typst sources into PDFs and numbered
+A4 SVG pages in `www/print/`, with a manifest used by the website build. SVGs are
+prepared and loaded before printing. The website displays semantic HTML on screen
+and only those SVG pages under `@media print`. The Kobalte print button calls
+`window.print()`, using the same print styles as Ctrl+P and the browser print menu.
+This prints Typst's page layout; it does not inject a PDF into the print dialog.
+
+Use A4, 100% scale, and disable browser headers and footers for the original layout.
+Chrome print output has been checked for all documents (4, 6, and 2 pages).
+Other browsers and user print settings may produce different results. PDF downloads
+remain available independently. Typst 0.14.0's unescaped URL ampersands in SVG
+attributes are escaped during the SVG build so browsers can decode every page.
 
 ## Special Thanks
 

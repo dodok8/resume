@@ -7,6 +7,32 @@ typst = "0.14.0"
 depends = ["prebuild"]
 run = "node scripts/src/build-pdf.ts"
 
+[tasks.build-print]
+depends = ["build-pdf"]
+run = "node scripts/src/build-print.ts"
+
+[tasks.prepare-web]
+depends = ["build-print", "export-web"]
+run = "node scripts/src/prepare-web.ts"
+
+[tasks.build-web]
+depends = ["prepare-web"]
+dir = "web"
+run = "node ../node_modules/vite/bin/vite.js build"
+
+[tasks.check-web]
+depends = ["prepare-web"]
+run = "pnpm exec tsc --noEmit -p web/tsconfig.json"
+
+[tasks.dev]
+depends = ["prepare-web"]
+dir = "web"
+run = "node ../node_modules/vite/bin/vite.js --host 127.0.0.1"
+
+[tasks.preview]
+dir = "web"
+run = "node ../node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 4173"
+
 [tasks.check]
 run = "pnpm exec tsc --noEmit"
 
@@ -14,6 +40,7 @@ run = "pnpm exec tsc --noEmit"
 run = "node scripts/src/download-icons.ts"
 
 [tasks.export-web]
+depends = ["prebuild"]
 run = "node scripts/src/export-web.ts"
 
 [tasks.fetch-github-metadata]

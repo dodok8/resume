@@ -21,7 +21,7 @@ jobs:
       - uses: jdx/mise-action@v3
       - run: pnpm install --frozen-lockfile
       - run: mise run check
-      - run: mise run build-pdf
+      - run: mise run build-print
         env:
           GH_TOKEN: ${{ github.token }}
       - uses: actions/configure-pages@v4

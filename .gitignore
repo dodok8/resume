@@ -7,4 +7,8 @@
 .pnpm-store/
 assets/.automatic
 node_modules/
+web/.nitro/
+web/.output/
+web/public/
+web/src/generated/
 www/
