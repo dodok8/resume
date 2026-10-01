@@ -3,6 +3,10 @@ node = "24.18.0"
 pnpm = "11.17.0"
 typst = "0.14.0"
 
+[tasks.build-pdf]
+depends = ["prebuild"]
+run = "node scripts/src/build-pdf.ts"
+
 [tasks.check]
 run = "pnpm exec tsc --noEmit"
 

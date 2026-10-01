@@ -51,7 +51,21 @@ omitted; unsupported elements stop export instead of silently dropping content.
 
 JSON export uses `typst query --input export-web=true` and does not require the
 experimental HTML exporter. Without that input, the same sources compile to PDF.
-Website rendering and PDF deployment for the new document are separate steps.
+Website rendering and PDF deployment are independent.
+
+## PDF Build and Deployment
+
+Run `mise run build-pdf` to fetch metadata and icons, download RIDIBatang if needed,
+and compile all three documents into `www/`. This task does not depend on a website
+build or JSON export. GitHub Actions runs the same task and deploys `www/` to Pages.
+
+| Source | Output | Published PDF |
+| --- | --- | --- |
+| `resume.typ` | `www/index.pdf` | [Résumé](https://dodok8.github.io/resume/index.pdf) |
+| `portfolio.typ` | `www/portfolio.pdf` | [Portfolio](https://dodok8.github.io/resume/portfolio.pdf) |
+| `graveyard.typ` | `www/graveyard.pdf` | [Graveyard](https://dodok8.github.io/resume/graveyard.pdf) |
+
+The existing PDF filenames and URLs remain available independently of web routes.
 
 ## Special Thanks
 
