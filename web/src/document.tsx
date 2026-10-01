@@ -30,7 +30,7 @@ export function Document(props: { document: DocumentData }) {
             포트폴리오
           </Link>
           <Link as={A} href="/graveyard/">
-            그레이브야드
+            무덤
           </Link>
         </nav>
         <div class={toolbar.actions}>

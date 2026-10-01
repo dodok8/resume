@@ -25,15 +25,8 @@ export function PrintButton(props: { pages: string[] }) {
         aria-describedby="print-status"
         title="A4 · 배율 100% · 브라우저 머리글과 바닥글 끄기"
       >
-        인쇄
+        인쇄하기
       </Button>
-      <span id="print-status" class={styles.srOnly} role="status">
-        {status() === "loading"
-          ? "인쇄 페이지를 불러오는 중입니다."
-          : status() === "failed"
-            ? "인쇄 페이지를 불러오지 못했습니다. PDF를 이용해 주세요."
-            : `A4 · ${props.pages.length}페이지. 배율을 100%로 설정하고 브라우저 머리글과 바닥글을 꺼 주세요.`}
-      </span>
     </>
   );
 }
