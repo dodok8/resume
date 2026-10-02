@@ -13,7 +13,7 @@ export function PageMetadata(props: { document?: keyof typeof site }) {
       ? `${profile.name["real-korean"]}의 ${document()!.title}. ${tagline}`
       : `${profile.role} ${profile.name["real-korean"]}(${profile.name.nickname}). ${tagline}`;
   const url = () => new URL((document()?.route ?? "/").slice(1), profile.website).href;
-  const image = new URL("profile.png", profile.website).href;
+  const image = new URL("og-card.png", profile.website).href;
   return (
     <>
       <Title>{title()}</Title>
@@ -28,11 +28,13 @@ export function PageMetadata(props: { document?: keyof typeof site }) {
       <Meta property="og:description" content={description()} />
       <Meta property="og:url" content={url()} />
       <Meta property="og:image" content={image} />
-      <Meta property="og:image:alt" content={`${profile.name["real-korean"]}의 프로필 사진`} />
-      <Meta name="twitter:card" content="summary" />
+      <Meta property="og:image:type" content="image/png" />
+      <Meta property="og:image:alt" content={`${profile.name["real-korean"]}의 명함`} />
+      <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:title" content={title()} />
       <Meta name="twitter:description" content={description()} />
       <Meta name="twitter:image" content={image} />
+      <Meta name="twitter:image:alt" content={`${profile.name["real-korean"]}의 명함`} />
     </>
   );
 }

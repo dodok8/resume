@@ -18,7 +18,10 @@ run = "node scripts/src/prepare-web.ts"
 [tasks.build-web]
 depends = ["prepare-web"]
 dir = "web"
-run = "node ../node_modules/vite/bin/vite.js build"
+run = ["node ../node_modules/vite/bin/vite.js build", "node ../scripts/src/generate-og-image.ts"]
+
+[tasks.install-browser]
+run = "pnpm exec playwright install --only-shell chromium"
 
 [tasks.check-web]
 depends = ["prepare-web"]

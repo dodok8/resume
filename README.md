@@ -104,6 +104,12 @@ and repository Pages paths use the same build configuration. Static output inclu
 all four HTML routes, PDFs with their existing filenames, print SVGs, and font licenses.
 The standalone `build-pdf` task remains available independently.
 
+Before the first website build, run `mise run install-browser` to install Chromium.
+After building the HTML, `build-web` captures the home page business card in light
+mode as `og-card.png`. All routes use this image for Open Graph and Twitter previews.
+The capture waits for fonts and card images to load. CI installs Chromium and its
+system dependencies before building.
+
 ## Browser Printing
 
 `mise run build-print` compiles the same three Typst sources into PDFs and numbered
