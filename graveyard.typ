@@ -19,7 +19,7 @@
 #activityList(
   header: [],
   (
-    activityEntry(from: datetime(year: 2025, month: 2, day: 22), to: datetime.today(), title: pad(top: -1em / 4)[
+    activityEntry(from: datetime(year: 2025, month: 2, day: 22), to: datetime(year:2025, month:8, day:31), title: pad(top: -1em / 4)[
       #gh-repo("dodok8/Ilots-log") #h(1fr) Bun, Svelte
     ])[
 
