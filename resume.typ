@@ -212,20 +212,6 @@
       블로그 서비스 Velog 에서 2023.12.26 - 2023.12.29. 기간 동안 글 수정 불가 오류 발생
       - 게시물 수정시 수정 완료된 게시물을 불러오는 Graph QL 댓글 관련 쿼리문의 버그 수정(#link("https://github.com/velopert/velog-client/pull/477")[#icon("devicon/github") PR \#477])
     ],
-    activityEntry(from: datetime(year: 2023, month: 12, day: 24), title: pad(top: -1em / 4)[
-      #gh-repo("dodok8/discord-aladin") #h(1fr) Bun, Discord.js
-    ])[
-      알라딘 Open API를 활용한, user install 형태로 서버에 상관없이 이용 가능한 도서 정보 공유 디스코드 챗봇
-      - Bun 기반으로 제작하여 빌드 및 TS 세팅 과정 단순화. Fly.io를 통한 GitHub 과 연동 배포 라인 구축.
-      - 홈 서버로 이전 후 git HEAD의 해쉬를 비교하여 자동으로 업데이트를 하는 systemd 서비스를 작성.
-    ],
-    // activityEntry(from: datetime(year: 2022, month: 12, day: 21), title: pad(top: -1em / 4)[
-    //   gsainfoteam/Infoteam-frontend-template #h(1fr) React, Vite, Styled-Component
-    // ])[
-    //   교내 개발팀 Infoteam 내부에 사용되는 프론트엔드 템플릿
-    //   - 안티 패턴 분석: 기존 프로젝트들의 코드 베이스 분석 후, 스타일 시트의 낮은 코드 응집성, i18n을 고려하지 않은 설계 문제 발견 및 문서화
-    //   - Yarn berry 설정: Yarn Plugin 설정을 통한 `@types` 설치 자동화
-    // ],
     activityEntry(
       from: datetime(year: 2022, month: 3, day: 10),
       to: datetime(year: 2022, month: 7, day: 10),
