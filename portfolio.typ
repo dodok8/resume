@@ -22,53 +22,51 @@
     activityEntry(from: datetime(year: 2026, month: 4, day: 1), to: datetime.today(), title: pad(
       top: -1em / 4,
     )[
-      #gh-repo("dodok8/gelite") #h(1fr) Rust
+      #gh-repo("gelite-dev/gelite") #h(1fr) Rust, SQLite
     ])[
       *소개*
-      - Gel에서 영감을 받은 쿼리 언어를 SQLite SQL로 컴파일하는 no_std Rust 기반 DB 엔진
+      - Gel에서 영감을 받은 객체 중심 쿼리 언어를 SQLite SQL로 컴파일하고 실행하는 Rust 쿼리 엔진
 
       *해결 문제*
 
-      - SQLite는 테이블과 JOIN 중심의 조회 모델이라, 애플리케이션에서 필요한 중첩 객체 구조를 쿼리 언어 차원에서 직접 표현하기 어려움.
-      - Gel은 shaped select, object type, link traversal 같은 객체 중심 쿼리 모델을 제공하지만, Postgres 위에 구축되어 있어 SQLite 같은 임베디드 백엔드로는 바로 사용할 수 없음.
-      - 쿼리 텍스트를 단순히 SQL 문자열로 치환하면 타입/필드/link 검증, 중간 표현 검사, 백엔드별 lowering 과정을 분리하기 어려움.
+      - SQLite의 테이블과 JOIN 중심 조회 결과를 애플리케이션의 중첩 객체·컬렉션으로 변환하는 작업이 필요함.
+      - Gel의 객체 중심 쿼리 모델을 SQLite 기반 환경에서 활용하기 위해, 쿼리 언어와 실행 계층을 Rust로 재구현함.
+      - 쿼리 의미 검증과 SQLite 저장 구조를 분리하기 위해 `AST → Semantic IR → SQLite Plan → SQL → 실행 및 결과 복원` 파이프라인을 구현함.
 
-      Gelite는 Gel-like query language를 작은 Rust 코드베이스로 재구현하면서, `AST → Semantic IR → SQLite Plan → SQL`로 이어지는 query compiler pipeline을 설계하고 검증하는 것을 목표로 개발 중.
+      *주요 기능 및 구현 방식*
 
-      *주요 기능*
+      - *스키마 기반 쿼리 컴파일과 CRUD 실행*
+        - `.geli` 스키마와 `select`, `insert`, `update`, `delete` 쿼리의 파싱부터 SQLite 실행까지 구현
+        - 타입·필드·관계 경로·cardinality를 스키마 기준으로 검증하고, 쿼리 의미를 backend-independent Semantic IR로 표현
+        - SQLite planner에서 테이블·컬럼·JOIN을 결정하고, SQL과 바인딩 값을 생성하여 실행
 
-      - *Gel-like query language MVP*
-        - `select Post { title, author: { name } }` 형태의 shaped select 문법 지원
-        - 객체 간 관계를 `link`로 표현하고, 중첩 shape를 통해 필요한 객체 구조를 쿼리에서 직접 선언
-        - `filter`, `order by`, `limit`, `offset`을 포함한 read/query 중심 문법 구현
+      - *관계 조회와 중첩 결과 복원*
+        - `select Post { title, author: { name } }`처럼 필요한 객체 구조를 쿼리에서 선언
+        - 단일 관계는 JOIN으로 조회하고, 다중 관계는 부모 ID를 묶은 후속 조회로 가져와 중첩 컬렉션으로 병합
+        - 기존 정방향 관계의 저장 구조를 재사용하는 읽기 전용 역방향 link 지원
+        - 다중 관계 필터와 `exists` 조건으로 동일한 관계 객체에 여러 조건을 적용하는 조회 지원
 
-      - *스키마 기반 semantic resolution*
-        - object type, scalar field, link field, cardinality, implicit `id`를 포함하는 schema catalog 구현
-        - 쿼리의 타입명, 필드명, link traversal, nested shape 규칙을 catalog 기준으로 검증
-        - 잘못된 필드 접근, scalar field에 대한 nested shape, link field의 shape 누락 등을 SQL 생성 전에 오류로 감지
+      - *추가형 스키마 마이그레이션과 이력 검증*
+        - 새 객체, nullable scalar field, optional single link, multi link 추가를 기존 데이터 보존과 함께 적용
+        - 저장된 스키마의 버전·체크섬·논리 catalog를 검증하고, 지원하지 않는 변경은 DDL 실행 전에 거부
+        - DDL·메타데이터·스키마 이력을 하나의 트랜잭션으로 적용하고 실패 시 함께 롤백
 
-      - *단계별 query compiler pipeline*
-        - query text를 바로 SQL로 변환하지 않고, `AST → Semantic IR → SQLite Plan → SQL` 단계로 분리
-        - backend-independent Semantic IR을 통해 쿼리 의미와 SQLite 물리 계획을 분리
-        - 각 단계의 책임을 crate 단위로 나누어 테스트와 확장이 쉬운 구조로 설계
+      - *CLI/REPL과 트랜잭션*
+        - 스키마 적용, 쿼리 계획 확인, 쿼리 파일 실행 및 데이터베이스 기반 대화형 REPL 제공
+        - 여러 문장으로 구성된 쿼리 파일 전체를 사전 컴파일하고 트랜잭션 구성을 검증
+        - `start transaction`, `commit`, `rollback`을 지원하고 실행 오류 시 활성 트랜잭션 롤백
+        - `--debug` 옵션으로 쿼리 컴파일 단계의 결과를 확인
 
-      - *SQLite lowering 및 SQL rendering*
-        - object type을 SQLite table로, scalar field를 column으로, single link를 foreign key join으로 매핑
-        - resolved query를 SQLite-specific structured plan으로 변환
-
-      - *no_std Rust 엔진 구조*
-        - 핵심 엔진 crate를 `no_std` 기반으로 작성하여 표준 라이브러리 의존을 줄임
-        - parser, schema catalog, resolver, IR, SQLite plan, SQL generator를 독립 crate로 분리
-        - 다양한 클라이언트와 제한된 실행 환경으로 확장 가능한 구조를 지향
-
-      - *컴파일러 학습 및 inspection 도구*
-        - `tools/repl`을 통해 쿼리를 입력하고 현재 pipeline 결과를 확인할 수 있는 inspection 환경 제공
-        - `--debug` 옵션으로 중간 표현을 출력하여 parser, resolver, planner, SQL generator의 동작을 단계별로 확인 가능
-        - `spec/`와 `plan/` 문서로 query language, schema model, IR, SQLite storage mapping, 구현 순서를 명시
+      - *no_std 컴파일러 핵심과 브라우저 WASM 실행 기반*
+        - parser, schema catalog, resolver, IR, SQLite planner 및 SQL generator를 `no_std` crate로 분리
+        - 네이티브 SQLite runner와 브라우저 WASM runner를 분리하고 공통 스키마 적용 로직 재사용
+        - WASM의 메모리 SQLite에서 SQL 실행, 초기 스키마·추가형 마이그레이션 적용 및 이력 검증 구현
+        - 브라우저 테스트로 스키마 적용·검증과 실패 시 롤백을 확인하도록 CI 구성
 
       *현황*
-      - `select` 문 파싱, semantic resolution, SQLite planning, SQL rendering 구현 완료
-      - schema source parser, migration, SQLite execution runtime 구현 중
+      - 네이티브 CLI/REPL에서 CRUD, 중첩 관계 조회, 추가형 스키마 마이그레이션 및 트랜잭션 실행 지원
+      - 브라우저 WASM은 SQL 실행과 스키마 적용·검증까지 지원하며, Gelite 쿼리의 전체 실행·결과 복원은 미구현
+      - 테이블 재구성·이름 변경·백필을 포함한 마이그레이션, HTTP 서버 및 웹 UI는 미구현
     ],
   ),
 )

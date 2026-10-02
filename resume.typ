@@ -109,12 +109,13 @@
       from: datetime(year: 2026, month: 4, day: 1),
       to: datetime.today(),
       title: pad(top: -1em / 4)[
-        #gh-repo("dodok8/gelite") #h(1fr) Rust
+        #gh-repo("gelite-dev/gelite") #h(1fr) Rust, SQLite
       ],
     )[
-      #link("https://www.geldata.com/")[Gel]에서 영향을 받아, sqlite를 백엔드로 사용하는 쿼리 랭귀지 기반 DB.
-      - 쿼리 랭귀지 기반 select, 타입(테이블) 정의 기능
-      - no std Rust로 엔진이 작성되어 다양한 클라이언트 및 환경에 적용 가능
+      #link("https://www.geldata.com/")[Gel]에서 영감을 받은 객체 중심 쿼리 언어를 SQLite SQL로 컴파일하고 실행하는 Rust 쿼리 엔진.
+      - `AST → Semantic IR → SQLite Plan → SQL` 파이프라인으로 스키마 기반 타입·필드·관계 검증과 SQLite 실행을 분리
+      - CRUD 및 단일·다중 관계 조회를 지원하고, 조회 결과를 중첩 객체와 컬렉션으로 복원
+      - 추가형 스키마 마이그레이션, 버전·체크섬 검증 및 실패 시 롤백 구현
     ],
     activityEntry(
       from: datetime(year: 2026, month: 2, day: 11),
