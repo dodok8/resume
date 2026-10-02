@@ -106,6 +106,18 @@
   ],
   (
     activityEntry(
+      from: datetime(year: 2026, month: 7, day: 8),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("Necrass-Dev/NecrassRS") #h(1fr) Rust, GraphQL
+      ],
+    )[
+      GraphQL SDL을 공개 API 계약으로 사용하고, Cargo 빌드에서 Rust 타입과 resolver 연결 코드를 생성하는 프레임워크.
+      - SDL 검증과 입력 타입·resolver trait·호출 코드 생성을 Cargo 빌드에 통합하여 별도 코드 생성 명령 없이 개발 가능
+      - SDL 변경에 맞춰 resolver 선언을 동기화하고, 유지되는 필드의 구현 본문과 관련 없는 사용자 코드 보존
+      - 생성 코드의 실제 컴파일·실행 및 스키마 변경 후 재빌드를 소비자 프로젝트 테스트로 검증하고, CLI 초기화와 GraphiQL로 시작부터 실행까지의 흐름 제공
+    ],
+    activityEntry(
       from: datetime(year: 2026, month: 4, day: 1),
       to: datetime.today(),
       title: pad(top: -1em / 4)[

@@ -19,6 +19,56 @@
 #activityList(
   header: [],
   (
+    activityEntry(
+      from: datetime(year: 2026, month: 7, day: 8),
+      to: datetime.today(),
+      title: pad(top: -1em / 4)[
+        #gh-repo("Necrass-Dev/NecrassRS") #h(1fr) Rust, GraphQL, Cargo
+      ],
+    )[
+      *소개*
+      - GraphQL SDL에서 Rust 타입과 resolver 계약을 생성하고, 스키마 변경을 구현 코드에 반영하는 Rust GraphQL 서버 프레임워크
+
+      *해결 문제*
+
+      - 공개 GraphQL 계약과 Rust 구현 사이에서 타입·필드 선언 및 resolver 연결 코드를 반복해서 관리해야 하는 부담을 줄이고자 함.
+      - SDL을 공개 계약의 기준으로 두고, 코드 생성과 구현 선언 갱신을 일반적인 Cargo 빌드 과정에 통합함.
+
+      *주요 기능 및 구현 방식*
+
+      - *Cargo 기반 코드 생성*
+        - Apollo Compiler로 SDL을 파싱·검증하고 Rust 입력 타입, resolver trait, Query 호출 코드를 생성
+        - 재생성 가능한 코드는 `OUT_DIR`, 사용자가 구현하는 resolver 본문은 `src/resolvers.rs`에서 관리
+
+      - *스키마 변경과 구현 코드 동기화*
+        - Rust AST를 분석하여 유지되는 resolver 본문과 관련 없는 사용자 코드를 보존
+        - 새 필드에 구현 stub을 추가하고, 삭제된 필드의 메서드를 제거
+        - 필드 추가·삭제·이름 변경·인자 변경 후 실제 소비자 프로젝트를 재빌드하여 동작 검증
+
+      - *GraphQL 입력 의미를 Rust 타입에 반영*
+        - 입력 생략·명시적 null·값을 구분하고, 리스트 nullability와 기본값 처리 지원
+        - OneOf 입력을 Rust enum으로 생성하고, 재귀 입력의 순환 참조에 필요한 간접 참조 적용
+
+      - *초기화부터 실행까지의 개발 흐름*
+        - `necrass init`으로 실행 가능한 Axum 프로젝트 생성
+        - introspection과 GraphiQL을 제공하고, 실행 핵심을 HTTP 어댑터와 분리하여 Actix 연동도 지원
+
+      - *의존성의 명세 처리 문제 재현 및 수정*
+        - Apollo Compiler의 입력 기본값 순환 검증, OneOf 검증 및 숫자 입력 처리 문제를 로컬 패치와 회귀 테스트로 수정
+        - 수정한 의존성을 코드 생성기와 실행기에 함께 적용하고, 생성된 소비자 프로젝트에서도 동작 검증
+
+      *현황*
+      - 생성된 Query resolver를 통한 scalar·enum·리스트 응답과 일반·OneOf·재귀 입력 지원
+      - custom scalar, 객체·interface·union 반환 및 Mutation·Subscription 자동 연결은 미지원
+    ],
+  ),
+)
+
+#pagebreak()
+
+#activityList(
+  header: [],
+  (
     activityEntry(from: datetime(year: 2026, month: 4, day: 1), to: datetime.today(), title: pad(
       top: -1em / 4,
     )[
@@ -70,6 +120,8 @@
     ],
   ),
 )
+
+#pagebreak()
 
 #activityList(
   header: [],
