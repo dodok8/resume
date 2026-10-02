@@ -15,11 +15,37 @@ export type ContentNode = {
 };
 
 const base = import.meta.env.BASE_URL;
+
+function hasContent(node: ContentNode): boolean {
+  switch (node.type) {
+    case "text":
+    case "code":
+      return Boolean(node.text?.trim());
+    case "linebreak":
+    case "parbreak":
+      return false;
+    case "link":
+    case "strong":
+    case "emph":
+    case "super":
+    case "sub":
+    case "footnote":
+    case "heading":
+    case "list-item":
+    case "ordered-item":
+    case "figure":
+      return Boolean(node.children?.some(hasContent) || node.caption?.some(hasContent));
+    default:
+      return true;
+  }
+}
+
 function Node(props: { node: ContentNode }) {
   return <>{renderNode(props.node)}</>;
 }
 
 function renderNode(node: ContentNode) {
+  if (node.type !== "text" && node.type !== "linebreak" && !hasContent(node)) return null;
   const children = () => <For each={node.children}>{(child) => <Node node={child} />}</For>;
   switch (node.type) {
     case "text":
@@ -63,9 +89,11 @@ function renderNode(node: ContentNode) {
       return (
         <figure>
           {children()}
-          <figcaption>
-            <RichContent nodes={node.caption ?? []} />
-          </figcaption>
+          {node.caption?.some(hasContent) && (
+            <figcaption>
+              <RichContent nodes={node.caption} />
+            </figcaption>
+          )}
         </figure>
       );
     case "image":
@@ -89,7 +117,7 @@ export function RichContent(props: { nodes: ContentNode[] }) {
     const groups: { type: "paragraph" | "list" | "block"; nodes: ContentNode[] }[] = [];
     let paragraph: ContentNode[] = [];
     const flush = () => {
-      if (paragraph.some((node) => node.type !== "text" || node.text?.trim())) {
+      if (paragraph.some(hasContent)) {
         groups.push({ type: "paragraph", nodes: paragraph });
       }
       paragraph = [];
@@ -99,6 +127,7 @@ export function RichContent(props: { nodes: ContentNode[] }) {
         flush();
         continue;
       }
+      if (node.type !== "text" && node.type !== "linebreak" && !hasContent(node)) continue;
       if (node.type === "list-item" || node.type === "ordered-item") {
         flush();
         const previous = groups.at(-1);
