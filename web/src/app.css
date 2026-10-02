@@ -4,8 +4,23 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Sarasa Mono Slab K";
+  src: url("/fonts/sarasa/SarasaMonoSlabK-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sarasa Mono Slab K";
+  src: url("/fonts/sarasa/SarasaMonoSlabK-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --font-document: "RIDIBatang", serif;
+  --font-monospace: "Sarasa Mono Slab K", monospace;
   color-scheme: light;
   --color-background: #f5f3ff;
   --color-surface: #ffffff;
@@ -91,6 +106,12 @@ time,
 }
 pre {
   overflow-x: auto;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-monospace);
 }
 pre,
 code {
