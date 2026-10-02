@@ -1,5 +1,5 @@
 #import "util.typ": *
-#import "web.typ": export-web, web-content, web-date
+#import "web.typ": export-web, web-content, web-date, web-title
 
 #let formatDuration(duration) = {
   let duration-in-weeks = if type(duration) == "duration" {
@@ -28,7 +28,7 @@
         from: web-date(from),
         to: web-date(to),
         ongoing: to == datetime.today(),
-        title: web-content(title),
+        ..web-title(title),
         body: web-content(body),
       )),
     )) <web-data>]

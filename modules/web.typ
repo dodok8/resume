@@ -22,7 +22,10 @@
   }
   if kind in ("parbreak", "linebreak") { return ((type: kind),) }
   if kind in ("h", "v", "pagebreak") {
-    return if kind == "h" { ((type: "text", text: " "),) } else { () }
+    return if kind == "h" {
+      if type(body.amount) == fraction { ((type: "spacer"),) }
+      else { ((type: "text", text: " "),) }
+    } else { () }
   }
   if kind == "raw" {
     return ((type: "code", text: body.text, block: body.at("block", default: false), language: body.at("lang", default: none)),)
@@ -58,6 +61,17 @@
 #let web-date(value) = if type(value) == datetime {
   value.display("[year]-[month]-[day]")
 } else { none }
+
+#let web-title(body) = {
+  let nodes = web-content(body)
+  let separator = nodes.position(node => node.type == "spacer")
+  let title = if separator == none { nodes } else { nodes.slice(0, separator) }
+  let details = if separator == none { () } else { nodes.slice(separator + 1) }
+  if details.filter(node => node.type != "text" or node.text.trim() != "").len() == 0 {
+    details = ()
+  }
+  (title: title, details: details)
+}
 
 #let web-document(id, title, profile) = if export-web {
   [#metadata((

@@ -23,6 +23,7 @@ function hasContent(node: ContentNode): boolean {
       return Boolean(node.text?.trim());
     case "linebreak":
     case "parbreak":
+    case "spacer":
       return false;
     case "link":
     case "strong":
@@ -45,6 +46,7 @@ function Node(props: { node: ContentNode }) {
 }
 
 function renderNode(node: ContentNode) {
+  if (node.type === "spacer") return " ";
   if (node.type !== "text" && node.type !== "linebreak" && !hasContent(node)) return null;
   const children = () => <For each={node.children}>{(child) => <Node node={child} />}</For>;
   switch (node.type) {
@@ -127,7 +129,13 @@ export function RichContent(props: { nodes: ContentNode[] }) {
         flush();
         continue;
       }
-      if (node.type !== "text" && node.type !== "linebreak" && !hasContent(node)) continue;
+      if (
+        node.type !== "text" &&
+        node.type !== "linebreak" &&
+        node.type !== "spacer" &&
+        !hasContent(node)
+      )
+        continue;
       if (node.type === "list-item" || node.type === "ordered-item") {
         flush();
         const previous = groups.at(-1);

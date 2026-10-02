@@ -84,7 +84,14 @@ export function Document(props: { document: DocumentData }) {
                     </p>
                     <div class={entryStyles.entryBody}>
                       <h3 class={entryStyles.entryTitle}>
-                        <InlineContent nodes={entry.title} />
+                        <span class={entryStyles.entryName}>
+                          <InlineContent nodes={entry.title} />
+                        </span>
+                        {entry.details.length > 0 && (
+                          <span class={entryStyles.entryDetails}>
+                            <InlineContent nodes={entry.details} />
+                          </span>
+                        )}
                       </h3>
                       <RichContent nodes={entry.body} />
                     </div>
