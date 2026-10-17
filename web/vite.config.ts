@@ -13,6 +13,9 @@ export default defineConfig({
   nitro: {
     preset: "static",
     baseURL: base,
-    prerender: { routes: ["/", "/resume/", "/portfolio/", "/graveyard/"], failOnError: true },
+    prerender: {
+      routes: ["/", "/resume/", "/portfolio/", "/graveyard/", "/guestbook/"],
+      failOnError: true,
+    },
   },
 });

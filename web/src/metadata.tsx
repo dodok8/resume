@@ -5,14 +5,20 @@ const profile = site.resume.profile;
 const name = `${profile.name["real-korean"]} · ${profile.name.nickname}`;
 const tagline = profile.tagline.map((node) => node.text ?? "").join("");
 
-export function PageMetadata(props: { document?: keyof typeof site }) {
+export function PageMetadata(props: {
+  document?: keyof typeof site;
+  title?: string;
+  route?: string;
+}) {
   const document = () => (props.document ? site[props.document] : undefined);
-  const title = () => (document() ? `${document()!.title} — ${name}` : name);
+  const pageTitle = () => props.title ?? document()?.title;
+  const title = () => (pageTitle() ? `${pageTitle()} — ${name}` : name);
   const description = () =>
-    document()
-      ? `${profile.name["real-korean"]}의 ${document()!.title}. ${tagline}`
+    pageTitle()
+      ? `${profile.name["real-korean"]}의 ${pageTitle()}. ${tagline}`
       : `${profile.role} ${profile.name["real-korean"]}(${profile.name.nickname}). ${tagline}`;
-  const url = () => new URL((document()?.route ?? "/").slice(1), profile.website).href;
+  const url = () =>
+    new URL((props.route ?? document()?.route ?? "/").slice(1), profile.website).href;
   const image = new URL("og-card.png", profile.website).href;
   return (
     <>

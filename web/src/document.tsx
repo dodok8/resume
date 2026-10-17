@@ -1,5 +1,4 @@
 import { Link } from "@kobalte/core/link";
-import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import type site from "./generated/site.json";
 import { InlineContent, RichContent } from "./content";
@@ -10,6 +9,7 @@ import toolbar from "./toolbar.module.css";
 import controls from "./controls.module.css";
 import entryStyles from "./entry.module.css";
 import { ShareButton } from "./share";
+import { SiteHeader } from "./site-header";
 
 type DocumentData = (typeof site)[keyof typeof site];
 
@@ -18,28 +18,28 @@ export function Document(props: { document: DocumentData }) {
   return (
     <div class={`document document--${props.document.id}`}>
       <PageMetadata document={props.document.id as keyof typeof site} />
-      <header class={`site-header ${toolbar.toolbar}`}>
-        <nav class={toolbar.navigation} aria-label="문서">
-          <Link as={A} href="/" end>
-            홈
-          </Link>
-          <Link as={A} href="/resume/">
-            레쥬메
-          </Link>
-          <Link as={A} href="/portfolio/">
-            포트폴리오
-          </Link>
-          <Link as={A} href="/graveyard/">
-            무덤
-          </Link>
-        </nav>
+      <SiteHeader>
         <div class={toolbar.actions}>
           <Link
             class={controls.action}
             href={`${base}${props.document.print.pdf}`}
             download={`${props.document.id}.pdf`}
+            aria-label="PDF 다운로드"
+            title="PDF 다운로드"
           >
-            다운로드
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
           </Link>
           <ShareButton
             class={controls.action}
@@ -48,7 +48,7 @@ export function Document(props: { document: DocumentData }) {
           />
           <PrintButton />
         </div>
-      </header>
+      </SiteHeader>
       <main id="content" class={`screen-content ${styles.paper}`}>
         <header class={styles.title}>
           <h1>{props.document.title}</h1>

@@ -89,6 +89,12 @@ routing in `web/src/routes/`:
 | `/resume/`    | `web/src/routes/resume.tsx`    |
 | `/portfolio/` | `web/src/routes/portfolio.tsx` |
 | `/graveyard/` | `web/src/routes/graveyard.tsx` |
+| `/guestbook/` | `web/src/routes/guestbook.tsx` |
+
+The guestbook uses `@giscus/solid` only on `/guestbook/`, with comments stored in
+the `Announcements` discussion category of `dodok8/resume`. Visitors sign in with
+GitHub to comment. Keep the giscus GitHub App installed and Discussions enabled
+on the repository. The widget maps discussions by pathname.
 
 Edit route components for page-specific layouts, `web/src/document.tsx` for shared
 document markup, and `web/src/app.css` for styles. Document wrappers have
@@ -101,7 +107,7 @@ for a static build in `web/.output/public/`. Run `mise run preview` to preview i
 on port 4173. Set `SITE_BASE=/resume/` when building for that hosting prefix.
 CI obtains the hosting prefix from `actions/configure-pages`, so both custom domains
 and repository Pages paths use the same build configuration. Static output includes
-all four HTML routes, PDFs with their existing filenames, print SVGs, and font licenses.
+all five HTML routes, PDFs with their existing filenames, print SVGs, and font licenses.
 The standalone `build-pdf` task remains available independently.
 
 Before the first website build, run `mise run install-browser` to install Chromium.

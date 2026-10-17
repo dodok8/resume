@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@giscus/solid": "3.1.0",
     "@kobalte/core": "0.13.14",
     "@solidjs/meta": "0.29.4",
     "@solidjs/router": "1.0.0",

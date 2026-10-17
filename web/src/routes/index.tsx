@@ -97,12 +97,15 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <nav class={styles.documents} aria-label="문서">
+        <nav class={styles.documents} aria-label="사이트">
           <Link as={A} class={styles.documentLink} href="/resume/">
             resume <span aria-hidden="true">↗</span>
           </Link>
           <Link as={A} class={styles.documentLink} href="/portfolio/">
             portfolio <span aria-hidden="true">↗</span>
+          </Link>
+          <Link as={A} class={styles.documentLink} href="/guestbook/">
+            guestbook <span aria-hidden="true">↗</span>
           </Link>
           <Link
             as={A}
